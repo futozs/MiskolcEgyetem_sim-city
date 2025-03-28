@@ -59,12 +59,6 @@ class MainWindow:
         self.root.geometry("1280x800")
         self.root.minsize(800, 600)  # Minimális ablakméret
         
-        # Teljes képernyő változó
-        self.is_fullscreen = True
-        
-        # Escape billentyű kötése a teljes képernyő kapcsolóhoz
-        self.root.bind("<Escape>", self._toggle_fullscreen)
-        
         # Játék komponensek
         self.game_engine = GameEngine()
         self.fordulo_manager = None
@@ -140,6 +134,14 @@ class MainWindow:
         """
         Modern felhasználói felület inicializálása
         """
+        # Ablak középre pozicionálása
+        self.root.update_idletasks()
+        width = self.root.winfo_width()
+        height = self.root.winfo_height()
+        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.root.winfo_screenheight() // 2) - (height // 2)
+        self.root.geometry(f"+{x}+{y}")
+        
         # Fő elrendezés konfiguráció
         self.root.grid_columnconfigure(1, weight=1)  # A középső rész nyúlik
         self.root.grid_rowconfigure(0, weight=1)     # A tartalom nyúlik
@@ -1095,24 +1097,6 @@ class MainWindow:
             command=self._change_theme
         )
         theme_menu.pack(side="right", padx=10)
-        
-        # Teljes képernyő kapcsoló
-        fullscreen_frame = ctk.CTkFrame(settings_content)
-        fullscreen_frame.pack(fill="x", padx=10, pady=10)
-        
-        ctk.CTkLabel(fullscreen_frame, text="Teljes képernyő:", 
-                    font=ctk.CTkFont(size=16)).pack(side="left", padx=10)
-        
-        # Teljes képernyő kapcsoló
-        self.fullscreen_switch = ctk.CTkSwitch(
-            fullscreen_frame,
-            text="",
-            command=self._toggle_fullscreen_from_settings,
-            onvalue=True,
-            offvalue=False
-        )
-        self.fullscreen_switch.pack(side="right", padx=10)
-        self.fullscreen_switch.select() if self.is_fullscreen else self.fullscreen_switch.deselect()
         
         # Játék mentése/betöltése szekció
         save_load_frame = ctk.CTkFrame(settings_content)
@@ -2883,10 +2867,30 @@ class MainWindow:
         if messagebox.askyesno("Megerősítés", f"Biztosan le szeretnéd bontani a(z) {building.nev} épületet?"):
             try:
                 self.game_engine.varos.epulet_torlese(building.azonosito)
+                
+                # UI frissítése
                 self._update_buildings_view()
+                
+                # Városkép frissítése, ha elérhető a 3D nézet
+                if hasattr(self, 'city_view_3d'):
+                    # Töröljük az épületet a 3D nézetből
+                    if hasattr(self.city_view_3d, 'buildings_3d') and building.azonosito in self.city_view_3d.buildings_3d:
+                        del self.city_view_3d.buildings_3d[building.azonosito]
+                    # Töröljük a fix pozíciót is, ha létezik
+                    if hasattr(self.city_view_3d, 'fixed_buildings') and building.azonosito in self.city_view_3d.fixed_buildings:
+                        del self.city_view_3d.fixed_buildings[building.azonosito]
+                    # 3D nézet frissítése
+                    self.city_view_3d.update_city_view()
+                
+                # Dashboard frissítése
+                self._update_dashboard_view()
+                
                 messagebox.showinfo("Siker", f"A(z) {building.nev} épület lebontva.")
             except Exception as e:
                 messagebox.showerror("Hiba", f"Hiba az épület törlésekor: {str(e)}")
+                print(f"Hiba az épület törlésekor: {e}")
+                import traceback
+                traceback.print_exc()
     
     def _create_new_building(self):
         """
@@ -3625,12 +3629,12 @@ class MainWindow:
         notify_window.lift()  # Előtérbe hozás
         notify_window.attributes("-topmost", True)  # Mindig felül
         
-        # Pozicionálás a jobb alsó sarokba
+        # Pozicionálás a képernyő közepére
         notify_window.update_idletasks()
         width = notify_window.winfo_width()
         height = notify_window.winfo_height()
-        x = self.root.winfo_screenwidth() - width - 20
-        y = self.root.winfo_screenheight() - height - 80
+        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.root.winfo_screenheight() // 2) - (height // 2)
         notify_window.geometry(f'+{x}+{y}')
         
         # Események keret
@@ -3794,6 +3798,14 @@ class MainWindow:
         log_window.geometry("800x600")
         log_window.transient(self.root)
         log_window.grab_set()
+        
+        # Pozicionálás a képernyő közepére
+        log_window.update_idletasks()
+        width = log_window.winfo_width()
+        height = log_window.winfo_height()
+        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
+        y = (self.root.winfo_screenheight() // 2) - (height // 2)
+        log_window.geometry(f'+{x}+{y}')
         
         # Fő keret
         main_frame = ctk.CTkFrame(log_window)
@@ -4024,8 +4036,8 @@ class MainWindow:
         # Betöltőképernyő megjelenítése
         self._show_splash_screen()
         
-        # Teljes képernyős mód beállítása
-        self.root.attributes('-fullscreen', True)
+        # Maximalizált állapot beállítása (nem teljes képernyő)
+        self.root.state('zoomed')
         
         # Automatikus forduló ellenőrzése
         self._check_auto_turn()
@@ -4536,17 +4548,15 @@ class MainWindow:
 
     def _toggle_fullscreen(self, event):
         """
-        Teljes képernyő mód kapcsolása
+        Teljes képernyő mód kapcsolása - nem használt
         """
-        self.is_fullscreen = not self.is_fullscreen
-        self.root.attributes('-fullscreen', self.is_fullscreen)
+        pass
 
     def _toggle_fullscreen_from_settings(self):
         """
-        Teljes képernyő mód kapcsolása a beállítások nézetből
+        Teljes képernyő mód kapcsolása a beállítások nézetből - nem használt
         """
-        self.is_fullscreen = not self.is_fullscreen
-        self.root.attributes('-fullscreen', self.is_fullscreen)
+        pass
 
 if __name__ == "__main__":
     app = MainWindow()

@@ -1685,3 +1685,41 @@ class Varos:
         # Nem lehet negatív lakos
         self.lakosok_szama = max(0, self.lakosok_szama + ertek)
         return self.lakosok_szama
+    
+    def epulet_torlese(self, epulet_id):
+        """
+        Épület törlése a városból
+        
+        :param epulet_id: Törlendő épület azonosítója
+        :return: True, ha sikeres volt, False ha nem található az épület
+        """
+        if epulet_id not in self.epuletek:
+            return False
+            
+        epulet = self.epuletek[epulet_id]
+        
+        # Lakók kiköltöztetése, ha lakóépületről van szó
+        if hasattr(epulet, 'tipus') and epulet.tipus.lower() == "lakóház":
+            for lakos_id, lakos in list(self.lakosok.items()):
+                if hasattr(lakos, 'epulet_id') and lakos.epulet_id == epulet_id:
+                    # Lakó áthelyezése egy másik épületbe vagy törlése
+                    lakos.epulet_id = None
+                    # Keressünk egy másik lakóépületet
+                    for masik_epulet in self.epuletek.values():
+                        if masik_epulet.azonosito != epulet_id and hasattr(masik_epulet, 'tipus') and masik_epulet.tipus.lower() == "lakóház":
+                            lakos.epulet_id = masik_epulet.azonosito
+                            break
+        
+        # Épület törlése előtt kornyezeti_hatas és elegedettseg_hatas visszaállítása
+        if hasattr(epulet, 'kornyezeti_hatas') and epulet.kornyezeti_hatas:
+            # Ellentétes hatás alkalmazása (negatív lesz pozitív, pozitív lesz negatív)
+            self.kornyezeti_allapot = max(0, min(100, self.kornyezeti_allapot - epulet.kornyezeti_hatas))
+            
+        if hasattr(epulet, 'elegedettseg_hatas') and epulet.elegedettseg_hatas:
+            # Ellentétes hatás alkalmazása (negatív lesz pozitív, pozitív lesz negatív)
+            self.lakossag_elegedettseg = max(0, min(100, self.lakossag_elegedettseg - epulet.elegedettseg_hatas))
+        
+        # Épület tényleges törlése
+        del self.epuletek[epulet_id]
+        
+        return True
