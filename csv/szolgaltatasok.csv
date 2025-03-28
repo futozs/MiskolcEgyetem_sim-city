@@ -1,0 +1,101 @@
+﻿szolgáltatás_azonosító;név;típus;épület_azonosító
+1;Kutatási Központ;Kiállítási tér;13
+2;Zenei Előadás;Színház;18
+3;Állandó Kiállítás;Oktatási központ;18
+4;Kutatási Központ;Múzeum;10
+5;Művészeti Workshop;Oktatási központ;9
+6;Dokumentációs Központ;Tudományos intézet;2
+7;Dokumentációs Központ;Oktatási intézmény;12
+8;Zenei Kurzus;Könyvtár;14
+9;Művészeti Program;Sportlétesítmény;14
+10;Könyvtári Szolgáltatás;Sportlétesítmény;7
+11;Művészeti Workshop;Művészeti galéria;13
+12;Dokumentációs Központ;Zeneiskola;5
+13;Kutatási Központ;Kulturális bemutató;6
+14;Oktatási Bemutató;Kiállítóterem;22
+15;Könyvtári Szolgáltatás;Múzeum;13
+16;Időszaki Tárlat;Kiállítóterem;18
+17;Zenei Előadás;Múzeum;7
+18;Történelmi Kiállítás;Színház;21
+19;Dokumentációs Központ;Kulturális központ;7
+20;Interaktív Múzeum;Koncertterem;15
+21;Történelmi Kiállítás;Kulturális központ;16
+22;Tudományos Gyűjtemény;Történelmi emlékhely;5
+23;Interaktív Múzeum;Szabadtéri helyszín;2
+24;Művészeti Program;Zeneiskola;6
+25;Zenei Kurzus;Oktatási intézmény;7
+26;Történelmi Séta;Történelmi emlékhely;14
+27;Történelmi Kiállítás;Könyvtár;13
+28;Kutatási Központ;Zeneiskola;19
+29;Állandó Kiállítás;Kiállítási tér;21
+30;Történelmi Kiállítás;Kulturális örökség;12
+31;Oktatási Bemutató;Vallási helyszín;8
+32;Történelmi Kiállítás;Sportlétesítmény;2
+33;Kulturális Bemutató;Kulturális bemutató;2
+34;Történelmi Kiállítás;Oktatási intézmény;11
+35;Interaktív Múzeum;Vallási helyszín;6
+36;Könyvtári Szolgáltatás;Kiállítási tér;4
+37;Dokumentációs Központ;Kulturális örökség;12
+38;Történelmi Kiállítás;Kiállítóterem;18
+39;Művészeti Program;Oktatási központ;14
+40;Művészeti Workshop;Múzeum;5
+41;Időszaki Tárlat;Kiállítóterem;8
+42;Interaktív Múzeum;Múzeum;12
+43;Könyvtári Szolgáltatás;Kiállítási tér;19
+44;Időszaki Tárlat;Koncertterem;15
+45;Művészeti Program;Oktatási intézmény;4
+46;Kutatási Központ;Zeneiskola;12
+47;Időszaki Tárlat;Oktatási központ;9
+48;Művészeti Program;Vallási helyszín;5
+49;Tudományos Gyűjtemény;Könyvtár;13
+50;Interaktív Múzeum;Zeneiskola;3
+51;Művészeti Program;Sportlétesítmény;20
+52;Zenei Kurzus;Sportlétesítmény;15
+53;Zenei Előadás;Könyvtár;1
+54;Tudományos Gyűjtemény;Oktatási központ;7
+55;Kulturális Bemutató;Vallási helyszín;6
+56;Tudományos Gyűjtemény;Múzeum;11
+57;Kulturális Bemutató;Tudományos intézet;13
+58;Zenei Kurzus;Zeneiskola;8
+59;Oktatási Bemutató;Könyvtár;14
+60;Történelmi Kiállítás;Kulturális bemutató;3
+61;Történelmi Séta;Történelmi emlékhely;8
+62;Interaktív Múzeum;Vallási helyszín;5
+63;Dokumentációs Központ;Kiállítóterem;1
+64;Tudományos Gyűjtemény;Kiállítási tér;21
+65;Oktatási Bemutató;Kulturális központ;19
+66;Művészeti Workshop;Kulturális örökség;16
+67;Dokumentációs Központ;Színház;11
+68;Történelmi Kiállítás;Kulturális örökség;4
+69;Történelmi Kiállítás;Kiállítási tér;18
+70;Oktatási Bemutató;Kulturális központ;12
+71;Kulturális Bemutató;Történelmi emlékhely;11
+72;Könyvtári Szolgáltatás;Tudományos intézet;9
+73;Zenei Előadás;Sportlétesítmény;4
+74;Oktatási Bemutató;Fürdő;13
+75;Tudományos Gyűjtemény;Tudományos intézet;11
+76;Kulturális Bemutató;Kulturális örökség;17
+77;Kulturális Est;Oktatási központ;4
+78;Zenei Kurzus;Fürdő;22
+79;Időszaki Tárlat;Könyvtár;18
+80;Történelmi Kiállítás;Vallási helyszín;3
+81;Időszaki Tárlat;Koncertterem;2
+82;Kutatási Központ;Kiállítási tér;13
+83;Kulturális Bemutató;Vallási helyszín;17
+84;Zenei Kurzus;Oktatási intézmény;20
+85;Kutatási Központ;Könyvtár;14
+86;Kutatási Központ;Múzeum;10
+87;Történelmi Kiállítás;Sportlétesítmény;22
+88;Zenei Kurzus;Kulturális örökség;10
+89;Kutatási Központ;Sportlétesítmény;8
+90;Történelmi Kiállítás;Zeneiskola;3
+91;Könyvtári Szolgáltatás;Színház;3
+92;Interaktív Múzeum;Könyvtár;10
+93;Dokumentációs Központ;Kiállítási tér;11
+94;Dokumentációs Központ;Fürdő;9
+95;Történelmi Kiállítás;Sportlétesítmény;12
+96;Interaktív Múzeum;Kiállítási tér;22
+97;Oktatási Bemutató;Zeneiskola;15
+98;Művészeti Program;Kulturális örökség;2
+99;Zenei Kurzus;Rendezvényterem;11
+100;Interaktív Múzeum;Fürdő;8
