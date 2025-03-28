@@ -59,6 +59,12 @@ class MainWindow:
         self.root.geometry("1280x800")
         self.root.minsize(800, 600)  # Minimális ablakméret
         
+        # Teljes képernyő változó
+        self.is_fullscreen = True
+        
+        # Escape billentyű kötése a teljes képernyő kapcsolóhoz
+        self.root.bind("<Escape>", self._toggle_fullscreen)
+        
         # Játék komponensek
         self.game_engine = GameEngine()
         self.fordulo_manager = None
@@ -1089,6 +1095,24 @@ class MainWindow:
             command=self._change_theme
         )
         theme_menu.pack(side="right", padx=10)
+        
+        # Teljes képernyő kapcsoló
+        fullscreen_frame = ctk.CTkFrame(settings_content)
+        fullscreen_frame.pack(fill="x", padx=10, pady=10)
+        
+        ctk.CTkLabel(fullscreen_frame, text="Teljes képernyő:", 
+                    font=ctk.CTkFont(size=16)).pack(side="left", padx=10)
+        
+        # Teljes képernyő kapcsoló
+        self.fullscreen_switch = ctk.CTkSwitch(
+            fullscreen_frame,
+            text="",
+            command=self._toggle_fullscreen_from_settings,
+            onvalue=True,
+            offvalue=False
+        )
+        self.fullscreen_switch.pack(side="right", padx=10)
+        self.fullscreen_switch.select() if self.is_fullscreen else self.fullscreen_switch.deselect()
         
         # Játék mentése/betöltése szekció
         save_load_frame = ctk.CTkFrame(settings_content)
@@ -4000,13 +4024,8 @@ class MainWindow:
         # Betöltőképernyő megjelenítése
         self._show_splash_screen()
         
-        # Főablak középre pozicionálása a betöltés után
-        self.root.update_idletasks()
-        width = self.root.winfo_width()
-        height = self.root.winfo_height()
-        x = (self.root.winfo_screenwidth() // 2) - (width // 2)
-        y = (self.root.winfo_screenheight() // 2) - (height // 2)
-        self.root.geometry(f'{width}x{height}+{x}+{y}')
+        # Teljes képernyős mód beállítása
+        self.root.attributes('-fullscreen', True)
         
         # Automatikus forduló ellenőrzése
         self._check_auto_turn()
@@ -4231,7 +4250,7 @@ class MainWindow:
         # Új játék párbeszédablak
         dialog = ctk.CTkToplevel(self.root)
         dialog.title("Játék CSV fájlokkal")
-        dialog.geometry("650x700")
+        dialog.geometry("650x850")
         dialog.transient(self.root)
         dialog.grab_set()
         
@@ -4514,6 +4533,20 @@ class MainWindow:
                     width=200,
                     height=40,
                     font=ctk.CTkFont(size=16)).pack(pady=20)
+
+    def _toggle_fullscreen(self, event):
+        """
+        Teljes képernyő mód kapcsolása
+        """
+        self.is_fullscreen = not self.is_fullscreen
+        self.root.attributes('-fullscreen', self.is_fullscreen)
+
+    def _toggle_fullscreen_from_settings(self):
+        """
+        Teljes képernyő mód kapcsolása a beállítások nézetből
+        """
+        self.is_fullscreen = not self.is_fullscreen
+        self.root.attributes('-fullscreen', self.is_fullscreen)
 
 if __name__ == "__main__":
     app = MainWindow()
