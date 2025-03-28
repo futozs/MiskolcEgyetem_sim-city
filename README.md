@@ -1,6 +1,6 @@
 # Álomváros Szimulátor
 
-![verzió](https://img.shields.io/badge/verzió-1.0.0-blue)
+![verzió](https://img.shields.io/badge/verzió-2.0.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.8+-green)
 
 **Álomváros Szimulátor** egy komplex városfejlesztési szimulációs játék, amely lehetővé teszi városok tervezését, épületek és szolgáltatások létrehozását, a lakosság menedzselését, valamint a különböző gazdasági és társadalmi folyamatok szimulálását.
@@ -35,7 +35,7 @@ A szimulátor segítségével egy virtuális várost lehet irányítani, ahol k�
 2. **Projekt letöltése**
    ```bash
    # Klónozza a git repót
-   git clone https://github.com/felhasznalo/alomvaros-szimulator.git
+   git clone https://github.com/futozs/MiskolcEgyetem_sim-city
    # Vagy töltse le és csomagolja ki a ZIP fájlt
    ```
 
@@ -316,9 +316,6 @@ Hozzájárulásokat szívesen fogadunk! Ha szeretne közreműködni a projektben
 
 Ha kérdése vagy problémája van a projekttel kapcsolatban, keressen minket a következő módokon:
 
-- GitHub issues: [https://github.com/felhasznalo/alomvaros-szimulator/issues](https://github.com/felhasznalo/alomvaros-szimulator/issues)
-- Email: fejleszto@alomvaros.hu
+- Email: zsombi@futozsombor.hu
 
 ---
-
-*Álomváros Szimulátor - Városaink jövője a mi kezünkben van!* 
