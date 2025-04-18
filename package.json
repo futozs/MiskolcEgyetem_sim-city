@@ -9,19 +9,43 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "^2.6.11",
+    "@nivo/bar": "^0.88.0",
+    "@nivo/core": "^0.88.0",
+    "@nivo/line": "^0.88.0",
+    "@nivo/pie": "^0.88.0",
+    "@react-three/drei": "^10.0.6",
+    "@react-three/fiber": "^9.1.2",
+    "@react-three/postprocessing": "^3.0.4",
+    "@tabler/icons-react": "^3.31.0",
+    "@tanstack/react-query": "^5.74.4",
+    "@tremor/react": "^3.18.7",
+    "axios": "^1.8.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "d3": "^7.9.0",
+    "framer-motion": "^12.7.4",
+    "lucide-react": "^0.488.0",
+    "next": "15.3.0",
+    "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.0"
+    "socket.io-client": "^4.8.1",
+    "swr": "^2.3.3",
+    "tailwind-merge": "^3.2.0",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "autoprefixer": "^10.4.18",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
-    "@eslint/eslintrc": "^3"
+    "react-icons": "^5.5.0",
+    "sharp": "^0.34.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }

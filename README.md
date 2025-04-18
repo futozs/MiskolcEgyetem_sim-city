@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ME Város Projekt
 
-## Getting Started
+## A projektről
 
-First, run the development server:
+Ez a projekt a Miskolci Egyetem virtuális városát mutatja be. A weboldal modern Next.js keretrendszerre épül, és különböző interaktív funkciókat kínál, mint például épületek megtekintése, események kezelése, városi statisztikák és 3D városi térkép.
+
+## Technológiai stack
+
+- **Frontend keretrendszer**: [Next.js 15](https://nextjs.org/)
+- **UI könyvtárak**: 
+  - [NextUI](https://nextui.org/)
+  - [Tremor](https://www.tremor.so/)
+  - [Tailwind CSS](https://tailwindcss.com/)
+- **3D megjelenítés**: 
+  - [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/)
+  - [Drei](https://github.com/pmndrs/drei)
+- **Adatmegjelenítés**:
+  - [Nivo](https://nivo.rocks/) grafikonok
+  - [D3.js](https://d3js.org/)
+- **State management**:
+  - [Zustand](https://github.com/pmndrs/zustand)
+  - [Tanstack Query](https://tanstack.com/query/latest)
+  - [SWR](https://swr.vercel.app/)
+- **Nyelv**: [TypeScript](https://www.typescriptlang.org/)
+
+## Telepítés
+
+A projekt futtatásához Node.js környezet szükséges. Telepítsd a függőségeket:
+
+```bash
+npm install
+```
+
+## Fejlesztői szerver indítása
+
+A fejlesztői szerver indításához futtasd:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A fejlesztői szerver [http://localhost:3000](http://localhost:3000) címen érhető el. A weboldal automatikusan frissül, amikor módosítod a forrásfájlokat.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Projekt összeállítása (build)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Produkciós verzió előállításához:
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+A build futtatása után a `.next` mappában találhatók a generált fájlok.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Produkciós verzió indítása
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Az előzőleg elkészített build futtatásához:
 
-## Deploy on Vercel
+```bash
+npm run start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+A szerver [http://localhost:3000](http://localhost:3000) címen lesz elérhető.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Exportálás statikus oldalként (opcionális)
+
+Ha a projektet statikus oldalként szeretnéd exportálni (amennyiben nem használsz szerver oldali funkciókat), módosítsd a `next.config.js` fájlt:
+
+```js
+module.exports = {
+  output: 'export',
+  // ... egyéb beállítások
+}
+```
+
+Majd futtasd:
+
+```bash
+npm run build
+```
+
+A statikus fájlok az `out` mappában lesznek megtalálhatók.
+
+## Projekt szerkezet
+
+- `src/app/` - Next.js App Router oldalak és útvonalak
+- `src/components/` - Újrafelhasználható komponensek
+- `src/lib/` - Segédfüggvények és utility kódok
+- `src/store/` - Zustand state management
+- `public/` - Statikus fájlok (képek, ikonok, stb.)
+
+## Linter futtatása
+
+A kód ellenőrzéséhez:
+
+```bash
+npm run lint
+```
+
+## Fejlesztési tippek
+
+- Az oldal fő belépési pontja: `src/app/page.tsx`
+- A UI testreszabásához módosítsd a `tailwind.config.js` fájlt
+- A globális stílusok a `src/globals.css` fájlban találhatók
