@@ -7,7 +7,7 @@ import { Button } from './Button';
 import { IconMoon, IconSun } from '@tabler/icons-react';
 
 export function ThemeSwitch() {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   
@@ -20,7 +20,7 @@ export function ThemeSwitch() {
     setIsTransitioning(true);
     // Small delay to allow transition to start
     setTimeout(() => {
-      setTheme(theme === 'dark' ? 'light' : 'dark');
+      setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
     }, 50);
     // Reset after animation completes
     setTimeout(() => {
@@ -30,7 +30,7 @@ export function ThemeSwitch() {
 
   if (!mounted) return null;
   
-  const isDark = theme === 'dark';
+  const isDark = resolvedTheme === 'dark';
 
   return (
     <div className="relative">

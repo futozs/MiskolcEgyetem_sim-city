@@ -9,7 +9,8 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { IconBuilding, IconUsers, IconMoodSmile, IconChartBar, IconMap, IconArrowUpRight, IconMapPin, IconBuildingCommunity, IconCheckbox, IconAlertTriangle } from '@tabler/icons-react';
+import { IconBuilding, IconUsers, IconMoodSmile, IconChartBar, IconMap, IconArrowUpRight, IconMapPin, IconBuildingCommunity, IconCheckbox, IconAlertTriangle, IconBrandGithub } from '@tabler/icons-react';
+import { config } from '@/lib/config';
 
 // Gradient Background component
 const BackgroundGradient = ({ children, className = "", intensity = "medium", glowColor = "from-purple-500" }: { 
@@ -614,21 +615,23 @@ export default function Home() {
             
             <Perspective3DCard
               className="mx-auto"
-              depth={15}
+              depth={5}
+              initialRotateX={0}
+              initialRotateY={0}
             >
               <motion.div 
                 className="mx-auto flex items-center justify-center"
-                initial={{ opacity: 0, scale: 0.9, rotateY: -15 }}
+                initial={{ opacity: 0, scale: 0.95, rotateY: 0 }}
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 transition={{ 
                   duration: 0.8, 
-                  ease: [0.22, 1, 0.36, 1], 
+                  ease: "easeOut", 
                   delay: 0.3 
                 }}
               >
                 <BackgroundGradient intensity="low" glowColor="from-purple-600">
                   <Card
-                    variant="glassDark"
+                    variant="glass"
                     hover="glow"
                     className={`w-full min-w-[250px] md:min-w-[350px] h-[320px] sm:h-[400px] md:h-[450px] flex items-center justify-center overflow-hidden transition-all duration-300 ${
                       isDark 
@@ -637,11 +640,11 @@ export default function Home() {
                     }`}
                   >
                     <div className="absolute inset-0 flex items-center justify-center">
-                      {/* Animated gradient dots in background */}
-                      <div className="absolute inset-0 opacity-20">
+                      {/* Animated gradient dots in background - removing the dynamic animation */}
+                      <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-0 left-0 w-full h-full">
-                          {Array.from({ length: 20 }).map((_, i) => (
-                            <motion.div
+                          {Array.from({ length: 10 }).map((_, i) => (
+                            <div
                               key={i}
                               className="absolute rounded-full bg-purple-500"
                               style={{
@@ -649,15 +652,7 @@ export default function Home() {
                                 height: 4 + Math.random() * 6,
                                 top: `${Math.random() * 100}%`,
                                 left: `${Math.random() * 100}%`,
-                              }}
-                              animate={{
-                                opacity: [0.3, 0.8, 0.3],
-                                scale: [1, 1.2, 1],
-                              }}
-                              transition={{
-                                duration: 3 + Math.random() * 3,
-                                repeat: Infinity,
-                                delay: Math.random() * 5,
+                                opacity: 0.4
                               }}
                             />
                           ))}
@@ -677,17 +672,17 @@ export default function Home() {
                             Város szimuláció letöltése
                           </GlowingText>
                           
-                          <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'} mb-6`}>
+                          <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-6`}>
                             Egy testreszabható városszimuláció játék és még sok más egybe! 
                           </p>
                           
                           <AnimatedGlowButton 
-                            href="https://github.com/futozs"
-                            variant="glassmorphism"
+                            href={config.links.github}
+                            variant="glass"
                             className="text-sm"
                             glowColor="rgba(168, 85, 247, 0.6)"
                           >
-                            <IconArrowUpRight size={16} />
+                            <IconBrandGithub size={16} />
                             Részletek
                           </AnimatedGlowButton>
                         </motion.div>
@@ -773,12 +768,12 @@ export default function Home() {
               <h3 className="text-xl font-semibold mb-2">Nincs elérhető játék adat</h3>
               <p className="mb-4">Indítsd el a város szimulációt, hogy lásd az élő statisztikákat.</p>
               <AnimatedGlowButton
-                href="https://github.com/futozs"
+                href={config.links.github}
                 variant="outline"
                 className="inline-flex items-center"
               >
                 <span>Játék letöltése</span>
-                <IconArrowUpRight size={18} className="ml-1" />
+                <IconBrandGithub size={18} className="ml-1" />
               </AnimatedGlowButton>
             </motion.div>
           ) : (

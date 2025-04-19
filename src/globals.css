@@ -281,13 +281,7 @@ body {
 
   /* Gradient text */
   .gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(
-      to right,
-      rgb(var(--accent-purple)),
-      rgb(var(--accent-blue)),
-      rgb(var(--accent-cyan))
-    );
+    @apply bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-500 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent;
   }
 
   /* Shimmer effect */
@@ -439,4 +433,24 @@ body {
 /* Gradient Text */
 .gradient-text {
   @apply bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-500 dark:from-purple-400 dark:via-blue-400 dark:to-cyan-400 bg-clip-text text-transparent;
-} 
+}
+
+/* Strong theme enforcement for consistent initial rendering */
+html.dark body {
+  background-color: rgb(9 14 30) !important;
+  color: rgb(248 250 252) !important;
+}
+
+/* Force theme classes to ensure proper initial load */
+html.force-dark {
+  color-scheme: dark;
+  background-color: rgb(9 14 30);
+  color: rgb(248 250 252);
+}
+
+html.force-light {
+  color-scheme: light;
+  background-color: rgb(245 247 250);
+  color: rgb(30 41 59);
+}
+

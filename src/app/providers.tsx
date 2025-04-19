@@ -39,23 +39,12 @@ const ThemeAnimator = ({ children }: { children: ReactNode }) => {
       document.documentElement.style.colorScheme = 'light';
     }
     
-    // Force-fix text colors when theme changes to avoid gray text on white background
-    const applyProperTextColors = () => {
-      // Add a temporary class that will override any existing text colors
-      document.documentElement.classList.add('theme-transition');
-      
-      // Remove it after transition completes
-      setTimeout(() => {
-        document.documentElement.classList.remove('theme-transition');
-      }, 1000);
-    };
-    
-    if (mounted) {
-      applyProperTextColors();
-    }
-  }, [theme, resolvedTheme, mounted]);
+    // Remove force classes after hydration
+    document.documentElement.classList.remove('force-dark');
+    document.documentElement.classList.remove('force-light');
+  }, [resolvedTheme]);
   
-  if (!mounted) return <>{children}</>;
+  if (!mounted) return null;
   
   return (
     <>
@@ -116,10 +105,14 @@ export function Providers({ children }: { children: ReactNode }) {
   // Create a new client for every request
   const [queryClient] = useState(() => createQueryClient());
   const [mounted, setMounted] = useState(false);
+  // Detect the preferred system theme
+  const [systemTheme, setSystemTheme] = useState<'dark' | 'light'>('light');
 
-  // After mounting, we have access to the theme
+  // Get system preference on mount
   useEffect(() => {
     setMounted(true);
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    setSystemTheme(isDarkMode ? 'dark' : 'light');
   }, []);
 
   console.log('Query Provider inicializálva');
@@ -131,9 +124,11 @@ export function Providers({ children }: { children: ReactNode }) {
           attribute="class"
           defaultTheme="system"
           enableSystem
+          storageKey="me-varos-theme"
+          forcedTheme={!mounted ? systemTheme : undefined}
         >
           <ThemeAnimator>
-            {mounted && children}
+            {children}
           </ThemeAnimator>
         </ThemeProvider>
       </NextUIProvider>

@@ -79,6 +79,45 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="hu" suppressHydrationWarning className={`${inter.variable} ${spaceGrotesk.variable}`}>
+      <head>
+        {/* Force an immediate theme check to prevent flickering */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  // Block rendering until theme is determined to prevent flickering
+                  document.documentElement.style.visibility = 'hidden';
+                  
+                  const storedTheme = localStorage.getItem('me-varos-theme');
+                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  
+                  let theme = 'light';
+                  
+                  if (storedTheme === 'dark' || ((!storedTheme || storedTheme === 'system') && prefersDark)) {
+                    theme = 'dark';
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.classList.add('force-dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.classList.add('force-light');
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                  
+                  // Add data attribute for faster client-side theme detection
+                  document.documentElement.setAttribute('data-theme', theme);
+                  
+                  // Restore visibility after theme is applied
+                  document.documentElement.style.visibility = '';
+                } catch (e) {
+                  document.documentElement.style.visibility = '';
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <Providers>
           <BackgroundAnimation />

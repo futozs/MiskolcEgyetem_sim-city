@@ -9,6 +9,8 @@ import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiPython, SiThreedot
 import Image from 'next/image';
 // Add useLoadedData hook to fetch all data including events
 import { useLoadedData } from '@/lib/api/hooks';
+import { siteConfig } from "@/lib/site-config";
+import { IconHeart } from '@tabler/icons-react';
 
 // Interfaces for type safety
 interface FloatingParticleProps {
@@ -767,8 +769,40 @@ class DataProcessor:
   }, []);
 
   // Add hook to fetch statistics data from API
-  const { data } = useLoadedData();
+  const { data, isGameOffline, refreshAllData } = useLoadedData();
   const { charts, esemenyek } = data;
+
+  // Add check for all values being zero
+  const isAllDataZero = useMemo(() => {
+    if (!charts || !charts.altalanosMutatok) return true;
+    
+    const { lakossagSzama, elegedettseg, epuletekSzama, szolgaltatasokSzama } = charts.altalanosMutatok;
+    const budget = charts.penzugyiData?.keret || 0;
+    
+    return (
+      lakossagSzama === 0 && 
+      elegedettseg === 0 && 
+      epuletekSzama === 0 && 
+      szolgaltatasokSzama === 0 &&
+      budget === 0
+    );
+  }, [charts]);
+
+  // Combined offline status
+  const isOffline = isGameOffline || isAllDataZero;
+
+  // Add auto-refresh when offline
+  useEffect(() => {
+    if (isOffline) {
+      const interval = setInterval(() => {
+        refreshAllData().catch(error => {
+          console.error('Error refreshing data:', error);
+        });
+      }, 5000); // Check every 5 seconds
+      
+      return () => clearInterval(interval);
+    }
+  }, [isOffline, refreshAllData]);
 
   return (
     <div className="relative min-h-[700vh]" ref={containerRef}>
@@ -1242,7 +1276,7 @@ class DataProcessor:
         <section className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${currentSection === 2 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
           <div className="container mx-auto px-4 relative z-10">
             <motion.h2 
-              className="text-5xl font-bold text-center mb-20 relative"
+              className="text-5xl font-bold text-center mb-12 relative"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -1250,282 +1284,369 @@ class DataProcessor:
               <GlowingText gradient="from-cyan-500 to-blue-500" className="text-5xl">
                 Álomváros Statisztikák
               </GlowingText>
+              {isOffline && (
+                <motion.div 
+                  className="absolute -right-10 top-0"
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <div className="bg-red-500/10 text-red-500 px-3 py-1 rounded-full text-sm font-medium border border-red-500/20 flex items-center gap-1">
+                    <motion.div
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="w-2 h-2 rounded-full bg-red-500"
+                    />
+                    Offline
+                  </div>
+                </motion.div>
+              )}
             </motion.h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {/* First two stat cards remain the same */}
-              {[
-                { 
-                  title: "Lakosság", 
-                  value: charts?.altalanosMutatok?.lakossagSzama?.toLocaleString() || "0", 
-                  icon: "👥", 
-                  gradient: "from-blue-500 to-cyan-300",
-                  details: [
-                    { 
-                      label: "0-18 év", 
-                      value: charts?.korEloszlasChart?.find(k => k.korosztaly === '0-18')?.ertek.toLocaleString() || "0", 
-                      percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
-                        Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '0-18')?.ertek || 0) / 
-                        charts.altalanosMutatok.lakossagSzama * 100) : 0 
-                    },
-                    { 
-                      label: "19-35 év", 
-                      value: charts?.korEloszlasChart?.find(k => k.korosztaly === '19-35')?.ertek.toLocaleString() || "0", 
-                      percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
-                        Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '19-35')?.ertek || 0) / 
-                        charts.altalanosMutatok.lakossagSzama * 100) : 0
-                    },
-                    { 
-                      label: "36-65 év", 
-                      value: charts?.korEloszlasChart?.find(k => k.korosztaly === '36-65')?.ertek.toLocaleString() || "0", 
-                      percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
-                        Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '36-65')?.ertek || 0) / 
-                        charts.altalanosMutatok.lakossagSzama * 100) : 0
-                    },
-                    { 
-                      label: "65+ év", 
-                      value: charts?.korEloszlasChart?.find(k => k.korosztaly === '65+')?.ertek.toLocaleString() || "0", 
-                      percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
-                        Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '65+')?.ertek || 0) / 
-                        charts.altalanosMutatok.lakossagSzama * 100) : 0
-                    },
-                  ],
-                  chartData: charts?.korEloszlasChart?.map((item, idx) => ({
-                    year: parseInt(item.korosztaly.split('-')[0]) || idx,
-                    value: item.ertek
-                  })) || []
-                },
-                { 
-                  title: "Épületek", 
-                  value: charts?.altalanosMutatok?.epuletekSzama?.toLocaleString() || "0", 
-                  icon: "🏢", 
-                  gradient: "from-pink-500 to-rose-300",
-                  details: charts?.epuletTipusokChart?.map(type => ({
-                    label: type.label,
-                    value: type.value.toLocaleString(),
-                    percent: Math.round((type.value / (charts?.altalanosMutatok?.epuletekSzama || 1)) * 100)
-                  })) || [],
-                  chartData: charts?.epuletTipusokChart?.map(type => ({
-                    type: type.label,
-                    value: Math.round((type.value / (charts?.altalanosMutatok?.epuletekSzama || 1)) * 100)
-                  })) || []
-                },
-                // Third card shows events
-                { 
-                  title: "Események", 
-                  value: `${esemenyek?.length || 0}`, 
-                  icon: "📅", 
-                  gradient: "from-purple-500 to-indigo-300",
-                  details: [], // Empty details, we'll use custom content for events
-                  chartData: [] // Empty chart data, we'll use custom content for events
-                },
-                // Fourth card for satisfaction/elégedettség
-                { 
-                  title: "Elégedettség", 
-                  value: `${charts?.altalanosMutatok?.elegedettseg || 0}%`, 
-                  icon: "😊", 
-                  gradient: "from-green-500 to-emerald-300",
-                  details: [
-                    { 
-                      label: "Városi szolgáltatások", 
-                      value: `${charts?.altalanosMutatok?.szolgaltatasokSzama || 0}`, 
-                      percent: charts?.altalanosMutatok?.szolgaltatasokSzama || 0 
-                    },
-                    { 
-                      label: "Aktív projektek", 
-                      value: `${charts?.altalanosMutatok?.aktivProjektek || 0}`, 
-                      percent: charts?.altalanosMutatok?.aktivProjektek || 0 
-                    },
-                    { 
-                      label: "Pénzügyi keret", 
-                      value: `${(charts?.penzugyiData?.keret || 0).toLocaleString()} Ft`, 
-                      percent: charts?.penzugyiData?.keret ? Math.min(((charts.penzugyiData.keret / 10000000) * 2), 100) : 0 
-                    },
-                    { 
-                      label: "Forduló", 
-                      value: `${charts?.altalanosMutatok?.fordulokSzama || 0}`, 
-                      percent: Math.min(charts?.altalanosMutatok?.fordulokSzama || 0, 100)
-                    },
-                  ],
-                  chartData: [
-                    { month: "Elég.", value: charts?.altalanosMutatok?.elegedettseg || 0 },
-                    { month: "Szolg.", value: charts?.altalanosMutatok?.szolgaltatasokSzama || 0 },
-                    { month: "Proj.", value: charts?.altalanosMutatok?.aktivProjektek || 0 },
-                    { month: "Pénz", value: charts?.penzugyiData?.keret 
-                      ? Math.min(((charts.penzugyiData.keret / 10000000) * 2), 100) 
-                      : 0 
-                    },
-                    { month: "Ford.", value: Math.min(charts?.altalanosMutatok?.fordulokSzama || 0, 100) },
-                  ]
-                }
-              ].map((stat, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9, y: 30 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ delay: 0.2 * index, duration: 0.8 }}
-                  whileHover={{ 
-                    y: -10,
-                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                  }}
-                  className="rounded-xl overflow-hidden relative bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/10"
-                >
-                  {/* Animated background gradient */}
-                  <div className="absolute inset-0 opacity-20">
+            {isOffline ? (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="w-full max-w-4xl mx-auto bg-gradient-to-br from-red-500/10 to-orange-500/10 border border-red-500/20 rounded-xl p-8 shadow-xl text-center"
+              >
+                <div className="mb-6 mx-auto w-20 h-20 relative">
+                  <div className="absolute inset-0 animate-ping rounded-full bg-red-500/10" />
+                  <div className="relative flex items-center justify-center w-full h-full bg-red-500/20 rounded-full">
+                    <svg className="w-10 h-10 text-red-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-red-500 to-orange-500">
+                  Játékszerver Hiba
+                </h3>
+                
+                <p className="text-foreground-600 mb-8 max-w-lg mx-auto">
+                  Jelenleg nem sikerült kapcsolódni a játékszerverhez. Az adatok automatikusan megjelennek, amint a szerver elérhetővé válik.
+                </p>
+                
+                <div className="flex justify-center">
+                  <Button
+                    className="bg-blue-500/10 text-blue-500 border border-blue-500/30 hover:bg-blue-500/20"
+                    startContent={
+                      <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21.5 2v6h-6M21.5 15.5c-.7 1.2-1.8 2.2-3 3-2.3 1.5-5 2-7.5 1.5-2.5-.5-4.8-2-6.5-4C2.6 13.7 2 11 2 8.5c0-1.3.2-2.6.7-3.8"></path>
+                        <path d="M2 12c0-1.7.5-3.4 1.5-5 1-1.5 2.3-2.7 4-3.5 1.6-.8 3.4-1.2 5.2-1 1.8.2 3.5.8 5 1.8M2 2v6h6"></path>
+                      </svg>
+                    }
+                    onClick={() => refreshAllData()}
+                  >
+                    Újrapróbálkozás
+                  </Button>
+                </div>
+                
+                <div className="mt-8 w-full">
+                  <div className="flex items-center justify-between mb-2 text-sm text-foreground-500">
+                    <span>Automatikus újracsatlakozás...</span>
+                    <motion.span 
+                      animate={{ opacity: [0.5, 1, 0.5] }} 
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      Csatlakozás...
+                    </motion.span>
+                  </div>
+                  <div className="w-full h-1 bg-gray-200 dark:bg-gray-800 rounded-full overflow-hidden">
                     <motion.div 
-                      className={`absolute inset-0 bg-gradient-to-br ${stat.gradient}`}
+                      className="h-full bg-gradient-to-r from-red-500 to-amber-500"
                       animate={{ 
-                        backgroundPosition: ['0% 0%', '100% 100%'],
+                        width: ["0%", "40%", "60%", "40%", "80%", "60%"], 
+                        x: ["-5%", "5%", "-5%"] 
                       }}
-                      transition={{
-                        duration: 8,
+                      transition={{ 
+                        duration: 4, 
                         repeat: Infinity,
-                        repeatType: "reverse"
-                      }}
-                      style={{
-                        backgroundSize: "200% 200%"
+                        repeatType: "loop" 
                       }}
                     />
                   </div>
-                  
-                  {/* Stat card header */}
-                  <div className="p-6 border-b border-white/10 relative">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200">{stat.title}</h3>
-                        <p className="text-4xl font-bold mt-1">{stat.value}</p>
-                      </div>
-                      <div className="text-5xl">{stat.icon}</div>
+                </div>
+              </motion.div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* First two stat cards remain the same */}
+                {[
+                  { 
+                    title: "Lakosság", 
+                    value: charts?.altalanosMutatok?.lakossagSzama?.toLocaleString() || "0", 
+                    icon: "👥", 
+                    gradient: "from-blue-500 to-cyan-300",
+                    details: [
+                      { 
+                        label: "0-18 év", 
+                        value: charts?.korEloszlasChart?.find(k => k.korosztaly === '0-18')?.ertek.toLocaleString() || "0", 
+                        percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
+                          Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '0-18')?.ertek || 0) / 
+                          charts.altalanosMutatok.lakossagSzama * 100) : 0 
+                      },
+                      { 
+                        label: "19-35 év", 
+                        value: charts?.korEloszlasChart?.find(k => k.korosztaly === '19-35')?.ertek.toLocaleString() || "0", 
+                        percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
+                          Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '19-35')?.ertek || 0) / 
+                          charts.altalanosMutatok.lakossagSzama * 100) : 0
+                      },
+                      { 
+                        label: "36-65 év", 
+                        value: charts?.korEloszlasChart?.find(k => k.korosztaly === '36-65')?.ertek.toLocaleString() || "0", 
+                        percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
+                          Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '36-65')?.ertek || 0) / 
+                          charts.altalanosMutatok.lakossagSzama * 100) : 0
+                      },
+                      { 
+                        label: "65+ év", 
+                        value: charts?.korEloszlasChart?.find(k => k.korosztaly === '65+')?.ertek.toLocaleString() || "0", 
+                        percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
+                          Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '65+')?.ertek || 0) / 
+                          charts.altalanosMutatok.lakossagSzama * 100) : 0
+                      },
+                    ],
+                    chartData: charts?.korEloszlasChart?.map((item, idx) => ({
+                      year: parseInt(item.korosztaly.split('-')[0]) || idx,
+                      value: item.ertek
+                    })) || []
+                  },
+                  { 
+                    title: "Épületek", 
+                    value: charts?.altalanosMutatok?.epuletekSzama?.toLocaleString() || "0", 
+                    icon: "🏢", 
+                    gradient: "from-pink-500 to-rose-300",
+                    details: charts?.epuletTipusokChart?.map(type => ({
+                      label: type.label,
+                      value: type.value.toLocaleString(),
+                      percent: Math.round((type.value / (charts?.altalanosMutatok?.epuletekSzama || 1)) * 100)
+                    })) || [],
+                    chartData: charts?.epuletTipusokChart?.map(type => ({
+                      type: type.label,
+                      value: Math.round((type.value / (charts?.altalanosMutatok?.epuletekSzama || 1)) * 100)
+                    })) || []
+                  },
+                  // Third card shows events
+                  { 
+                    title: "Események", 
+                    value: `${esemenyek?.length || 0}`, 
+                    icon: "📅", 
+                    gradient: "from-purple-500 to-indigo-300",
+                    details: [], // Empty details, we'll use custom content for events
+                    chartData: [] // Empty chart data, we'll use custom content for events
+                  },
+                  // Fourth card for satisfaction/elégedettség
+                  { 
+                    title: "Elégedettség", 
+                    value: `${charts?.altalanosMutatok?.elegedettseg || 0}%`, 
+                    icon: "😊", 
+                    gradient: "from-green-500 to-emerald-300",
+                    details: [
+                      { 
+                        label: "Városi szolgáltatások", 
+                        value: `${charts?.altalanosMutatok?.szolgaltatasokSzama || 0}`, 
+                        percent: charts?.altalanosMutatok?.szolgaltatasokSzama || 0 
+                      },
+                      { 
+                        label: "Aktív projektek", 
+                        value: `${charts?.altalanosMutatok?.aktivProjektek || 0}`, 
+                        percent: charts?.altalanosMutatok?.aktivProjektek || 0 
+                      },
+                      { 
+                        label: "Pénzügyi keret", 
+                        value: `${(charts?.penzugyiData?.keret || 0).toLocaleString()} Ft`, 
+                        percent: charts?.penzugyiData?.keret ? Math.min(((charts.penzugyiData.keret / 10000000) * 2), 100) : 0 
+                      },
+                      { 
+                        label: "Forduló", 
+                        value: `${charts?.altalanosMutatok?.fordulokSzama || 0}`, 
+                        percent: Math.min(charts?.altalanosMutatok?.fordulokSzama || 0, 100)
+                      },
+                    ],
+                    chartData: [
+                      { month: "Elég.", value: charts?.altalanosMutatok?.elegedettseg || 0 },
+                      { month: "Szolg.", value: charts?.altalanosMutatok?.szolgaltatasokSzama || 0 },
+                      { month: "Proj.", value: charts?.altalanosMutatok?.aktivProjektek || 0 },
+                      { month: "Pénz", value: charts?.penzugyiData?.keret 
+                        ? Math.min(((charts.penzugyiData.keret / 10000000) * 2), 100) 
+                        : 0 
+                      },
+                      { month: "Ford.", value: Math.min(charts?.altalanosMutatok?.fordulokSzama || 0, 100) },
+                    ]
+                  }
+                ].map((stat, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    transition={{ delay: 0.2 * index, duration: 0.8 }}
+                    whileHover={{ 
+                      y: -10,
+                      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                    }}
+                    className="rounded-xl overflow-hidden relative bg-white/10 dark:bg-black/20 backdrop-blur-md border border-white/10"
+                  >
+                    {/* Animated background gradient */}
+                    <div className="absolute inset-0 opacity-20">
+                      <motion.div 
+                        className={`absolute inset-0 bg-gradient-to-br ${stat.gradient}`}
+                        animate={{ 
+                          backgroundPosition: ['0% 0%', '100% 100%'],
+                        }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          repeatType: "reverse"
+                        }}
+                        style={{
+                          backgroundSize: "200% 200%"
+                        }}
+                      />
                     </div>
-                  </div>
-                  
-                  {/* Special handling for the Events card (index 2) */}
-                  {index === 2 ? (
-                    <div className="p-4 max-h-[340px] overflow-y-auto">
-                      {esemenyek && esemenyek.length > 0 ? (
-                        <>
-                          {/* Get recent events, handling different event formats */}
-                          {esemenyek
-                            .filter(event => 
-                              event.esemeny && 
-                              // Only show real events that have actual effects, not just round-end notices
-                              (event.esemeny.tipus !== 'rendszer' || 
-                               (event.esemeny.hatas && 
-                                (event.esemeny.hatas.penz || event.esemeny.hatas.boldogsag || event.esemeny.hatas.lakossag)))
-                            )
-                            .slice(0, 4)
-                            .map((event, idx) => (
-                              <EventCard key={idx} event={event} delay={0.1 * idx} />
-                            ))
-                          }
-                          
-                          {/* Show "View more" if there are more than 4 events */}
-                          {esemenyek.length > 4 && (
-                            <motion.div 
-                              className="text-center mt-2 text-sm text-blue-400 hover:text-blue-300 cursor-pointer"
-                              initial={{ opacity: 0 }}
-                              animate={{ opacity: 1 }}
-                              transition={{ delay: 0.5 }}
-                            >
-                              + {esemenyek.length - 4} további esemény...
-                            </motion.div>
-                          )}
-                        </>
-                      ) : (
-                        <div className="text-center py-4 text-gray-500">
-                          Nincsenek események
+                    
+                    {/* Stat card header */}
+                    <div className="p-6 border-b border-white/10 relative">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h3 className="text-xl font-semibold text-gray-700 dark:text-gray-200">{stat.title}</h3>
+                          <p className="text-4xl font-bold mt-1">{stat.value}</p>
                         </div>
-                      )}
-                    </div>
-                  ) : (
-                    <>
-                      {/* Standard stat card details */}
-                      <div className="p-6 space-y-4">
-                        {stat.details.map((detail, idx) => (
-                          <div key={idx} className="space-y-1">
-                            <div className="flex justify-between text-sm mb-1">
-                              <span className="text-gray-600 dark:text-gray-300">{detail.label}</span>
-                              <span className="font-medium">{detail.value}</span>
-                            </div>
-                            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <motion.div 
-                                className={`h-full bg-gradient-to-r ${stat.gradient}`}
-                                initial={{ width: 0 }}
-                                animate={{ width: `${detail.percent}%` }}
-                                transition={{ duration: 1.5, delay: 0.5 + (idx * 0.2) }}
-                              />
-                            </div>
-                          </div>
-                        ))}
+                        <div className="text-5xl">{stat.icon}</div>
                       </div>
-                      
-                      {/* Animated mini chart at the bottom */}
-                      <div className="p-4 bg-white/5 border-t border-white/10">
-                        {index === 0 && (
-                          <div className="h-24 flex items-end space-x-2">
-                            {stat.chartData.map((item, idx) => (
-                              <div key={idx} className="flex-1 flex flex-col items-center">
-                                {getChartItemType(item, idx)}
-                                <span className="text-xs mt-1 text-gray-500">
-                                  {'year' in item ? (typeof item.year === 'string' ? item.year : item.year.toString()) : ''}
-                                </span>
-                              </div>
-                            ))}
+                    </div>
+                    
+                    {/* Special handling for the Events card (index 2) */}
+                    {index === 2 ? (
+                      <div className="p-4 max-h-[340px] overflow-y-auto">
+                        {esemenyek && esemenyek.length > 0 ? (
+                          <>
+                            {/* Get recent events, handling different event formats */}
+                            {esemenyek
+                              .filter(event => 
+                                event.esemeny && 
+                                // Only show real events that have actual effects, not just round-end notices
+                                (event.esemeny.tipus !== 'rendszer' || 
+                                 (event.esemeny.hatas && 
+                                  (event.esemeny.hatas.penz || event.esemeny.hatas.boldogsag || event.esemeny.hatas.lakossag)))
+                              )
+                              .slice(0, 4)
+                              .map((event, idx) => (
+                                <EventCard key={idx} event={event} delay={0.1 * idx} />
+                              ))
+                            }
+                            
+                            {/* Show "View more" if there are more than 4 events */}
+                            {esemenyek.length > 4 && (
+                              <motion.div 
+                                className="text-center mt-2 text-sm text-blue-400 hover:text-blue-300 cursor-pointer"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                              >
+                                + {esemenyek.length - 4} további esemény...
+                              </motion.div>
+                            )}
+                          </>
+                        ) : (
+                          <div className="text-center py-4 text-gray-500">
+                            Nincsenek események
                           </div>
                         )}
-                        
-                        {index === 1 && (
-                          <div className="h-24 w-full relative">
-                            <div className="absolute inset-0 flex">
-                              {stat.chartData.map((item, idx) => (
-                                <motion.div
-                                  key={idx}
-                                  className={`h-full bg-gradient-to-r ${idx % 2 === 0 ? stat.gradient : stat.gradient.replace('from-', 'from-').replace('to-', 'to-')}`}
+                      </div>
+                    ) : (
+                      <>
+                        {/* Standard stat card details */}
+                        <div className="p-6 space-y-4">
+                          {stat.details.map((detail, idx) => (
+                            <div key={idx} className="space-y-1">
+                              <div className="flex justify-between text-sm mb-1">
+                                <span className="text-gray-600 dark:text-gray-300">{detail.label}</span>
+                                <span className="font-medium">{detail.value}</span>
+                              </div>
+                              <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                <motion.div 
+                                  className={`h-full bg-gradient-to-r ${stat.gradient}`}
                                   initial={{ width: 0 }}
-                                  animate={{ width: `${item.value}%` }}
-                                  transition={{ duration: 1.5, delay: 1 + (idx * 0.2) }}
-                                  style={{ marginLeft: idx > 0 ? '-2px' : 0 }}
-                                >
-                                  <div className="flex h-full items-center justify-center text-xs font-medium text-white">
-                                    {item.value}%
-                                  </div>
-                                </motion.div>
+                                  animate={{ width: `${detail.percent}%` }}
+                                  transition={{ duration: 1.5, delay: 0.5 + (idx * 0.2) }}
+                                />
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        {/* Animated mini chart at the bottom */}
+                        <div className="p-4 bg-white/5 border-t border-white/10">
+                          {index === 0 && (
+                            <div className="h-24 flex items-end space-x-2">
+                              {stat.chartData.map((item, idx) => (
+                                <div key={idx} className="flex-1 flex flex-col items-center">
+                                  {getChartItemType(item, idx)}
+                                  <span className="text-xs mt-1 text-gray-500">
+                                    {'year' in item ? (typeof item.year === 'string' ? item.year : item.year.toString()) : ''}
+                                  </span>
+                                </div>
                               ))}
                             </div>
-                          </div>
-                        )}
-                        
-                        {index === 3 && (
-                          <div className="h-24 flex items-end space-x-1">
-                            {stat.chartData.map((item, idx) => (
-                              <div key={idx} className="flex-1 flex flex-col items-center">
-                                {getChartItemType(item, idx)}
-                                <span className="text-xs mt-1 text-gray-500">
-                                  {'month' in item ? item.month : ''}
-                                </span>
+                          )}
+                          
+                          {index === 1 && (
+                            <div className="h-24 w-full relative">
+                              <div className="absolute inset-0 flex">
+                                {stat.chartData.map((item, idx) => (
+                                  <motion.div
+                                    key={idx}
+                                    className={`h-full bg-gradient-to-r ${idx % 2 === 0 ? stat.gradient : stat.gradient.replace('from-', 'from-').replace('to-', 'to-')}`}
+                                    initial={{ width: 0 }}
+                                    animate={{ width: `${item.value}%` }}
+                                    transition={{ duration: 1.5, delay: 1 + (idx * 0.2) }}
+                                    style={{ marginLeft: idx > 0 ? '-2px' : 0 }}
+                                  >
+                                    <div className="flex h-full items-center justify-center text-xs font-medium text-white">
+                                      {item.value}%
+                                    </div>
+                                  </motion.div>
+                                ))}
                               </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </>
-                  )}
-                  
-                  {/* Glowing border effect */}
-                  <motion.div 
-                    className="absolute inset-0 rounded-xl pointer-events-none"
-                    animate={{ 
-                      boxShadow: [
-                        `0 0 0 1px rgba(255,255,255,0.1)`,
-                        `0 0 0 2px rgba(255,255,255,0.2)`,
-                        `0 0 0 1px rgba(255,255,255,0.1)`
-                      ] 
-                    }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
-                </motion.div>
-              ))}
-            </div>
+                            </div>
+                          )}
+                          
+                          {index === 3 && (
+                            <div className="h-24 flex items-end space-x-1">
+                              {stat.chartData.map((item, idx) => (
+                                <div key={idx} className="flex-1 flex flex-col items-center">
+                                  {getChartItemType(item, idx)}
+                                  <span className="text-xs mt-1 text-gray-500">
+                                    {'month' in item ? item.month : ''}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </>
+                    )}
+                    
+                    {/* Glowing border effect */}
+                    <motion.div 
+                      className="absolute inset-0 rounded-xl pointer-events-none"
+                      animate={{ 
+                        boxShadow: [
+                          `0 0 0 1px rgba(255,255,255,0.1)`,
+                          `0 0 0 2px rgba(255,255,255,0.2)`,
+                          `0 0 0 1px rgba(255,255,255,0.1)`
+                        ] 
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            )}
             
             {/* Updated animated fact with latest actual event */}
             <motion.div
@@ -2129,7 +2250,9 @@ class DataProcessor:
               animate={{ opacity: 1 }}
               transition={{ delay: 1, duration: 1 }}
             >
-              Az álomváros projekt a Miskolci Egyetem Programtervező Informatikus csapatának munkája.
+              <span className="inline-flex items-center gap-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 font-semibold">
+                Made with <IconHeart className="text-red-500 animate-pulse" fill="currentColor" size={24} /> by {siteConfig.presentation.team}
+              </span>
             </motion.p>
             
             <motion.div
@@ -2145,15 +2268,15 @@ class DataProcessor:
                       <path d="M10 4.16666L15.8333 10L10 15.8333" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   }
-                  onClick={() => window.location.href = 'https://github.com/futozs'}
+                  onClick={() => window.location.href = siteConfig.presentation.ctaLink}
                 >
-                  Fedezd fel élőben az álomvárost
+                  {siteConfig.presentation.ctaText}
                 </Button>
             </motion.div>
             
             {/* Version info */}
             <div className="mt-16 text-xs text-gray-500 dark:text-gray-400">
-              Verzió: 1.0.0 | 2024 © npm install ME
+              Verzió: 1.0.0 | 2024 © {siteConfig.metadata.teamName}
             </div>
           </div>
         </section>
