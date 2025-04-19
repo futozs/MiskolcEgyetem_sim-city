@@ -9,7 +9,7 @@ export function BuildingDonutChart() {
   const { getTransformedData } = useAppStore();
   const { charts } = getTransformedData();
   
-  // Get building type data
+  // Get building type data with empty array fallback
   const buildingTypes = charts?.epuletTipusokChart || [];
   
   // State for the selected type
@@ -27,23 +27,24 @@ export function BuildingDonutChart() {
     '#3b82f6', // blue
   ];
   
-  // Prepare chart data with vibrant colors
+  // Prepare chart data with vibrant colors and handle empty data
   const chartData = useMemo(() => {
-    if (!buildingTypes.length) {
+    if (!buildingTypes || buildingTypes.length === 0) {
       return [
         { name: 'Nincs adat', value: 1, color: '#cbd5e1' }
       ];
     }
     
     return buildingTypes.map((item) => ({
-      name: item.label,
-      value: item.value,
+      name: item.label || 'Ismeretlen',
+      value: item.value || 0,
     }));
   }, [buildingTypes]);
   
-  // Total buildings count
+  // Total buildings count with safe calculation
   const totalBuildings = useMemo(() => {
-    return buildingTypes.reduce((sum, item) => sum + item.value, 0);
+    if (!buildingTypes || buildingTypes.length === 0) return 0;
+    return buildingTypes.reduce((sum, item) => sum + (item.value || 0), 0);
   }, [buildingTypes]);
   
   // Get details for selected building type
@@ -53,9 +54,9 @@ export function BuildingDonutChart() {
     if (!selected) return null;
     
     return {
-      name: selected.label,
-      value: selected.value,
-      percentage: Math.round((selected.value / totalBuildings) * 100)
+      name: selected.label || 'Ismeretlen',
+      value: selected.value || 0,
+      percentage: totalBuildings > 0 ? Math.round((selected.value / totalBuildings) * 100) : 0
     };
   }, [selectedType, buildingTypes, totalBuildings]);
   
@@ -94,7 +95,10 @@ export function BuildingDonutChart() {
                 let currentAngle = 0;
                 
                 return chartData.map((item, i) => {
-                  const percentage = item.value / (totalBuildings || 1) * 100;
+                  // Use total buildings with fallback to 1 to avoid division by zero
+                  const totalForCalculation = totalBuildings || 1;
+                  const percentage = (item.value / totalForCalculation) * 100;
+                  
                   const startAngle = currentAngle;
                   const endAngle = currentAngle + (percentage / 100 * 360);
                   
@@ -123,7 +127,7 @@ export function BuildingDonutChart() {
                   
                   return (
                     <path
-                      key={item.name}
+                      key={`${item.name}-${i}`}
                       d={pathData}
                       fill={color}
                       stroke="rgba(255, 255, 255, 0.1)"
@@ -203,7 +207,11 @@ export function BuildingDonutChart() {
                 <span className="text-3xl font-bold">{totalBuildings}</span>
                 <span className="text-sm text-foreground-500">épület</span>
               </div>
-              <div className="text-foreground-400 text-sm mt-1">Kattints egy szegmensre a részletekért</div>
+              <div className="text-foreground-400 text-sm mt-1">
+                {buildingTypes.length > 0 
+                  ? "Kattints egy szegmensre a részletekért" 
+                  : "Nincs megjeleníthető épületadat"}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -212,27 +220,33 @@ export function BuildingDonutChart() {
       {/* Legend section */}
       <div className="mt-4 w-full">
         <div className="grid grid-cols-2 md:grid-cols-2 gap-2 text-xs">
-          {buildingTypes.map((type, index) => (
-            <motion.div 
-              key={type.label}
-              initial={{ opacity: 0, x: -5 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 + (index * 0.1) }}
-              className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${selectedType === type.label ? 'bg-blue-500/10' : 'hover:bg-foreground/5'}`}
-              onClick={() => handleValueSelect(type.label)}
-            >
-              <div 
-                className="h-3 w-3 rounded-sm mr-2" 
-                style={{ backgroundColor: customColors[index % customColors.length] }}
-              />
-              <span className={`${selectedType === type.label ? 'font-medium text-blue-500' : 'text-foreground-600'}`}>
-                {type.label}
-              </span>
-              <span className="ml-auto font-medium text-foreground-500">
-                {type.value}
-              </span>
-            </motion.div>
-          ))}
+          {buildingTypes.length > 0 ? (
+            buildingTypes.map((type, index) => (
+              <motion.div 
+                key={`${type.label || 'unknown'}-${index}`}
+                initial={{ opacity: 0, x: -5 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 + (index * 0.1) }}
+                className={`flex items-center cursor-pointer rounded-md p-1.5 transition-colors ${selectedType === type.label ? 'bg-blue-500/10' : 'hover:bg-foreground/5'}`}
+                onClick={() => handleValueSelect(type.label)}
+              >
+                <div 
+                  className="h-3 w-3 rounded-sm mr-2" 
+                  style={{ backgroundColor: customColors[index % customColors.length] }}
+                />
+                <span className={`${selectedType === type.label ? 'font-medium text-blue-500' : 'text-foreground-600'}`}>
+                  {type.label || 'Ismeretlen'}
+                </span>
+                <span className="ml-auto font-medium text-foreground-500">
+                  {type.value || 0}
+                </span>
+              </motion.div>
+            ))
+          ) : (
+            <div className="col-span-2 text-center text-foreground-500 py-2">
+              Nincs megjeleníthető épületadat
+            </div>
+          )}
         </div>
       </div>
     </div>

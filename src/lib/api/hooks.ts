@@ -7,6 +7,7 @@ import { fetchStatisztikak, REFRESH_INTERVAL as STATS_INTERVAL } from './statisz
 import { fetchEpuletek, REFRESH_INTERVAL as EPULETEK_INTERVAL } from './epuletek';
 import { fetchEpitesek, REFRESH_INTERVAL as EPITESEK_INTERVAL } from './epitesek';
 import { fetchEsemenyek, REFRESH_INTERVAL as ESEMENYEK_INTERVAL } from './esemenyek';
+import { fetchSzolgaltatasok, REFRESH_INTERVAL as SZOLGALTATASOK_INTERVAL } from './szolgaltatasok';
 
 // Query keys
 export const QUERY_KEYS = {
@@ -14,6 +15,7 @@ export const QUERY_KEYS = {
   EPULETEK: 'epuletek',
   EPITESEK: 'epitesek',
   ESEMENYEK: 'esemenyek',
+  SZOLGALTATASOK: 'szolgaltatasok',
 };
 
 /**
@@ -53,27 +55,37 @@ export function useStatisztikak() {
 }
 
 /**
- * Hook for directly fetching buildings data
+ * Hook for fetching buildings with React Query
  */
 export function useEpuletek() {
-  const fetchDirectEpuletek = async () => {
-    try {
-      // Use the Next.js API route as a proxy instead of direct call to localhost:6666
-      const response = await fetch('/api/epuletek');
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-      return await response.json();
-    } catch (error) {
-      console.error('Failed to fetch buildings:', error);
-      return { epuletek: [] };
-    }
-  };
-
+  const { 
+    setEpuletekData, 
+    setLoading, 
+    setError 
+  } = useAppStore();
+  
   return useQuery({
     queryKey: [QUERY_KEYS.EPULETEK],
-    queryFn: fetchDirectEpuletek,
+    queryFn: fetchEpuletek,
     refetchInterval: EPULETEK_INTERVAL,
+    onSuccess: (data) => {
+      setEpuletekData(data);
+      setLoading('epuletek', false);
+      
+      // Ha alapértelmezett adatokat kaptunk vissza, akkor hibaüzenetet generálunk
+      if (data.id === 'default') {
+        setError('epuletek', 'Nem sikerült az épület adatok lekérése.');
+      } else {
+        setError('epuletek', null);
+      }
+    },
+    onError: (error: Error) => {
+      console.error('Épület adatok lekérési hiba:', error);
+      setLoading('epuletek', false);
+      setError('epuletek', error.message);
+    },
+    staleTime: 0,
+    retry: 1,
   });
 }
 
@@ -113,7 +125,7 @@ export function useEpitesek() {
 }
 
 /**
- * Hook for fetching events data with React Query
+ * Hook for fetching city events with React Query
  */
 export function useEsemenyek() {
   const { 
@@ -122,34 +134,60 @@ export function useEsemenyek() {
     setError 
   } = useAppStore();
   
-  const fetchDirectEsemenyek = async () => {
-    try {
-      // Use the Next.js API route as a proxy instead of direct call to localhost:6666
-      const response = await fetch('/api/esemenyek');
-      if (!response.ok) {
-        throw new Error(`API error: ${response.status}`);
-      }
-      console.log('Fetching events from API');
-      return await response.json();
-    } catch (error) {
-      console.error('Failed to fetch events:', error);
-      return { esemenyek: [] };
-    }
-  };
-  
   return useQuery({
     queryKey: [QUERY_KEYS.ESEMENYEK],
-    queryFn: fetchDirectEsemenyek,
+    queryFn: fetchEsemenyek,
     refetchInterval: ESEMENYEK_INTERVAL,
     onSuccess: (data) => {
       setEsemenyekData(data);
       setLoading('esemenyek', false);
-      setError('esemenyek', null);
+      
+      // Ha alapértelmezett adatokat kaptunk vissza, akkor hibaüzenetet generálunk
+      if (!data.esemenyek || data.esemenyek.length === 0) {
+        setError('esemenyek', 'Nem sikerült az esemény adatok lekérése.');
+      } else {
+        setError('esemenyek', null);
+      }
     },
     onError: (error: Error) => {
-      console.error('Események adatok lekérési hiba:', error);
+      console.error('Esemény adatok lekérési hiba:', error);
       setLoading('esemenyek', false);
       setError('esemenyek', error.message);
+    },
+    staleTime: 0,
+    retry: 1,
+  });
+}
+
+/**
+ * Hook for fetching city services with React Query
+ */
+export function useSzolgaltatasok() {
+  const { 
+    setSzolgaltatasokData, 
+    setLoading, 
+    setError 
+  } = useAppStore();
+  
+  return useQuery({
+    queryKey: [QUERY_KEYS.SZOLGALTATASOK],
+    queryFn: fetchSzolgaltatasok,
+    refetchInterval: SZOLGALTATASOK_INTERVAL,
+    onSuccess: (data) => {
+      setSzolgaltatasokData(data);
+      setLoading('szolgaltatasok', false);
+      
+      // Ha alapértelmezett adatokat kaptunk vissza, akkor hibaüzenetet generálunk
+      if (data.id === 'default') {
+        setError('szolgaltatasok', 'Nem sikerült a szolgáltatás adatok lekérése.');
+      } else {
+        setError('szolgaltatasok', null);
+      }
+    },
+    onError: (error: Error) => {
+      console.error('Szolgáltatás adatok lekérési hiba:', error);
+      setLoading('szolgaltatasok', false);
+      setError('szolgaltatasok', error.message);
     },
     staleTime: 0,
     retry: 1,
@@ -164,30 +202,35 @@ export function useAllData() {
   const epuletekQuery = useEpuletek();
   const epitesekQuery = useEpitesek();
   const esemenyekQuery = useEsemenyek();
+  const szolgaltatasokQuery = useSzolgaltatasok();
   
   const isLoading = 
     statisztikakQuery.isLoading || 
     epuletekQuery.isLoading || 
     epitesekQuery.isLoading ||
-    esemenyekQuery.isLoading;
+    esemenyekQuery.isLoading ||
+    szolgaltatasokQuery.isLoading;
   
   const isError = 
     statisztikakQuery.isError || 
     epuletekQuery.isError || 
     epitesekQuery.isError ||
-    esemenyekQuery.isError;
+    esemenyekQuery.isError ||
+    szolgaltatasokQuery.isError;
     
   const error = 
     statisztikakQuery.error || 
     epuletekQuery.error || 
     epitesekQuery.error ||
-    esemenyekQuery.error;
+    esemenyekQuery.error ||
+    szolgaltatasokQuery.error;
   
   return {
     statisztikakQuery,
     epuletekQuery,
     epitesekQuery,
     esemenyekQuery,
+    szolgaltatasokQuery,
     isLoading,
     isError,
     error,
@@ -199,8 +242,8 @@ export function useAllData() {
  * This hook ensures that data from API is synchronously loaded into the app store
  */
 export function useLoadedData() {
-  const { isLoading, isError, statisztikakQuery, epuletekQuery, epitesekQuery, esemenyekQuery } = useAllData();
-  const { getTransformedData, statisztikakData, epuletekData, epitesekData, esemenyekData, forceRefresh } = useAppStore();
+  const { isLoading, isError, statisztikakQuery, epuletekQuery, epitesekQuery, esemenyekQuery, szolgaltatasokQuery } = useAllData();
+  const { getTransformedData, statisztikakData, epuletekData, epitesekData, esemenyekData, szolgaltatasokData, forceRefresh } = useAppStore();
   const queryClient = useQueryClient();
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [lastRefreshTime, setLastRefreshTime] = useState(Date.now());
@@ -224,7 +267,8 @@ export function useLoadedData() {
         queryClient.refetchQueries({ queryKey: [QUERY_KEYS.STATISZTIKAK], type: 'active' }),
         queryClient.refetchQueries({ queryKey: [QUERY_KEYS.EPULETEK], type: 'active' }),
         queryClient.refetchQueries({ queryKey: [QUERY_KEYS.EPITESEK], type: 'active' }),
-        queryClient.refetchQueries({ queryKey: [QUERY_KEYS.ESEMENYEK], type: 'active' })
+        queryClient.refetchQueries({ queryKey: [QUERY_KEYS.ESEMENYEK], type: 'active' }),
+        queryClient.refetchQueries({ queryKey: [QUERY_KEYS.SZOLGALTATASOK], type: 'active' })
       ]);
       
       // Force update store and all components using it
@@ -280,29 +324,60 @@ export function useLoadedData() {
     }
   }, [esemenyekQuery.data, forceRefresh]);
   
+  useEffect(() => {
+    if (szolgaltatasokQuery.data) {
+      useAppStore.getState().setSzolgaltatasokData(szolgaltatasokQuery.data);
+      // Force global refresh for all components
+      forceRefresh();
+    }
+  }, [szolgaltatasokQuery.data, forceRefresh]);
+  
   // Check if we have valid data from any source
   const hasValidData = Boolean(
     (statisztikakData && statisztikakData.id !== 'default') || 
     (epuletekData && epuletekData.id !== 'default') || 
     (epitesekData && epitesekData.id !== 'default') ||
-    (esemenyekData && esemenyekData.esemenyek && esemenyekData.esemenyek.length > 0)
+    (esemenyekData && esemenyekData.esemenyek && esemenyekData.esemenyek.length > 0) ||
+    (szolgaltatasokData && szolgaltatasokData.id !== 'default')
   );
   
-  // Only set offline if we genuinely have no valid data (not just during refresh)
+  // Csak akkor legyen offline, ha tényleg nincs adat (nem refetch közben)
   const isGameOffline = !hasValidData && !isRefreshing;
   
-  // This ensures that the component always returns fresh data on every render
+  // Ez biztosítja, hogy a komponens mindig friss adatokkal térjen vissza minden rendereléskor
   const transformedData = getTransformedData();
   
+  // Ellenőrizzük, hogy nem minden érték nulla/alapértelmezett-e az adatokban
+  // JAVÍTVA: Használjunk olyan mezőneveket, amelyek tényleg léteznek a transformedData-ban
+  const hasNonZeroValues = (() => {
+    if (!transformedData || !transformedData.charts) return false;
+    
+    const { altalanosMutatok } = transformedData.charts;
+    if (!altalanosMutatok) return false;
+    
+    // Ellenőrizzük, hogy bármelyik lényeges mező tartalmaz-e nem nulla értéket
+    // Csak olyan mezőket használjunk, amelyek biztosan léteznek
+    return (
+      (altalanosMutatok.lakossagSzama > 0) || 
+      (altalanosMutatok.epuletekSzama > 0) || 
+      (altalanosMutatok.fordulokSzama > 0)
+    );
+  })();
+  
+  // JAVÍTVA: Az offline érzékelés logikája - csak akkor offline, ha nincs adat VAGY nincs hálózati kapcsolat
+  // Ne használjuk a hasNonZeroValues-t az offline meghatározására, mivel a szervertől kapott 
+  // adatok lehetnek "zéró" értékkel is, miközben a kapcsolat él
+  const isActuallyOffline = isGameOffline;
+  
   return {
-    isLoading: false, // Always return false for loading to ensure UI shows up immediately
-    isError: false, // Never return error state to keep website functional
+    isLoading: false, // Mindig false-ot adunk vissza a betöltésre, hogy az UI azonnal megjelenjen
+    isError: false, // Soha nem adunk vissza hiba állapotot, hogy a weblap működőképes maradjon
     data: transformedData,
-    isDataLoaded: Boolean(statisztikakData || epuletekData || epitesekData || esemenyekData),
-    isGameOffline, // Now properly indicates game status based on data availability
-    isRefreshing, // Indicate if data is currently being refreshed
-    lastRefreshTime, // Timestamp of the last successful refresh
-    refreshAllData, // Function to manually refresh all data
-    forceUpdate // Provide the update counter for components that need to force update
+    isDataLoaded: Boolean(statisztikakData || epuletekData || epitesekData || esemenyekData || szolgaltatasokData),
+    isGameOffline: isActuallyOffline, // Most megfelelően jelzi a játék állapotát az érdemi adatok alapján
+    isRefreshing, // Jelzi, hogy az adatok frissítése folyamatban van-e
+    lastRefreshTime, // Az utolsó sikeres frissítés időbélyege
+    refreshAllData, // Függvény az összes adat manuális frissítéséhez
+    forceUpdate // Update-számláló olyan komponensek számára, amelyeknek szükséges a kényszerített frissítés
   };
 } 

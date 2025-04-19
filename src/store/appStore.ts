@@ -19,6 +19,11 @@ import {
 } from '@/lib/api/epitesek';
 import { EsemenyekResponse } from '@/lib/api/esemenyek';
 import { produce } from 'immer';
+import { AppState } from './appTypes';
+import { transformEpuletekForCharts } from '@/lib/api/epuletek';
+import { transformEpitesekForCharts } from '@/lib/api/epitesek';
+import { transformEsemenyekForCharts } from '@/lib/api/esemenyek';
+import { transformSzolgaltatasokForCharts } from '@/lib/api/szolgaltatasok';
 
 // Camera state for 3D view
 export type CameraView = 'overhead' | 'isometric' | 'first-person';
@@ -38,11 +43,15 @@ interface AppState {
     statisztikak: boolean;
     epuletek: boolean;
     epitesek: boolean;
+    esemenyek: boolean;
+    szolgaltatasok: boolean;
   };
   errors: {
     statisztikak: string | null;
     epuletek: string | null;
     epitesek: string | null;
+    esemenyek: string | null;
+    szolgaltatasok: string | null;
   };
   
   // 3D visualization state
@@ -103,9 +112,13 @@ interface AppState {
   // Events data
   esemenyekData: EsemenyekResponse | null;
   setEsemenyekData: (data: EsemenyekResponse) => void;
+  
+  // New fields for the updated app state
+  szolgaltatasokData: any | null;
+  setSzolgaltatasokData: (data: any) => void;
 }
 
-// More efficient caching with WeakMap that allows garbage collection
+// Cache for transformed data to avoid recalculation on each getTransformedData call
 const transformedDataCache = new Map();
 
 // Helper function to create a unique cache key
@@ -122,35 +135,37 @@ export const useAppStore = create<AppState>()(
   devtools(
     persist(
       (set, get) => ({
-        // Initial state
+        // State
+        refreshCounter: 0,
         statisztikakData: null,
         epuletekData: null,
         epitesekData: null,
-        
+        esemenyekData: null,
+        szolgaltatasokData: null,
+        cameraView: 'overview',
+        selectedBuildingId: null,
+        showLabels: true,
         isLoading: {
-          statisztikak: false,
-          epuletek: false,
-          epitesek: false,
+          statisztikak: true,
+          epuletek: true,
+          epitesek: true,
+          esemenyek: true,
+          szolgaltatasok: true,
         },
-        
         errors: {
           statisztikak: null,
           epuletek: null,
           epitesek: null,
+          esemenyek: null,
+          szolgaltatasok: null,
         },
         
-        selectedBuildingId: null,
-        cameraView: 'isometric',
-        showLabels: true,
-        
+        // Filters
         filters: {
           buildingType: null,
           buildingCondition: null,
           constructionStatus: null,
         },
-        
-        // Refresh counter for triggering updates
-        refreshCounter: 0,
         
         // Performance mode with persistence in localStorage
         performanceMode: (() => {
@@ -169,62 +184,72 @@ export const useAppStore = create<AppState>()(
         })(),
         
         // Actions
-        setStatisztikakData: (data) => set((state) => {
-          // Clear cache if data has changed
-          if (JSON.stringify(data?.id) !== JSON.stringify(state.statisztikakData?.id)) {
-            transformedDataCache.clear();
-          }
-          return { 
-            statisztikakData: data,
-            refreshCounter: state.refreshCounter + 1
-          };
-        }),
-        
-        setEpuletekData: (data) => set((state) => {
-          // Clear cache if data has changed
-          if (JSON.stringify(data?.id) !== JSON.stringify(state.epuletekData?.id)) {
-            transformedDataCache.clear();
-          }
-          return { 
-            epuletekData: data,
-            refreshCounter: state.refreshCounter + 1
-          };
-        }),
-        
-        setEpitesekData: (data) => set((state) => {
-          // Clear cache if data has changed
-          if (JSON.stringify(data?.id) !== JSON.stringify(state.epitesekData?.id)) {
-            transformedDataCache.clear();
-          }
-          return { 
-            epitesekData: data,
-            refreshCounter: state.refreshCounter + 1
-          };
-        }),
-        
-        setLoading: (key, value) => set((state) => ({
-          isLoading: { ...state.isLoading, [key]: value }
-        })),
-        
-        setError: (key, error) => set((state) => ({
-          errors: { ...state.errors, [key]: error }
-        })),
-        
-        selectBuilding: (id) => set({ selectedBuildingId: id }),
         setCameraView: (view) => set({ cameraView: view }),
-        toggleLabels: () => set((state) => ({ showLabels: !state.showLabels })),
         
-        setFilter: (key, value) => set((state) => ({
-          filters: { ...state.filters, [key]: value }
-        })),
+        setSelectedBuilding: (building) => set({ selectedBuildingId: building }),
         
-        resetFilters: () => set({
-          filters: {
-            buildingType: null,
-            buildingCondition: null,
-            constructionStatus: null,
-          }
-        }),
+        setStatisztikakData: (data) => {
+          set((state) => ({
+            statisztikakData: data,
+            // Reset transformed data cache when receiving new data
+            refreshCounter: state.refreshCounter + 1
+          }));
+          transformedDataCache.clear();
+        },
+        
+        setEpuletekData: (data) => {
+          set((state) => ({
+            epuletekData: data,
+            // Reset transformed data cache when receiving new data
+            refreshCounter: state.refreshCounter + 1
+          }));
+          transformedDataCache.clear();
+        },
+        
+        setEpitesekData: (data) => {
+          set((state) => ({
+            epitesekData: data,
+            // Reset transformed data cache when receiving new data
+            refreshCounter: state.refreshCounter + 1
+          }));
+          transformedDataCache.clear();
+        },
+        
+        setEsemenyekData: (data) => {
+          set((state) => ({
+            esemenyekData: data,
+            // Reset transformed data cache when receiving new data
+            refreshCounter: state.refreshCounter + 1
+          }));
+          transformedDataCache.clear();
+        },
+        
+        setSzolgaltatasokData: (data) => {
+          set((state) => ({
+            szolgaltatasokData: data,
+            // Reset transformed data cache when receiving new data
+            refreshCounter: state.refreshCounter + 1
+          }));
+          transformedDataCache.clear();
+        },
+        
+        setLoading: (key, value) => {
+          set((state) => ({
+            isLoading: {
+              ...state.isLoading,
+              [key]: value
+            }
+          }));
+        },
+        
+        setError: (key, value) => {
+          set((state) => ({
+            errors: {
+              ...state.errors,
+              [key]: value
+            }
+          }));
+        },
         
         // Method to clear all data for refresh
         clearData: async () => {
@@ -238,6 +263,8 @@ export const useAppStore = create<AppState>()(
               statisztikak: true,
               epuletek: true,
               epitesek: true,
+              esemenyek: true,
+              szolgaltatasok: true,
             },
             refreshCounter: state.refreshCounter + 1
           }));
@@ -252,52 +279,70 @@ export const useAppStore = create<AppState>()(
         
         // Derived data
         getTransformedData: () => {
-          const { statisztikakData, epuletekData, epitesekData, esemenyekData, refreshCounter } = get();
-          
-          // Use cached value if refresh counter hasn't changed
-          const cacheKey = refreshCounter;
+          const state = get();
+          const cacheKey = `${state.refreshCounter}-${state.statisztikakData?.id}-${state.epuletekData?.id}-${state.epitesekData?.id}-${state.esemenyekData?.id}-${state.szolgaltatasokData?.id}`;
+        
           if (transformedDataCache.has(cacheKey)) {
             return transformedDataCache.get(cacheKey);
           }
           
-          // Transform data for visualization & stats
-          const charts = statisztikakData 
-            ? transformStatisztikakForCharts(statisztikakData) 
+          // Transform statistics data for charts
+          const charts = state.statisztikakData 
+            ? transformStatisztikakForCharts(state.statisztikakData)
             : null;
-            
-          const buildings3D = epuletekData 
-            ? transformEpuletekFor3D(epuletekData) 
-            : null;
-            
-          const buildingStats = epuletekData 
-            ? transformEpuletekForStats(epuletekData) 
-            : null;
-            
-          const constructionViz = epitesekData 
-            ? transformEpitesekForViz(epitesekData) 
-            : null;
-            
-          const timeline = epitesekData 
-            ? transformEpitesekForTimeline(epitesekData) 
-            : null;
-            
-          // Get events data
-          const esemenyek = esemenyekData?.esemenyek || [];
           
-          // Return a single object with all data
-          const result = {
-            charts,
-            buildings3D,
+          // Transform buildings data for charts
+          const buildingCharts = state.epuletekData 
+            ? transformEpuletekForCharts(state.epuletekData)
+            : null;
+            
+          // Transform buildings data for stats
+          const buildingStats = state.epuletekData 
+            ? transformEpuletekForStats(state.epuletekData)
+            : null;
+            
+          // Transform construction projects data for charts
+          const epitesCharts = state.epitesekData 
+            ? transformEpitesekForCharts(state.epitesekData)
+            : null;
+            
+          // Transform events data for charts
+          const events = state.esemenyekData 
+            ? transformEsemenyekForCharts(state.esemenyekData)
+            : null;
+            
+          // Transform services data for charts
+          const serviceData = state.szolgaltatasokData 
+            ? transformSzolgaltatasokForCharts(state.szolgaltatasokData)
+            : null;
+          
+          // Aggregate all chart data together
+          const aggregatedData = {
+            // If chart data is available, we merge that into the charts object
+            charts: charts ? {
+              ...charts,
+              ...buildingCharts,
+              ...epitesCharts,
+              // Add services chart data
+              szolgaltatasokChart: serviceData?.szolgaltatasokChart || [],
+            } : null,
+            
+            // Buildings specific stats are passed through as is
             buildingStats,
-            constructionViz,
-            timeline,
-            esemenyek,
+            
+            // Events data is stored separately
+            events: events?.eventsData || [],
+            esemenyek: state.esemenyekData?.esemenyek || [],
+            
+            // Store services data
+            serviceData,
+            szolgaltatasok: state.szolgaltatasokData?.szolgaltatasok || []
           };
           
-          // Cache the result
-          transformedDataCache.set(cacheKey, result);
+          // Cache the transformed data to avoid recalculation
+          transformedDataCache.set(cacheKey, aggregatedData);
           
-          return result;
+          return aggregatedData;
         },
         
         // Performance mode with persistence in localStorage
@@ -308,16 +353,29 @@ export const useAppStore = create<AppState>()(
           }
         },
         
-        // Events data
-        esemenyekData: null,
-        setEsemenyekData: (data) => set((state) => {
-          return { 
-            esemenyekData: data,
-            refreshCounter: state.refreshCounter + 1
-          };
+        // Filters
+        setFilter: (key, value) => set((state) => ({
+          filters: { ...state.filters, [key]: value }
+        })),
+        
+        resetFilters: () => set({
+          filters: {
+            buildingType: null,
+            buildingCondition: null,
+            constructionStatus: null,
+          }
         }),
       }),
-      { name: 'app-store' }
-    )
+      {
+        name: 'me-varos-storage',
+        partialize: (state) => ({ 
+          cameraView: state.cameraView,
+          selectedBuildingId: state.selectedBuildingId
+        }),
+      }
+    ),
+    {
+      name: 'MEVarosStore',
+    }
   )
 ); 

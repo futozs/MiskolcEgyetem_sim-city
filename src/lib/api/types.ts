@@ -2,6 +2,7 @@
 
 // Statisztikák API Response
 export interface StatisztikaResponse {
+  id?: string;
   statisztikak: {
     varos_nev: string;
     aktualis_datum: string;
@@ -19,6 +20,11 @@ export interface StatisztikaResponse {
 }
 
 // Épületek API Response
+export interface EpuletResponse {
+  id?: string;
+  epuletek: Array<Epulet>;
+}
+
 export interface Epulet {
   azonosito: number;
   nev: string;
@@ -35,11 +41,12 @@ export interface Epulet {
   leiras?: string;
 }
 
-export interface EpuletResponse {
-  epuletek: Epulet[];
+// Építések API Response
+export interface EpitesResponse {
+  id?: string;
+  epitesek: Array<Epites>;
 }
 
-// Építések API Response
 export interface Epites {
   azonosito: number;
   nev: string;
@@ -51,6 +58,41 @@ export interface Epites {
   allapot: string;
 }
 
-export interface EpitesResponse {
-  epitesek: Epites[];
+// Események API Response
+export interface EsemenyResponse {
+  id?: string;
+  esemenyek: Array<Esemeny>;
+}
+
+export interface Esemeny {
+  fordulo: number;
+  esemeny: {
+    nev: string;
+    leiras: string;
+    tipus: string;
+    hatas?: {
+      penz?: number;
+      boldogsag?: number;
+      lakossag?: number;
+    };
+  };
+}
+
+// Szolgáltatások API Response
+export interface SzolgaltatasResponse {
+  id?: string;
+  szolgaltatasok: Array<Szolgaltatas>;
+}
+
+export interface Szolgaltatas {
+  azonosito: number;
+  nev: string;
+  tipus: string;
+  havi_koltseg: number;
+  elegedettseg_hatas: number;
+  lakossag_hatas: number;
+  ertek: number;
+  indulas_datum: string;
+  aktiv: boolean;
+  allami_tamogatas: number;
 } 

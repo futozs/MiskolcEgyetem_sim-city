@@ -249,5 +249,72 @@ export function transformEpuletekForStats(data: EpuletResponse) {
   };
 }
 
-// Constants for the API
+/**
+ * Transform building data specifically for chart visualizations
+ */
+export function transformEpuletekForCharts(data: EpuletResponse) {
+  if (!data || !data.epuletek || !Array.isArray(data.epuletek)) {
+    console.warn('Invalid or missing building data for chart transform');
+    return {
+      epuletTipusAdatok: [],
+      allapotEloszlas: [],
+      korszakEloszlas: []
+    };
+  }
+  
+  // Transform building types for pie/donut chart
+  const epuletTipusok = data.epuletek.reduce((acc, epulet) => {
+    const tipus = epulet.tipus;
+    acc[tipus] = (acc[tipus] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  const epuletTipusAdatok = Object.entries(epuletTipusok).map(([tipus, ertek]) => ({
+    id: tipus,
+    label: tipus,
+    value: ertek
+  }));
+  
+  // Transform building conditions for pie/donut chart
+  const allapotok = data.epuletek.reduce((acc, epulet) => {
+    const allapot = epulet.allapot;
+    acc[allapot] = (acc[allapot] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  const allapotEloszlas = Object.entries(allapotok).map(([allapot, ertek]) => ({
+    id: allapot,
+    label: allapot,
+    value: ertek
+  }));
+  
+  // Group buildings by construction decade for timeline/bar chart
+  const currentYear = new Date().getFullYear();
+  const decades = data.epuletek.reduce((acc, epulet) => {
+    const year = new Date(epulet.epitesi_datum).getFullYear();
+    const decade = Math.floor(year / 10) * 10;
+    acc[`${decade}-${decade + 9}`] = (acc[`${decade}-${decade + 9}`] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  // Sort decades chronologically
+  const korszakEloszlas = Object.entries(decades)
+    .sort(([decadeA], [decadeB]) => {
+      const startA = parseInt(decadeA.split('-')[0]);
+      const startB = parseInt(decadeB.split('-')[0]);
+      return startA - startB;
+    })
+    .map(([decade, count]) => ({
+      decade,
+      count
+    }));
+  
+  return {
+    epuletTipusAdatok,
+    allapotEloszlas,
+    korszakEloszlas
+  };
+}
+
+// Export the refresh interval
 export { REFRESH_INTERVAL }; 

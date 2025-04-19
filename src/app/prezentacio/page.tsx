@@ -7,9 +7,8 @@ import { City } from '@/components/3d/City';
 import { FiLayers, FiTerminal, FiCpu, FiDatabase, FiArrowLeft, FiPlay } from 'react-icons/fi';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiPython, SiThreedotjs, SiFramer } from 'react-icons/si';
 import Image from 'next/image';
-// Add useStatisztikak hook to fetch statistics data
-import { useStatisztikak } from '@/lib/api/hooks';
-import { useAppStore } from '@/store/appStore';
+// Add useLoadedData hook to fetch all data including events
+import { useLoadedData } from '@/lib/api/hooks';
 
 // Interfaces for type safety
 interface FloatingParticleProps {
@@ -60,6 +59,101 @@ interface MonthData {
 }
 
 type ChartData = YearData | TypeData | MonthData;
+
+// Add EventCard component to display event information
+interface EventCardProps {
+  event: {
+    fordulo: number;
+    esemeny: {
+      nev: string;
+      leiras: string;
+      tipus: string;
+      hatas: {
+        penz?: number;
+        boldogsag?: number;
+        lakossag?: number;
+      };
+    };
+  };
+  delay?: number;
+}
+
+const EventCard = ({ event, delay = 0 }: EventCardProps) => {
+  const [isInitialized, setIsInitialized] = useState(false);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsInitialized(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Get event icon based on its financial impact
+  const getEventTypeColor = () => {
+    if (!event.esemeny.hatas) return "from-gray-500 to-gray-400";
+    
+    const impact = event.esemeny.hatas.penz || 0;
+    if (impact > 0) return "from-green-500 to-emerald-400";
+    if (impact < 0) return "from-red-500 to-rose-400";
+    return "from-blue-500 to-cyan-400";
+  };
+
+  return (
+    <motion.div
+      className="rounded-lg overflow-hidden relative bg-white/5 dark:bg-black/20 backdrop-blur-md border border-white/10 mb-2"
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInitialized ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay }}
+      whileHover={{ y: -5 }}
+    >
+      <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b" style={{ 
+        backgroundImage: `linear-gradient(to bottom, ${getEventTypeColor().replace('from-', '').replace(' to-', ', ')})` 
+      }}/>
+      
+      <div className="p-3 pl-4">
+        <div className="flex justify-between items-start">
+          <div>
+            <h4 className="font-medium text-sm">{event.esemeny.nev}</h4>
+            <p className="text-xs text-gray-500 mt-1">{event.esemeny.leiras}</p>
+          </div>
+          <div className="bg-black/20 rounded-full px-2 py-0.5 text-xs">
+            {event.fordulo}. forduló
+          </div>
+        </div>
+        
+        {/* Show financial impact if available */}
+        {event.esemeny.hatas && (event.esemeny.hatas.penz || event.esemeny.hatas.boldogsag || event.esemeny.hatas.lakossag) && (
+          <div className="flex gap-2 mt-2 text-xs">
+            {event.esemeny.hatas.penz !== undefined && event.esemeny.hatas.penz !== 0 && (
+              <div className={`px-2 py-0.5 rounded-full ${
+                event.esemeny.hatas.penz > 0 ? 'bg-green-500/20 text-green-300' : 'bg-red-500/20 text-red-300'
+              }`}>
+                {event.esemeny.hatas.penz > 0 ? '+' : ''}{event.esemeny.hatas.penz.toLocaleString()} Ft
+              </div>
+            )}
+            
+            {event.esemeny.hatas.boldogsag !== undefined && event.esemeny.hatas.boldogsag !== 0 && (
+              <div className={`px-2 py-0.5 rounded-full ${
+                event.esemeny.hatas.boldogsag > 0 ? 'bg-amber-500/20 text-amber-300' : 'bg-blue-500/20 text-blue-300'
+              }`}>
+                Elégedettség: {event.esemeny.hatas.boldogsag > 0 ? '+' : ''}{event.esemeny.hatas.boldogsag}%
+              </div>
+            )}
+            
+            {event.esemeny.hatas.lakossag !== undefined && event.esemeny.hatas.lakossag !== 0 && (
+              <div className={`px-2 py-0.5 rounded-full ${
+                event.esemeny.hatas.lakossag > 0 ? 'bg-indigo-500/20 text-indigo-300' : 'bg-purple-500/20 text-purple-300'
+              }`}>
+                Lakosság: {event.esemeny.hatas.lakossag > 0 ? '+' : ''}{event.esemeny.hatas.lakossag}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </motion.div>
+  );
+};
 
 // Floating particle component
 const FloatingParticle = ({ 
@@ -673,9 +767,8 @@ class DataProcessor:
   }, []);
 
   // Add hook to fetch statistics data from API
-  useStatisztikak();
-  const { getTransformedData } = useAppStore();
-  const { charts } = getTransformedData();
+  const { data } = useLoadedData();
+  const { charts, esemenyek } = data;
 
   return (
     <div className="relative min-h-[700vh]" ref={containerRef}>
@@ -1159,7 +1252,8 @@ class DataProcessor:
               </GlowingText>
             </motion.h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* First two stat cards remain the same */}
               {[
                 { 
                   title: "Lakosság", 
@@ -1180,7 +1274,7 @@ class DataProcessor:
                       percent: charts?.korEloszlasChart && charts.altalanosMutatok.lakossagSzama ? 
                         Math.round((charts.korEloszlasChart.find(k => k.korosztaly === '19-35')?.ertek || 0) / 
                         charts.altalanosMutatok.lakossagSzama * 100) : 0
-                      },
+                    },
                     { 
                       label: "36-65 év", 
                       value: charts?.korEloszlasChart?.find(k => k.korosztaly === '36-65')?.ertek.toLocaleString() || "0", 
@@ -1216,6 +1310,16 @@ class DataProcessor:
                     value: Math.round((type.value / (charts?.altalanosMutatok?.epuletekSzama || 1)) * 100)
                   })) || []
                 },
+                // Third card shows events
+                { 
+                  title: "Események", 
+                  value: `${esemenyek?.length || 0}`, 
+                  icon: "📅", 
+                  gradient: "from-purple-500 to-indigo-300",
+                  details: [], // Empty details, we'll use custom content for events
+                  chartData: [] // Empty chart data, we'll use custom content for events
+                },
+                // Fourth card for satisfaction/elégedettség
                 { 
                   title: "Elégedettség", 
                   value: `${charts?.altalanosMutatok?.elegedettseg || 0}%`, 
@@ -1295,75 +1399,117 @@ class DataProcessor:
                     </div>
                   </div>
                   
-                  {/* Details with animated progress bars */}
-                  <div className="p-6 space-y-4">
-                    {stat.details.map((detail, idx) => (
-                      <div key={idx} className="space-y-1">
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-gray-600 dark:text-gray-300">{detail.label}</span>
-                          <span className="font-medium">{detail.value}</span>
-                        </div>
-                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                          <motion.div 
-                            className={`h-full bg-gradient-to-r ${stat.gradient}`}
-                            initial={{ width: 0 }}
-                            animate={{ width: `${detail.percent}%` }}
-                            transition={{ duration: 1.5, delay: 0.5 + (idx * 0.2) }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  {/* Animated mini chart at the bottom */}
-                  <div className="p-4 bg-white/5 border-t border-white/10">
-                    {index === 0 && (
-                      <div className="h-24 flex items-end space-x-2">
-                        {stat.chartData.map((item, idx) => (
-                          <div key={idx} className="flex-1 flex flex-col items-center">
-                            {getChartItemType(item, idx)}
-                            <span className="text-xs mt-1 text-gray-500">
-                              {'year' in item ? (typeof item.year === 'string' ? item.year : item.year.toString()) : ''}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                    
-                    {index === 1 && (
-                      <div className="h-24 w-full relative">
-                        <div className="absolute inset-0 flex">
-                          {stat.chartData.map((item, idx) => (
-                            <motion.div
-                              key={idx}
-                              className={`h-full bg-gradient-to-r ${idx % 2 === 0 ? stat.gradient : stat.gradient.replace('from-', 'from-').replace('to-', 'to-')}`}
-                              initial={{ width: 0 }}
-                              animate={{ width: `${item.value}%` }}
-                              transition={{ duration: 1.5, delay: 1 + (idx * 0.2) }}
-                              style={{ marginLeft: idx > 0 ? '-2px' : 0 }}
+                  {/* Special handling for the Events card (index 2) */}
+                  {index === 2 ? (
+                    <div className="p-4 max-h-[340px] overflow-y-auto">
+                      {esemenyek && esemenyek.length > 0 ? (
+                        <>
+                          {/* Get recent events, handling different event formats */}
+                          {esemenyek
+                            .filter(event => 
+                              event.esemeny && 
+                              // Only show real events that have actual effects, not just round-end notices
+                              (event.esemeny.tipus !== 'rendszer' || 
+                               (event.esemeny.hatas && 
+                                (event.esemeny.hatas.penz || event.esemeny.hatas.boldogsag || event.esemeny.hatas.lakossag)))
+                            )
+                            .slice(0, 4)
+                            .map((event, idx) => (
+                              <EventCard key={idx} event={event} delay={0.1 * idx} />
+                            ))
+                          }
+                          
+                          {/* Show "View more" if there are more than 4 events */}
+                          {esemenyek.length > 4 && (
+                            <motion.div 
+                              className="text-center mt-2 text-sm text-blue-400 hover:text-blue-300 cursor-pointer"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.5 }}
                             >
-                              <div className="flex h-full items-center justify-center text-xs font-medium text-white">
-                                {item.value}%
-                              </div>
+                              + {esemenyek.length - 4} további esemény...
                             </motion.div>
-                          ))}
+                          )}
+                        </>
+                      ) : (
+                        <div className="text-center py-4 text-gray-500">
+                          Nincsenek események
                         </div>
-                      </div>
-                    )}
-                    
-                    {index === 2 && (
-                      <div className="h-24 flex items-end space-x-1">
-                        {stat.chartData.map((item, idx) => (
-                          <div key={idx} className="flex-1 flex flex-col items-center">
-                            {getChartItemType(item, idx)}
-                            <span className="text-xs mt-1 text-gray-500">
-                              {'month' in item ? item.month : ''}
-                            </span>
+                      )}
+                    </div>
+                  ) : (
+                    <>
+                      {/* Standard stat card details */}
+                      <div className="p-6 space-y-4">
+                        {stat.details.map((detail, idx) => (
+                          <div key={idx} className="space-y-1">
+                            <div className="flex justify-between text-sm mb-1">
+                              <span className="text-gray-600 dark:text-gray-300">{detail.label}</span>
+                              <span className="font-medium">{detail.value}</span>
+                            </div>
+                            <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                              <motion.div 
+                                className={`h-full bg-gradient-to-r ${stat.gradient}`}
+                                initial={{ width: 0 }}
+                                animate={{ width: `${detail.percent}%` }}
+                                transition={{ duration: 1.5, delay: 0.5 + (idx * 0.2) }}
+                              />
+                            </div>
                           </div>
                         ))}
                       </div>
-                    )}
-                  </div>
+                      
+                      {/* Animated mini chart at the bottom */}
+                      <div className="p-4 bg-white/5 border-t border-white/10">
+                        {index === 0 && (
+                          <div className="h-24 flex items-end space-x-2">
+                            {stat.chartData.map((item, idx) => (
+                              <div key={idx} className="flex-1 flex flex-col items-center">
+                                {getChartItemType(item, idx)}
+                                <span className="text-xs mt-1 text-gray-500">
+                                  {'year' in item ? (typeof item.year === 'string' ? item.year : item.year.toString()) : ''}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                        
+                        {index === 1 && (
+                          <div className="h-24 w-full relative">
+                            <div className="absolute inset-0 flex">
+                              {stat.chartData.map((item, idx) => (
+                                <motion.div
+                                  key={idx}
+                                  className={`h-full bg-gradient-to-r ${idx % 2 === 0 ? stat.gradient : stat.gradient.replace('from-', 'from-').replace('to-', 'to-')}`}
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${item.value}%` }}
+                                  transition={{ duration: 1.5, delay: 1 + (idx * 0.2) }}
+                                  style={{ marginLeft: idx > 0 ? '-2px' : 0 }}
+                                >
+                                  <div className="flex h-full items-center justify-center text-xs font-medium text-white">
+                                    {item.value}%
+                                  </div>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                        
+                        {index === 3 && (
+                          <div className="h-24 flex items-end space-x-1">
+                            {stat.chartData.map((item, idx) => (
+                              <div key={idx} className="flex-1 flex flex-col items-center">
+                                {getChartItemType(item, idx)}
+                                <span className="text-xs mt-1 text-gray-500">
+                                  {'month' in item ? item.month : ''}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </>
+                  )}
                   
                   {/* Glowing border effect */}
                   <motion.div 
@@ -1381,7 +1527,7 @@ class DataProcessor:
               ))}
             </div>
             
-            {/* Updated animated fact */}
+            {/* Updated animated fact with latest actual event */}
             <motion.div
               className="mt-16 text-center max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
@@ -1392,10 +1538,46 @@ class DataProcessor:
                 <h4 className="text-xl font-medium mb-2">
                   <GlowingText gradient="from-amber-500 to-yellow-300">Tudtad?</GlowingText>
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Az {charts?.altalanosMutatok?.varosNev || 'Álomváros'} jelenleg a {charts?.altalanosMutatok?.fordulokSzama || 0}. fordulónál tart.
-                  A város célja az adatok folyamatos követése és a fenntartható fejlődés biztosítása.
-                </p>
+                {esemenyek && esemenyek.length > 0 ? (
+                  <>
+                    {/* Find the latest important event (not system event) */}
+                    {(() => {
+                      const latestEvent = esemenyek
+                        .filter(event => 
+                          event.esemeny && 
+                          event.esemeny.tipus !== 'rendszer' && 
+                          event.esemeny.nev !== 'Nem történt semmi'
+                        )
+                        .sort((a, b) => b.fordulo - a.fordulo)[0];
+                        
+                      const currentRound = Math.max(...esemenyek.map(e => e.fordulo), 0);
+                      
+                      if (latestEvent) {
+                        return (
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Az {charts?.altalanosMutatok?.varosNev || 'Álomváros'} jelenleg a {currentRound}. fordulónál tart.
+                            A legutóbbi jelentős esemény: <span className="text-amber-400 font-medium">{latestEvent.esemeny.nev}</span>. 
+                            {latestEvent.esemeny.hatas && latestEvent.esemeny.hatas.penz ? 
+                              ` Ez ${latestEvent.esemeny.hatas.penz > 0 ? 'pozitív' : 'negatív'} hatással volt a város gazdaságára.` : 
+                              ''}
+                          </p>
+                        );
+                      } else {
+                        return (
+                          <p className="text-gray-600 dark:text-gray-300">
+                            Az {charts?.altalanosMutatok?.varosNev || 'Álomváros'} jelenleg a {currentRound}. fordulónál tart.
+                            A város célja az adatok folyamatos követése és a fenntartható fejlődés biztosítása.
+                          </p>
+                        );
+                      }
+                    })()}
+                  </>
+                ) : (
+                  <p className="text-gray-600 dark:text-gray-300">
+                    Az {charts?.altalanosMutatok?.varosNev || 'Álomváros'} jelenleg a {charts?.altalanosMutatok?.fordulokSzama || 0}. fordulónál tart.
+                    A város célja az adatok folyamatos követése és a fenntartható fejlődés biztosítása.
+                  </p>
+                )}
               </div>
             </motion.div>
           </div>

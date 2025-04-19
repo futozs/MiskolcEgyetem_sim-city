@@ -106,5 +106,50 @@ export function transformEpitesekForTimeline(data: EpitesResponse) {
   });
 }
 
+/**
+ * Transform construction data for charts
+ */
+export function transformEpitesekForCharts(data: EpitesResponse) {
+  if (!data.epitesek || !Array.isArray(data.epitesek)) {
+    return {
+      epitesekData: [],
+      statusCounts: {},
+      typeCounts: {},
+    };
+  }
+  
+  // Count by status
+  const statusCounts = data.epitesek.reduce((acc, epites) => {
+    const status = epites.allapot;
+    acc[status] = (acc[status] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  // Count by type
+  const typeCounts = data.epitesek.reduce((acc, epites) => {
+    const type = epites.tipus;
+    acc[type] = (acc[type] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+  
+  // Prepare chart data
+  const epitesekData = data.epitesek.map(epites => ({
+    id: epites.azonosito,
+    name: epites.nev,
+    type: epites.tipus,
+    status: epites.allapot,
+    cost: epites.koltseg,
+    progress: epites.keszultsegi_fok,
+    startDate: new Date(epites.kezdo_datum),
+    endDate: new Date(epites.befejezo_datum),
+  }));
+  
+  return {
+    epitesekData,
+    statusCounts,
+    typeCounts
+  };
+}
+
 // Constants for the API
 export { REFRESH_INTERVAL }; 

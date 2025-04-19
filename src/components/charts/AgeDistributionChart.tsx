@@ -1,9 +1,8 @@
 'use client';
 
 import { useAppStore } from '@/store/appStore';
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { BarChart } from '@tremor/react';
 import { IconUsers } from '@tabler/icons-react';
 
 export function AgeDistributionChart() {
@@ -11,9 +10,22 @@ export function AgeDistributionChart() {
   const { charts } = getTransformedData();
   
   const [selectedAge, setSelectedAge] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   
-  // Get age distribution data
-  const ageData = charts?.korEloszlasChart || [];
+  // Get age distribution data with fallback to empty array
+  const ageData = useMemo(() => {
+    // Add a small delay to show the loading state
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 300);
+    
+    // Return the age data or empty array if not available
+    return charts?.korEloszlasChart || [
+      { korosztaly: '0-18', ertek: 0 },
+      { korosztaly: '19-39', ertek: 0 },
+      { korosztaly: '40-64', ertek: 0 },
+      { korosztaly: '65+', ertek: 0 }
+    ];
+  }, [charts]);
   
   // Get color for age group
   const getColorForAge = (age: string) => {
@@ -51,6 +63,11 @@ export function AgeDistributionChart() {
     if (totalPopulation > 0) {
       ageData.forEach(item => {
         result[item.korosztaly] = Math.round((item.ertek / totalPopulation) * 100);
+      });
+    } else {
+      // If total population is 0, set all percentages to 0
+      ageData.forEach(item => {
+        result[item.korosztaly] = 0;
       });
     }
     return result;
@@ -110,6 +127,18 @@ export function AgeDistributionChart() {
         <span className="text-sm font-medium">Korcsoportok megoszlása</span>
       </motion.div>
       
+      {/* Loading state */}
+      {isLoading && (
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center z-20 backdrop-blur-sm bg-background/50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <div className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-full animate-spin" />
+        </motion.div>
+      )}
+      
       {/* Selection info */}
       {selectedAge && (
         <motion.div 
@@ -139,24 +168,33 @@ export function AgeDistributionChart() {
       >
         <div className="h-full flex flex-col">
           <div className="flex-1 flex items-end space-x-6 py-8 px-8 relative">
-            {chartData.map((item) => (
-              <div 
-                key={item.age} 
-                className="flex-1 flex flex-col items-center cursor-pointer"
-                onClick={() => handleBarClick({ age: item.age })}
-              >
+            {chartData.map((item) => {
+              // Calculate the max value safely
+              const maxValue = Math.max(...chartData.map(d => d.value), 1);
+              // Calculate height percentage (min 5% to always show something)
+              const heightPercentage = maxValue > 0 
+                ? Math.max(5, (item.value / maxValue) * 100) 
+                : 5;
+              
+              return (
                 <div 
-                  className="w-full rounded-t-md transition-all duration-300"
-                  style={{ 
-                    backgroundColor: selectedAge === item.age ? getColorForAge(item.age) : getColorForAge(item.age),
-                    height: `${(item.value / Math.max(...chartData.map(d => d.value))) * 180}px`,
-                    opacity: selectedAge && selectedAge !== item.age ? 0.5 : 1
-                  }}
-                />
-                <div className="mt-2 text-xs text-center">{item.age}</div>
-                <div className="mt-1 text-xs text-foreground/70">{item.value.toLocaleString()} fő</div>
-              </div>
-            ))}
+                  key={item.age} 
+                  className="flex-1 flex flex-col items-center cursor-pointer"
+                  onClick={() => handleBarClick({ age: item.age })}
+                >
+                  <div 
+                    className="w-full rounded-t-md transition-all duration-300"
+                    style={{ 
+                      backgroundColor: selectedAge === item.age ? getColorForAge(item.age) : getColorForAge(item.age),
+                      height: `${heightPercentage * 1.8}px`, // Max height 180px
+                      opacity: selectedAge && selectedAge !== item.age ? 0.5 : 1
+                    }}
+                  />
+                  <div className="mt-2 text-xs text-center">{item.age}</div>
+                  <div className="mt-1 text-xs text-foreground/70">{item.value.toLocaleString()} fő</div>
+                </div>
+              );
+            })}
 
             {/* Grid lines */}
             <div className="absolute inset-0 flex flex-col justify-between pointer-events-none">
