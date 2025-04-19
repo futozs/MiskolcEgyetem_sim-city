@@ -1,5 +1,391 @@
 [
   {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Adóbevétel: 674,705,280 Ft",
+      "leiras": "Adóbevétel: 674,705,280 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "leiras": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Épületek összköltsége: 15,258,000 Ft",
+      "leiras": "Épületek összköltsége: 15,258,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Lakosságszám növekedés: +933 fő",
+      "leiras": "Lakosságszám növekedés: +933 fő",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Közlekedés karbantartás: 35,215,559 Ft",
+      "leiras": "Közlekedés karbantartás: 35,215,559 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Közművek karbantartás: 34,863,404 Ft",
+      "leiras": "Közművek karbantartás: 34,863,404 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Kommunikáció karbantartás: 34,514,770 Ft",
+      "leiras": "Kommunikáció karbantartás: 34,514,770 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Energia karbantartás: 34,169,622 Ft",
+      "leiras": "Energia karbantartás: 34,169,622 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 17,
+    "esemeny": {
+      "nev": "Külső esemény: {'nev': 'Kulturális örökség veszélyben', 'leiras': 'A város kulturális öröksége veszélybe került.', 'valoszinuseg': 0.2, 'hatas': {'penz': -11068000, 'boldogsag': -5}, 'id': 'kulturalis_18_6925', 'tipus': 'kulturalis', 'idopecset': '2025-04-18T22:33:34.776939', 'fordulo': 18}",
+      "leiras": "Külső esemény: {'nev': 'Kulturális örökség veszélyben', 'leiras': 'A város kulturális öröksége veszélybe került.', 'valoszinuseg': 0.2, 'hatas': {'penz': -11068000, 'boldogsag': -5}, 'id': 'kulturalis_18_6925', 'tipus': 'kulturalis', 'idopecset': '2025-04-18T22:33:34.776939', 'fordulo': 18}",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Hőhullám",
+      "leiras": "Rekordmagas hőmérséklet sújtja a várost.",
+      "valoszinuseg": 0.4,
+      "hatas": {
+        "penz": -5295000,
+        "boldogsag": -10,
+        "kornyezet": -5,
+        "lakossag": -100
+      },
+      "id": "katasztrofa_7_1937",
+      "tipus": "katasztrofa",
+      "idopecset": "2025-04-18T21:15:24.994048",
+      "fordulo": 7
+    }
+  },
+  {
+    "fordulo": 8,
+    "esemeny": {
+      "nev": "Jó időjárás",
+      "leiras": "A kiváló időjárás kedvez a mezőgazdaságnak és a turizmusnak.",
+      "valoszinuseg": 0.4,
+      "hatas": {
+        "penz": 1100000,
+        "boldogsag": 5,
+        "kornyezet": 2
+      },
+      "id": "termeszeti_8_2534",
+      "tipus": "termeszeti",
+      "idopecset": "2025-04-18T21:15:33.996013",
+      "fordulo": 8
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Adóbevétel: 137,280,000 Ft",
+      "leiras": "Adóbevétel: 137,280,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "leiras": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Épületek összköltsége: 15,258,000 Ft",
+      "leiras": "Épületek összköltsége: 15,258,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Lakosságszám növekedés: +170 fő",
+      "leiras": "Lakosságszám növekedés: +170 fő",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Közlekedés karbantartás: 6,061,719 Ft",
+      "leiras": "Közlekedés karbantartás: 6,061,719 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Közművek karbantartás: 6,001,102 Ft",
+      "leiras": "Közművek karbantartás: 6,001,102 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Kommunikáció karbantartás: 5,941,091 Ft",
+      "leiras": "Kommunikáció karbantartás: 5,941,091 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Energia karbantartás: 5,881,680 Ft",
+      "leiras": "Energia karbantartás: 5,881,680 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 7,
+    "esemeny": {
+      "nev": "Külső esemény: {'nev': 'Jó időjárás', 'leiras': 'A kiváló időjárás kedvez a mezőgazdaságnak és a turizmusnak.', 'valoszinuseg': 0.4, 'hatas': {'penz': 1100000, 'boldogsag': 5, 'kornyezet': 2}, 'id': 'termeszeti_8_2534', 'tipus': 'termeszeti', 'idopecset': '2025-04-18T21:15:33.996013', 'fordulo': 8}",
+      "leiras": "Külső esemény: {'nev': 'Jó időjárás', 'leiras': 'A kiváló időjárás kedvez a mezőgazdaságnak és a turizmusnak.', 'valoszinuseg': 0.4, 'hatas': {'penz': 1100000, 'boldogsag': 5, 'kornyezet': 2}, 'id': 'termeszeti_8_2534', 'tipus': 'termeszeti', 'idopecset': '2025-04-18T21:15:33.996013', 'fordulo': 8}",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Adóbevétel: 109,326,074 Ft",
+      "leiras": "Adóbevétel: 109,326,074 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "leiras": "Szolgáltatások összköltsége: 1,000,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Épületek összköltsége: 15,258,000 Ft",
+      "leiras": "Épületek összköltsége: 15,258,000 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Lakosságszám növekedés: +128 fő",
+      "leiras": "Lakosságszám növekedés: +128 fő",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Közlekedés karbantartás: 4,288,501 Ft",
+      "leiras": "Közlekedés karbantartás: 4,288,501 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Közművek karbantartás: 4,245,616 Ft",
+      "leiras": "Közművek karbantartás: 4,245,616 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Kommunikáció karbantartás: 4,203,160 Ft",
+      "leiras": "Kommunikáció karbantartás: 4,203,160 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Energia karbantartás: 4,161,128 Ft",
+      "leiras": "Energia karbantartás: 4,161,128 Ft",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
+    "fordulo": 5,
+    "esemeny": {
+      "nev": "Külső esemény: {'nev': 'Politikai botrány', 'leiras': 'Politikai botrány rázta meg a várost.', 'valoszinuseg': 0.2, 'hatas': {'boldogsag': -10, 'kozbizonsag_szint': -5}, 'id': 'politikai_6_5315', 'tipus': 'politikai', 'idopecset': '2025-04-18T21:06:39.155394', 'fordulo': 6}",
+      "leiras": "Külső esemény: {'nev': 'Politikai botrány', 'leiras': 'Politikai botrány rázta meg a várost.', 'valoszinuseg': 0.2, 'hatas': {'boldogsag': -10, 'kozbizonsag_szint': -5}, 'id': 'politikai_6_5315', 'tipus': 'politikai', 'idopecset': '2025-04-18T21:06:39.155394', 'fordulo': 6}",
+      "tipus": "rendszer",
+      "hatas": {
+        "penz": 0,
+        "boldogsag": 0,
+        "lakossag": 0
+      }
+    }
+  },
+  {
     "fordulo": 1,
     "esemeny": {
       "nev": "Kulturális örökség veszélyben",

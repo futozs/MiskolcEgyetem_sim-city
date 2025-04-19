@@ -6,6 +6,8 @@ import sys
 import argparse
 import glob
 from datetime import datetime
+import tkinter as tk
+from tkinter import messagebox
 
 # Projekt gyökér könyvtár hozzáadása a Python úthoz
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -16,6 +18,15 @@ from alomvaros_szimulator.game.game_engine import GameEngine
 from alomvaros_szimulator.game.fordulo_manager import ForduloManager
 from alomvaros_szimulator.game.event_manager import EventManager
 from alomvaros_szimulator.config import BEALLITASOK, EPULETEK_CSV, SZOLGALTATASOK_CSV, LAKOSOK_CSV
+
+# Importáljuk az API szervert
+try:
+    from backend_server import run_server, connect_to_game_engine
+    api_server_available = True
+    print("Backend API szerver sikeresen importálva")
+except ImportError:
+    api_server_available = False
+    print("Backend API szerver nem elérhető")
 
 
 def parse_arguments():
@@ -31,6 +42,7 @@ def parse_arguments():
     - --fordulok: Futtatandó fordulók száma (automatikus futtatás esetén)
     - --autosave: Automatikus mentés bekapcsolása minden forduló után
     - --exportcsv: Projektek exportálása CSV-be a futtatás végén
+    - --noapi: Backend API szerver ne induljon el
     
     :return: Feldolgozott argumentumok
     """
@@ -47,6 +59,8 @@ def parse_arguments():
     parser.add_argument('--importepulet', type=str, default=None, help='Épületek importálása a megadott CSV fájlból')
     parser.add_argument('--importszolgaltatas', type=str, default=None, help='Szolgáltatások importálása a megadott CSV fájlból')
     parser.add_argument('--importlakos', type=str, default=None, help='Lakosok importálása a megadott CSV fájlból')
+    parser.add_argument('--noapi', action='store_true', help='Backend API szerver ne induljon el')
+    parser.add_argument('--apiport', type=int, default=6666, help='Backend API szerver port (alapértelmezett: 6666)')
     
     return parser.parse_args()
 
@@ -144,6 +158,21 @@ def command_line_mode(args):
         )
         print(f"Betöltött elemek száma: {betoltott_elemek}")
         
+        # Backend API szerver indítása, ha engedélyezve van
+        api_thread = None
+        if api_server_available and not args.noapi:
+            try:
+                # Nem-blokkoló indítás, nem várunk semmire
+                api_thread = run_server(port=args.apiport)
+                if api_thread:
+                    print(f"Backend API szerver inicializálva a {args.apiport} porton")
+                else:
+                    print("Backend API szerver nem tudott inicializálódni")
+            except Exception as e:
+                print(f"Hiba a Backend API szerver indításakor: {str(e)}")
+                import traceback
+                traceback.print_exc()
+        
         for i in range(args.fordulok):
             print(f"\n--- {i+1}. forduló ---")
             
@@ -190,6 +219,69 @@ def command_line_mode(args):
     print("=" * 60)
 
 
+class ApiServerManager:
+    """
+    API szerver kezelő osztály, amely lehetővé teszi a szerver késleltetett indítását
+    """
+    def __init__(self, args):
+        self.args = args
+        self.api_thread = None
+        self.initialized = False
+    
+    def start_server(self):
+        """
+        Elindítja a szervert, ha még nem indult el
+        """
+        if self.initialized or not api_server_available or self.args.noapi:
+            return
+        
+        try:
+            # Nem-blokkoló indítás, nem várunk semmire
+            self.api_thread = run_server(port=self.args.apiport)
+            if self.api_thread:
+                print(f"Backend API szerver inicializálva a http://localhost:{self.args.apiport} címen")
+            else:
+                print("Backend API szerver nem tudott inicializálódni. Próbáld később újra.")
+            
+            self.initialized = True
+        except Exception as e:
+            print(f"Hiba a Backend API szerver indításakor: {str(e)}")
+            import traceback
+            traceback.print_exc()
+
+
+def extend_main_window(MainWindow, api_server_manager):
+    """
+    MainWindow osztály kibővítése API szerver integrációval
+    """
+    original_update_ui = MainWindow._update_ui
+    
+    def new_update_ui(self):
+        # Eredeti UI frissítés
+        result = original_update_ui(self)
+        
+        # Ha van aktív játék, biztosítsuk, hogy az API szerver kapcsolódjon hozzá
+        if self.game_engine and hasattr(self.game_engine, 'varos') and self.game_engine.varos:
+            # Csak akkor frissítjük az API kapcsolatot, ha van aktív játék
+            if hasattr(self.game_engine, 'jatek_aktiv') and self.game_engine.jatek_aktiv:
+                # Indítjuk az API szervert, ha még nem fut
+                api_server_manager.start_server()
+                
+                try:
+                    # Kapcsolódás a játékmotorhoz - ez frissíti az API-t a legújabb adatokkal
+                    if api_server_available:
+                        connect_to_game_engine(self.game_engine)
+                except Exception as e:
+                    # Hibakezelés - nem kritikus, csak logoljuk
+                    print(f"API szerver frissítési hiba: {str(e)}")
+        
+        return result
+    
+    # Frissítsük a MainWindow osztály _update_ui metódusát
+    MainWindow._update_ui = new_update_ui
+    return MainWindow
+
+
 def main():
     """
     Fő program belépési pont
@@ -202,8 +294,14 @@ def main():
         # Parancssori mód
         command_line_mode(args)
     else:
+        # API szerver kezelő létrehozása
+        api_server_manager = ApiServerManager(args)
+        
+        # MainWindow osztály kiterjesztése az API szerver indítási képességgel
+        ExtendedMainWindow = extend_main_window(MainWindow, api_server_manager)
+        
         # Grafikus felület
-        app = MainWindow()
+        app = ExtendedMainWindow()
         
         # Felülírjuk az eredeti print függvényt, hogy a GUI naplóba is írja az üzeneteket
         eredeti_print = print

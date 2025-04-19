@@ -2013,6 +2013,13 @@ class MainWindow:
             # Forduló számláló frissítése
             self.fordulo_szamlalo = self.game_engine.fordulo_szamlalo
             
+            # Történeti adatok frissítése
+            if hasattr(self.game_engine, 'varos') and self.game_engine.varos:
+                self.city_happiness_history.append(self.game_engine.varos.lakossag_elegedettseg)
+                self.city_population_history.append(self.game_engine.varos.lakosok_szama)
+                self.city_budget_history.append(self.game_engine.varos.penzugyi_keret)
+                self.turns_history.append(self.fordulo_szamlalo)
+            
             # UI frissítése a forduló változások alapján
             self._update_ui()
             
@@ -2032,6 +2039,18 @@ class MainWindow:
             # Események megjelenítése, ha vannak
             if fordulo_esemenyek:
                 self._show_events(fordulo_esemenyek)
+            
+            # API frissítése az új fordulóval
+            try:
+                # Megpróbáljuk importálni és használni a connect_to_game_engine funkciót
+                from alomvaros_szimulator.backend_server import connect_to_game_engine
+                connect_to_game_engine(self.game_engine)
+            except ImportError:
+                # Ha nem sikerül importálni, akkor nincs API szerver
+                pass
+            except Exception as e:
+                # Ha más hiba történik, akkor logoljuk, de folytatjuk
+                print(f"API frissítési hiba: {str(e)}")
                 
         except Exception as e:
             print(f"Hiba a forduló végrehajtása során: {e}")

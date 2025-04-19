@@ -144,6 +144,29 @@ A szimulátort kétféle módon indíthatja el:
 
 ## API Dokumentáció
 
+### Backend API szerver
+
+A játék beépített API szerverrel rendelkezik, amely lehetővé teszi a játékadatok lekérdezését JSON formátumban. A szerver automatikusan elindul, amikor a játék indul, és a 6666-os porton fut.
+
+#### API Végpontok
+
+- `/epuletek` - Épületek lekérdezése
+- `/epitesek` - Folyamatban lévő építések lekérdezése
+- `/statisztikak` - Város statisztikáinak lekérdezése
+- `/varos` - Város általános adatainak lekérdezése
+- `/esemenyek` - Város eseményeinek lekérdezése (fordulók szerint)
+
+Részletes dokumentáció: [API-README.md](alomvaros_szimulator/API-README.md)
+
+Az API használat példa:
+```bash
+# Események lekérdezése
+curl http://localhost:6666/esemenyek
+
+# Város statisztikák lekérdezése
+curl http://localhost:6666/statisztikak
+```
+
 ### Főbb osztályok
 
 #### `GameEngine`

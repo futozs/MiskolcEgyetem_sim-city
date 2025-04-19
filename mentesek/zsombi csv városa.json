@@ -1,0 +1,5237 @@
+{
+    "jatekos_nev": "Játékos",
+    "fordulo_szamlalo": 2,
+    "jatek_fut": true,
+    "mentes_idopontja": "2025-04-17T13:59:03.009839",
+    "varos": {
+        "nev": "CSV Város",
+        "penzugyi_keret": 167650010.340797,
+        "penzugyek": {
+            "egyenleg": 167650010.340797,
+            "bevetel_lista": [
+                {
+                    "datum": null,
+                    "osszeg": 8000000,
+                    "tipus": "bevétel",
+                    "leiras": "Esemény bevétel: Új befektetők"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 38000000.0,
+                    "tipus": "bevétel",
+                    "leiras": "Havi adóbevétel"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 2000000,
+                    "tipus": "bevétel",
+                    "leiras": "Esemény bevétel: Kulturális fesztivál"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 50798338.34713676,
+                    "tipus": "bevétel",
+                    "leiras": "Havi adóbevétel"
+                }
+            ],
+            "koltseg_lista": [
+                {
+                    "datum": null,
+                    "osszeg": 0,
+                    "tipus": "költség",
+                    "leiras": "Szolgáltatások fenntartási költsége"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 2353000,
+                    "tipus": "költség",
+                    "leiras": "Épületek fenntartási költsége"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 1000000,
+                    "tipus": "költség",
+                    "leiras": "Szolgáltatások fenntartási költsége"
+                },
+                {
+                    "datum": null,
+                    "osszeg": 15258000,
+                    "tipus": "költség",
+                    "leiras": "Épületek fenntartási költsége"
+                }
+            ],
+            "kulso_tamogatasok": []
+        },
+        "lakosok_szama": 631,
+        "lakossag_elegedettseg": 100,
+        "adosav": 20,
+        "fordulok_szama": 2,
+        "epuletek": {
+            "1": {
+                "azonosito": 1,
+                "nev": "Központi Lakótelep",
+                "tipus": "lakóház",
+                "alapterulet": 5000,
+                "allapot": "kiváló",
+                "epitesi_datum": "2025-04-17"
+            },
+            "2": {
+                "azonosito": 2,
+                "nev": "Városháza",
+                "tipus": "középület",
+                "alapterulet": 2000,
+                "allapot": "kiváló",
+                "epitesi_datum": "2025-04-17"
+            },
+            "3": {
+                "azonosito": 3,
+                "nev": "Debreceni Nagytemplom",
+                "tipus": "Vallási",
+                "alapterulet": 1200,
+                "allapot": "megfelelő",
+                "epitesi_datum": "1824-01-01"
+            },
+            "6": {
+                "azonosito": 6,
+                "nev": "Panel",
+                "tipus": "Lakóépület",
+                "alapterulet": 54200,
+                "allapot": "megfelelő",
+                "epitesi_datum": "2009-01-01"
+            }
+        },
+        "szolgaltatasok": {
+            "1": {
+                "azonosito": 1,
+                "nev": "Kutatási Központ",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "2": {
+                "azonosito": 2,
+                "nev": "Zenei Előadás",
+                "tipus": "Színház",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "3": {
+                "azonosito": 3,
+                "nev": "Állandó Kiállítás",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "4": {
+                "azonosito": 4,
+                "nev": "Kutatási Központ",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "5": {
+                "azonosito": 5,
+                "nev": "Művészeti Workshop",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "6": {
+                "azonosito": 6,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Tudományos intézet",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "7": {
+                "azonosito": 7,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Oktatási intézmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "8": {
+                "azonosito": 8,
+                "nev": "Zenei Kurzus",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "9": {
+                "azonosito": 9,
+                "nev": "Művészeti Program",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "10": {
+                "azonosito": 10,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "11": {
+                "azonosito": 11,
+                "nev": "Művészeti Workshop",
+                "tipus": "Művészeti galéria",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "12": {
+                "azonosito": 12,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "13": {
+                "azonosito": 13,
+                "nev": "Kutatási Központ",
+                "tipus": "Kulturális bemutató",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "14": {
+                "azonosito": 14,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Kiállítóterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "15": {
+                "azonosito": 15,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "16": {
+                "azonosito": 16,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Kiállítóterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "17": {
+                "azonosito": 17,
+                "nev": "Zenei Előadás",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "18": {
+                "azonosito": 18,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Színház",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "19": {
+                "azonosito": 19,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Kulturális központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "20": {
+                "azonosito": 20,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Koncertterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "21": {
+                "azonosito": 21,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kulturális központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "22": {
+                "azonosito": 22,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Történelmi emlékhely",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "23": {
+                "azonosito": 23,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Szabadtéri helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "24": {
+                "azonosito": 24,
+                "nev": "Művészeti Program",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "25": {
+                "azonosito": 25,
+                "nev": "Zenei Kurzus",
+                "tipus": "Oktatási intézmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "26": {
+                "azonosito": 26,
+                "nev": "Történelmi Séta",
+                "tipus": "Történelmi emlékhely",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "27": {
+                "azonosito": 27,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "28": {
+                "azonosito": 28,
+                "nev": "Kutatási Központ",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "29": {
+                "azonosito": 29,
+                "nev": "Állandó Kiállítás",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "30": {
+                "azonosito": 30,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "31": {
+                "azonosito": 31,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "32": {
+                "azonosito": 32,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "33": {
+                "azonosito": 33,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Kulturális bemutató",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "34": {
+                "azonosito": 34,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Oktatási intézmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "35": {
+                "azonosito": 35,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "36": {
+                "azonosito": 36,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "37": {
+                "azonosito": 37,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "38": {
+                "azonosito": 38,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kiállítóterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "39": {
+                "azonosito": 39,
+                "nev": "Művészeti Program",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "40": {
+                "azonosito": 40,
+                "nev": "Művészeti Workshop",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "41": {
+                "azonosito": 41,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Kiállítóterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "42": {
+                "azonosito": 42,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "43": {
+                "azonosito": 43,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "44": {
+                "azonosito": 44,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Koncertterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "45": {
+                "azonosito": 45,
+                "nev": "Művészeti Program",
+                "tipus": "Oktatási intézmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "46": {
+                "azonosito": 46,
+                "nev": "Kutatási Központ",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "47": {
+                "azonosito": 47,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "48": {
+                "azonosito": 48,
+                "nev": "Művészeti Program",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "49": {
+                "azonosito": 49,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "50": {
+                "azonosito": 50,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "51": {
+                "azonosito": 51,
+                "nev": "Művészeti Program",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "52": {
+                "azonosito": 52,
+                "nev": "Zenei Kurzus",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "53": {
+                "azonosito": 53,
+                "nev": "Zenei Előadás",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "54": {
+                "azonosito": 54,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "55": {
+                "azonosito": 55,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "56": {
+                "azonosito": 56,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "57": {
+                "azonosito": 57,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Tudományos intézet",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "58": {
+                "azonosito": 58,
+                "nev": "Zenei Kurzus",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "59": {
+                "azonosito": 59,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "60": {
+                "azonosito": 60,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kulturális bemutató",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "61": {
+                "azonosito": 61,
+                "nev": "Történelmi Séta",
+                "tipus": "Történelmi emlékhely",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "62": {
+                "azonosito": 62,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "63": {
+                "azonosito": 63,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Kiállítóterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "64": {
+                "azonosito": 64,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "65": {
+                "azonosito": 65,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Kulturális központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "66": {
+                "azonosito": 66,
+                "nev": "Művészeti Workshop",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "67": {
+                "azonosito": 67,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Színház",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "68": {
+                "azonosito": 68,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "69": {
+                "azonosito": 69,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "70": {
+                "azonosito": 70,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Kulturális központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "71": {
+                "azonosito": 71,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Történelmi emlékhely",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "72": {
+                "azonosito": 72,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Tudományos intézet",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "73": {
+                "azonosito": 73,
+                "nev": "Zenei Előadás",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "74": {
+                "azonosito": 74,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Fürdő",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "75": {
+                "azonosito": 75,
+                "nev": "Tudományos Gyűjtemény",
+                "tipus": "Tudományos intézet",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "76": {
+                "azonosito": 76,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "77": {
+                "azonosito": 77,
+                "nev": "Kulturális Est",
+                "tipus": "Oktatási központ",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "78": {
+                "azonosito": 78,
+                "nev": "Zenei Kurzus",
+                "tipus": "Fürdő",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "79": {
+                "azonosito": 79,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "80": {
+                "azonosito": 80,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "81": {
+                "azonosito": 81,
+                "nev": "Időszaki Tárlat",
+                "tipus": "Koncertterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "82": {
+                "azonosito": 82,
+                "nev": "Kutatási Központ",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "83": {
+                "azonosito": 83,
+                "nev": "Kulturális Bemutató",
+                "tipus": "Vallási helyszín",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "84": {
+                "azonosito": 84,
+                "nev": "Zenei Kurzus",
+                "tipus": "Oktatási intézmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "85": {
+                "azonosito": 85,
+                "nev": "Kutatási Központ",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "86": {
+                "azonosito": 86,
+                "nev": "Kutatási Központ",
+                "tipus": "Múzeum",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "87": {
+                "azonosito": 87,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "88": {
+                "azonosito": 88,
+                "nev": "Zenei Kurzus",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "89": {
+                "azonosito": 89,
+                "nev": "Kutatási Központ",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "90": {
+                "azonosito": 90,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "91": {
+                "azonosito": 91,
+                "nev": "Könyvtári Szolgáltatás",
+                "tipus": "Színház",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "92": {
+                "azonosito": 92,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Könyvtár",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "93": {
+                "azonosito": 93,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "94": {
+                "azonosito": 94,
+                "nev": "Dokumentációs Központ",
+                "tipus": "Fürdő",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "95": {
+                "azonosito": 95,
+                "nev": "Történelmi Kiállítás",
+                "tipus": "Sportlétesítmény",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "96": {
+                "azonosito": 96,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Kiállítási tér",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "97": {
+                "azonosito": 97,
+                "nev": "Oktatási Bemutató",
+                "tipus": "Zeneiskola",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "98": {
+                "azonosito": 98,
+                "nev": "Művészeti Program",
+                "tipus": "Kulturális örökség",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "99": {
+                "azonosito": 99,
+                "nev": "Zenei Kurzus",
+                "tipus": "Rendezvényterem",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            },
+            "100": {
+                "azonosito": 100,
+                "nev": "Interaktív Múzeum",
+                "tipus": "Fürdő",
+                "havi_koltseg": 10000,
+                "elegedettseg_hatas": 5,
+                "lakossag_hatas": 0,
+                "ertek": 1,
+                "indulas_datum": "2025-04-17",
+                "aktiv": true
+            }
+        },
+        "lakossag": {
+            "9": {
+                "azonosito": 9,
+                "nev": "Kardos Magdolna",
+                "eletkor": 56,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "10": {
+                "azonosito": 10,
+                "nev": "Nagy Árpád",
+                "eletkor": 61,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "11": {
+                "azonosito": 11,
+                "nev": "Lukács Krisztina",
+                "eletkor": 3,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "12": {
+                "azonosito": 12,
+                "nev": "Pálmai Krisztina",
+                "eletkor": 29,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "13": {
+                "azonosito": 13,
+                "nev": "Kardos Árpád",
+                "eletkor": 29,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "14": {
+                "azonosito": 14,
+                "nev": "Kocsis Ilona",
+                "eletkor": 37,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "15": {
+                "azonosito": 15,
+                "nev": "Fodor Lajos",
+                "eletkor": 22,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "16": {
+                "azonosito": 16,
+                "nev": "Papp Virág",
+                "eletkor": 72,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "17": {
+                "azonosito": 17,
+                "nev": "Kovács Eszter",
+                "eletkor": 40,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "18": {
+                "azonosito": 18,
+                "nev": "Magyar Zoltán",
+                "eletkor": 48,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "19": {
+                "azonosito": 19,
+                "nev": "Szabó József",
+                "eletkor": 63,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "20": {
+                "azonosito": 20,
+                "nev": "Horváth Anna",
+                "eletkor": 35,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "21": {
+                "azonosito": 21,
+                "nev": "Nagy Péter",
+                "eletkor": 25,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "22": {
+                "azonosito": 22,
+                "nev": "Kiss Katalin",
+                "eletkor": 50,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "23": {
+                "azonosito": 23,
+                "nev": "Fehér Mihály",
+                "eletkor": 45,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "24": {
+                "azonosito": 24,
+                "nev": "Varga Edit",
+                "eletkor": 30,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "25": {
+                "azonosito": 25,
+                "nev": "Balogh Ferenc",
+                "eletkor": 64,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "26": {
+                "azonosito": 26,
+                "nev": "Lakatos Dóra",
+                "eletkor": 37,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "27": {
+                "azonosito": 27,
+                "nev": "Kis Hanna",
+                "eletkor": 71,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "28": {
+                "azonosito": 28,
+                "nev": "Horváth Ferenc",
+                "eletkor": 54,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "29": {
+                "azonosito": 29,
+                "nev": "Németh Béla",
+                "eletkor": 25,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "30": {
+                "azonosito": 30,
+                "nev": "Kovács László",
+                "eletkor": 48,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "31": {
+                "azonosito": 31,
+                "nev": "Molnár Mária",
+                "eletkor": 57,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "32": {
+                "azonosito": 32,
+                "nev": "Lakatos István",
+                "eletkor": 40,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "33": {
+                "azonosito": 33,
+                "nev": "Takács János",
+                "eletkor": 75,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "34": {
+                "azonosito": 34,
+                "nev": "Németh István",
+                "eletkor": 77,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "35": {
+                "azonosito": 35,
+                "nev": "Szilágyi László",
+                "eletkor": 45,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "36": {
+                "azonosito": 36,
+                "nev": "Németh Béla",
+                "eletkor": 40,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "37": {
+                "azonosito": 37,
+                "nev": "Szabó János",
+                "eletkor": 55,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "38": {
+                "azonosito": 38,
+                "nev": "Szilágyi Péter",
+                "eletkor": 37,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "39": {
+                "azonosito": 39,
+                "nev": "Molnár Péter",
+                "eletkor": 65,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "40": {
+                "azonosito": 40,
+                "nev": "Horváth Katalin",
+                "eletkor": 78,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "41": {
+                "azonosito": 41,
+                "nev": "Szilágyi István",
+                "eletkor": 40,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "42": {
+                "azonosito": 42,
+                "nev": "Papp Mária",
+                "eletkor": 22,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "43": {
+                "azonosito": 43,
+                "nev": "Varga Anna",
+                "eletkor": 74,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "44": {
+                "azonosito": 44,
+                "nev": "Varga Hanna",
+                "eletkor": 53,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "45": {
+                "azonosito": 45,
+                "nev": "Lakatos János",
+                "eletkor": 71,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "46": {
+                "azonosito": 46,
+                "nev": "Kovács Hanna",
+                "eletkor": 25,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "47": {
+                "azonosito": 47,
+                "nev": "Takács Csaba",
+                "eletkor": 63,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "48": {
+                "azonosito": 48,
+                "nev": "Lakatos Dóra",
+                "eletkor": 40,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "49": {
+                "azonosito": 49,
+                "nev": "Nagy Ottó",
+                "eletkor": 38,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "50": {
+                "azonosito": 50,
+                "nev": "Juhász László",
+                "eletkor": 72,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "51": {
+                "azonosito": 51,
+                "nev": "Lakatos Dóra",
+                "eletkor": 44,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "52": {
+                "azonosito": 52,
+                "nev": "Horváth László",
+                "eletkor": 29,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "53": {
+                "azonosito": 53,
+                "nev": "Molnár Ottó",
+                "eletkor": 75,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "54": {
+                "azonosito": 54,
+                "nev": "Molnár Béla",
+                "eletkor": 67,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "55": {
+                "azonosito": 55,
+                "nev": "Takács Anna",
+                "eletkor": 66,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "56": {
+                "azonosito": 56,
+                "nev": "Szilágyi László",
+                "eletkor": 73,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "57": {
+                "azonosito": 57,
+                "nev": "Németh Dóra",
+                "eletkor": 31,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "58": {
+                "azonosito": 58,
+                "nev": "Varga Béla",
+                "eletkor": 34,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "59": {
+                "azonosito": 59,
+                "nev": "Takács Nóra",
+                "eletkor": 48,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "60": {
+                "azonosito": 60,
+                "nev": "Papp Péter",
+                "eletkor": 25,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "61": {
+                "azonosito": 61,
+                "nev": "Molnár Béla",
+                "eletkor": 23,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "62": {
+                "azonosito": 62,
+                "nev": "Horváth Ferenc",
+                "eletkor": 44,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "63": {
+                "azonosito": 63,
+                "nev": "Szabó Ottó",
+                "eletkor": 33,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "64": {
+                "azonosito": 64,
+                "nev": "Papp Elemér",
+                "eletkor": 79,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "65": {
+                "azonosito": 65,
+                "nev": "Kovács László",
+                "eletkor": 66,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "66": {
+                "azonosito": 66,
+                "nev": "Takács Ottó",
+                "eletkor": 48,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "67": {
+                "azonosito": 67,
+                "nev": "Nagy Csaba",
+                "eletkor": 68,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "68": {
+                "azonosito": 68,
+                "nev": "Nagy Hanna",
+                "eletkor": 76,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "69": {
+                "azonosito": 69,
+                "nev": "Varga Anna",
+                "eletkor": 56,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "70": {
+                "azonosito": 70,
+                "nev": "Varga István",
+                "eletkor": 24,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "71": {
+                "azonosito": 71,
+                "nev": "Varga Csaba",
+                "eletkor": 69,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "72": {
+                "azonosito": 72,
+                "nev": "Németh János",
+                "eletkor": 32,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "73": {
+                "azonosito": 73,
+                "nev": "Tóth Péter",
+                "eletkor": 37,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "74": {
+                "azonosito": 74,
+                "nev": "Balogh László",
+                "eletkor": 79,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "75": {
+                "azonosito": 75,
+                "nev": "Nagy Péter",
+                "eletkor": 70,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "76": {
+                "azonosito": 76,
+                "nev": "Kis Ottó",
+                "eletkor": 74,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "77": {
+                "azonosito": 77,
+                "nev": "Kis Ferenc",
+                "eletkor": 40,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "78": {
+                "azonosito": 78,
+                "nev": "Kis Csaba",
+                "eletkor": 58,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "79": {
+                "azonosito": 79,
+                "nev": "Szilágyi Anna",
+                "eletkor": 37,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "80": {
+                "azonosito": 80,
+                "nev": "Horváth László",
+                "eletkor": 44,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "81": {
+                "azonosito": 81,
+                "nev": "Szabó István",
+                "eletkor": 45,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "82": {
+                "azonosito": 82,
+                "nev": "Balogh Katalin",
+                "eletkor": 65,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "83": {
+                "azonosito": 83,
+                "nev": "Balogh László",
+                "eletkor": 35,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "84": {
+                "azonosito": 84,
+                "nev": "Kis Katalin",
+                "eletkor": 19,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "85": {
+                "azonosito": 85,
+                "nev": "Papp Dóra",
+                "eletkor": 80,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "86": {
+                "azonosito": 86,
+                "nev": "Kis Ferenc",
+                "eletkor": 48,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "87": {
+                "azonosito": 87,
+                "nev": "Tóth Dóra",
+                "eletkor": 21,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "88": {
+                "azonosito": 88,
+                "nev": "Németh Dóra",
+                "eletkor": 44,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "89": {
+                "azonosito": 89,
+                "nev": "Nagy Elemér",
+                "eletkor": 22,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "90": {
+                "azonosito": 90,
+                "nev": "Papp Csaba",
+                "eletkor": 59,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "91": {
+                "azonosito": 91,
+                "nev": "Németh Ottó",
+                "eletkor": 36,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "92": {
+                "azonosito": 92,
+                "nev": "Kovács Gábor",
+                "eletkor": 74,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "93": {
+                "azonosito": 93,
+                "nev": "Kovács János",
+                "eletkor": 58,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "94": {
+                "azonosito": 94,
+                "nev": "Kis Nóra",
+                "eletkor": 55,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "95": {
+                "azonosito": 95,
+                "nev": "Papp István",
+                "eletkor": 69,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "96": {
+                "azonosito": 96,
+                "nev": "Szilágyi Csaba",
+                "eletkor": 34,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "97": {
+                "azonosito": 97,
+                "nev": "Tóth Hanna",
+                "eletkor": 27,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "98": {
+                "azonosito": 98,
+                "nev": "Kis Péter",
+                "eletkor": 18,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "99": {
+                "azonosito": 99,
+                "nev": "Balogh Béla",
+                "eletkor": 52,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "100": {
+                "azonosito": 100,
+                "nev": "Papp Katalin",
+                "eletkor": 70,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "101": {
+                "azonosito": 101,
+                "nev": "Szabó Dóra",
+                "eletkor": 73,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "102": {
+                "azonosito": 102,
+                "nev": "Varga Dóra",
+                "eletkor": 41,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "103": {
+                "azonosito": 103,
+                "nev": "Szabó Gábor",
+                "eletkor": 62,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "104": {
+                "azonosito": 104,
+                "nev": "Kovács Dóra",
+                "eletkor": 58,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "105": {
+                "azonosito": 105,
+                "nev": "Tóth Gábor",
+                "eletkor": 18,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "106": {
+                "azonosito": 106,
+                "nev": "Takács Dóra",
+                "eletkor": 44,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "107": {
+                "azonosito": 107,
+                "nev": "Varga Katalin",
+                "eletkor": 75,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "108": {
+                "azonosito": 108,
+                "nev": "Szabó Elemér",
+                "eletkor": 57,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "109": {
+                "azonosito": 109,
+                "nev": "Kovács Mária",
+                "eletkor": 23,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "110": {
+                "azonosito": 110,
+                "nev": "Balogh László",
+                "eletkor": 29,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "111": {
+                "azonosito": 111,
+                "nev": "Molnár Ferenc",
+                "eletkor": 29,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "112": {
+                "azonosito": 112,
+                "nev": "Molnár Dóra",
+                "eletkor": 41,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "113": {
+                "azonosito": 113,
+                "nev": "Kis Ferenc",
+                "eletkor": 64,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "114": {
+                "azonosito": 114,
+                "nev": "Nagy Péter",
+                "eletkor": 55,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "115": {
+                "azonosito": 115,
+                "nev": "Tóth Elemér",
+                "eletkor": 60,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "116": {
+                "azonosito": 116,
+                "nev": "Németh Ferenc",
+                "eletkor": 26,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "117": {
+                "azonosito": 117,
+                "nev": "Kis István",
+                "eletkor": 41,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "118": {
+                "azonosito": 118,
+                "nev": "Szabó Ferenc",
+                "eletkor": 71,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "119": {
+                "azonosito": 119,
+                "nev": "Kovács Gábor",
+                "eletkor": 59,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "120": {
+                "azonosito": 120,
+                "nev": "Németh Ottó",
+                "eletkor": 66,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "121": {
+                "azonosito": 121,
+                "nev": "Molnár János",
+                "eletkor": 60,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "122": {
+                "azonosito": 122,
+                "nev": "Kis Ottó",
+                "eletkor": 68,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "123": {
+                "azonosito": 123,
+                "nev": "Horváth Mária",
+                "eletkor": 68,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "124": {
+                "azonosito": 124,
+                "nev": "Lakatos Nóra",
+                "eletkor": 68,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "125": {
+                "azonosito": 125,
+                "nev": "Szilágyi Anna",
+                "eletkor": 48,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "126": {
+                "azonosito": 126,
+                "nev": "Kovács Nóra",
+                "eletkor": 37,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "127": {
+                "azonosito": 127,
+                "nev": "Lakatos István",
+                "eletkor": 48,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "128": {
+                "azonosito": 128,
+                "nev": "Tóth László",
+                "eletkor": 25,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "129": {
+                "azonosito": 129,
+                "nev": "Szabó Béla",
+                "eletkor": 77,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "130": {
+                "azonosito": 130,
+                "nev": "Szabó Béla",
+                "eletkor": 35,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "131": {
+                "azonosito": 131,
+                "nev": "Varga Péter",
+                "eletkor": 70,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "132": {
+                "azonosito": 132,
+                "nev": "Szabó Ottó",
+                "eletkor": 54,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "133": {
+                "azonosito": 133,
+                "nev": "Horváth Ferenc",
+                "eletkor": 23,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "134": {
+                "azonosito": 134,
+                "nev": "Varga Péter",
+                "eletkor": 78,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "135": {
+                "azonosito": 135,
+                "nev": "Balogh Péter",
+                "eletkor": 65,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "136": {
+                "azonosito": 136,
+                "nev": "Nagy Mária",
+                "eletkor": 25,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "137": {
+                "azonosito": 137,
+                "nev": "Juhász Csaba",
+                "eletkor": 45,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "138": {
+                "azonosito": 138,
+                "nev": "Balogh Anna",
+                "eletkor": 50,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "139": {
+                "azonosito": 139,
+                "nev": "Takács Nóra",
+                "eletkor": 64,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "140": {
+                "azonosito": 140,
+                "nev": "Papp Ottó",
+                "eletkor": 67,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "141": {
+                "azonosito": 141,
+                "nev": "Szabó Elemér",
+                "eletkor": 73,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "142": {
+                "azonosito": 142,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 18,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "143": {
+                "azonosito": 143,
+                "nev": "Papp Dóra",
+                "eletkor": 54,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "144": {
+                "azonosito": 144,
+                "nev": "Németh Mária",
+                "eletkor": 22,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "145": {
+                "azonosito": 145,
+                "nev": "Papp Béla",
+                "eletkor": 66,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "146": {
+                "azonosito": 146,
+                "nev": "Lakatos Ottó",
+                "eletkor": 70,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "147": {
+                "azonosito": 147,
+                "nev": "Tóth László",
+                "eletkor": 39,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "148": {
+                "azonosito": 148,
+                "nev": "Horváth Mária",
+                "eletkor": 55,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "149": {
+                "azonosito": 149,
+                "nev": "Horváth Ottó",
+                "eletkor": 79,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "150": {
+                "azonosito": 150,
+                "nev": "Balogh Péter",
+                "eletkor": 23,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "151": {
+                "azonosito": 151,
+                "nev": "Szilágyi László",
+                "eletkor": 58,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "152": {
+                "azonosito": 152,
+                "nev": "Kovács Péter",
+                "eletkor": 73,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "153": {
+                "azonosito": 153,
+                "nev": "Németh Péter",
+                "eletkor": 62,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "154": {
+                "azonosito": 154,
+                "nev": "Szilágyi Anna",
+                "eletkor": 36,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "155": {
+                "azonosito": 155,
+                "nev": "Tóth János",
+                "eletkor": 20,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "156": {
+                "azonosito": 156,
+                "nev": "Németh Dóra",
+                "eletkor": 21,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "157": {
+                "azonosito": 157,
+                "nev": "Balogh Hanna",
+                "eletkor": 65,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "158": {
+                "azonosito": 158,
+                "nev": "Tóth Katalin",
+                "eletkor": 34,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "159": {
+                "azonosito": 159,
+                "nev": "Juhász János",
+                "eletkor": 21,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "160": {
+                "azonosito": 160,
+                "nev": "Németh László",
+                "eletkor": 69,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "161": {
+                "azonosito": 161,
+                "nev": "Molnár Nóra",
+                "eletkor": 27,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "162": {
+                "azonosito": 162,
+                "nev": "Molnár Hanna",
+                "eletkor": 57,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "163": {
+                "azonosito": 163,
+                "nev": "Papp Anna",
+                "eletkor": 54,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "164": {
+                "azonosito": 164,
+                "nev": "Varga Hanna",
+                "eletkor": 18,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "165": {
+                "azonosito": 165,
+                "nev": "Takács Ottó",
+                "eletkor": 78,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "166": {
+                "azonosito": 166,
+                "nev": "Horváth Katalin",
+                "eletkor": 29,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "167": {
+                "azonosito": 167,
+                "nev": "Nagy Elemér",
+                "eletkor": 75,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "168": {
+                "azonosito": 168,
+                "nev": "Nagy László",
+                "eletkor": 74,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "169": {
+                "azonosito": 169,
+                "nev": "Németh Nóra",
+                "eletkor": 63,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "170": {
+                "azonosito": 170,
+                "nev": "Papp László",
+                "eletkor": 78,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "171": {
+                "azonosito": 171,
+                "nev": "Kovács Gábor",
+                "eletkor": 75,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "172": {
+                "azonosito": 172,
+                "nev": "Lakatos László",
+                "eletkor": 69,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "173": {
+                "azonosito": 173,
+                "nev": "Kis Katalin",
+                "eletkor": 41,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "174": {
+                "azonosito": 174,
+                "nev": "Juhász Ottó",
+                "eletkor": 33,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "175": {
+                "azonosito": 175,
+                "nev": "Kovács Dóra",
+                "eletkor": 52,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "176": {
+                "azonosito": 176,
+                "nev": "Varga Ferenc",
+                "eletkor": 32,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "177": {
+                "azonosito": 177,
+                "nev": "Németh Elemér",
+                "eletkor": 69,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "178": {
+                "azonosito": 178,
+                "nev": "Németh Nóra",
+                "eletkor": 42,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "179": {
+                "azonosito": 179,
+                "nev": "Molnár Dóra",
+                "eletkor": 50,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "180": {
+                "azonosito": 180,
+                "nev": "Kovács Béla",
+                "eletkor": 29,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "181": {
+                "azonosito": 181,
+                "nev": "Kovács János",
+                "eletkor": 33,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "182": {
+                "azonosito": 182,
+                "nev": "Szabó János",
+                "eletkor": 51,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "183": {
+                "azonosito": 183,
+                "nev": "Szilágyi Hanna",
+                "eletkor": 72,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "184": {
+                "azonosito": 184,
+                "nev": "Papp Anna",
+                "eletkor": 40,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "185": {
+                "azonosito": 185,
+                "nev": "Nagy Mária",
+                "eletkor": 35,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "186": {
+                "azonosito": 186,
+                "nev": "Molnár Mária",
+                "eletkor": 64,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "187": {
+                "azonosito": 187,
+                "nev": "Papp Csaba",
+                "eletkor": 38,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "188": {
+                "azonosito": 188,
+                "nev": "Nagy Ottó",
+                "eletkor": 54,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "189": {
+                "azonosito": 189,
+                "nev": "Szabó Katalin",
+                "eletkor": 45,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "190": {
+                "azonosito": 190,
+                "nev": "Lakatos Ferenc",
+                "eletkor": 79,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "191": {
+                "azonosito": 191,
+                "nev": "Kovács Hanna",
+                "eletkor": 78,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "192": {
+                "azonosito": 192,
+                "nev": "Horváth Ferenc",
+                "eletkor": 36,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "193": {
+                "azonosito": 193,
+                "nev": "Horváth Ferenc",
+                "eletkor": 63,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "194": {
+                "azonosito": 194,
+                "nev": "Balogh Csaba",
+                "eletkor": 53,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "195": {
+                "azonosito": 195,
+                "nev": "Tóth Hanna",
+                "eletkor": 33,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "196": {
+                "azonosito": 196,
+                "nev": "Tóth Dóra",
+                "eletkor": 46,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "197": {
+                "azonosito": 197,
+                "nev": "Nagy Hanna",
+                "eletkor": 35,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "198": {
+                "azonosito": 198,
+                "nev": "Varga Gábor",
+                "eletkor": 80,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "199": {
+                "azonosito": 199,
+                "nev": "Nagy László",
+                "eletkor": 21,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "200": {
+                "azonosito": 200,
+                "nev": "Papp Dóra",
+                "eletkor": 28,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "201": {
+                "azonosito": 201,
+                "nev": "Horváth Mária",
+                "eletkor": 39,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "202": {
+                "azonosito": 202,
+                "nev": "Molnár Csaba",
+                "eletkor": 51,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "203": {
+                "azonosito": 203,
+                "nev": "Szabó János",
+                "eletkor": 23,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "204": {
+                "azonosito": 204,
+                "nev": "Kis Péter",
+                "eletkor": 66,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "205": {
+                "azonosito": 205,
+                "nev": "Lakatos Gábor",
+                "eletkor": 29,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "206": {
+                "azonosito": 206,
+                "nev": "Németh Elemér",
+                "eletkor": 36,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "207": {
+                "azonosito": 207,
+                "nev": "Kis István",
+                "eletkor": 55,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "208": {
+                "azonosito": 208,
+                "nev": "Balogh Csaba",
+                "eletkor": 68,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "209": {
+                "azonosito": 209,
+                "nev": "Papp Ottó",
+                "eletkor": 49,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "210": {
+                "azonosito": 210,
+                "nev": "Németh Katalin",
+                "eletkor": 21,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "211": {
+                "azonosito": 211,
+                "nev": "Szabó Gábor",
+                "eletkor": 20,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "212": {
+                "azonosito": 212,
+                "nev": "Molnár Katalin",
+                "eletkor": 51,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "213": {
+                "azonosito": 213,
+                "nev": "Papp Béla",
+                "eletkor": 42,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "214": {
+                "azonosito": 214,
+                "nev": "Németh Mária",
+                "eletkor": 65,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "215": {
+                "azonosito": 215,
+                "nev": "Balogh Anna",
+                "eletkor": 60,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "216": {
+                "azonosito": 216,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 45,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "217": {
+                "azonosito": 217,
+                "nev": "Szilágyi Dóra",
+                "eletkor": 45,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "218": {
+                "azonosito": 218,
+                "nev": "Papp Csaba",
+                "eletkor": 79,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "219": {
+                "azonosito": 219,
+                "nev": "Németh Gábor",
+                "eletkor": 34,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "220": {
+                "azonosito": 220,
+                "nev": "Kis István",
+                "eletkor": 21,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "221": {
+                "azonosito": 221,
+                "nev": "Szabó Csaba",
+                "eletkor": 24,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "222": {
+                "azonosito": 222,
+                "nev": "Kis Katalin",
+                "eletkor": 30,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "223": {
+                "azonosito": 223,
+                "nev": "Tóth Katalin",
+                "eletkor": 41,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "224": {
+                "azonosito": 224,
+                "nev": "Juhász Mária",
+                "eletkor": 77,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "225": {
+                "azonosito": 225,
+                "nev": "Takács Mária",
+                "eletkor": 70,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "226": {
+                "azonosito": 226,
+                "nev": "Németh Péter",
+                "eletkor": 49,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "227": {
+                "azonosito": 227,
+                "nev": "Kis Ottó",
+                "eletkor": 69,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "228": {
+                "azonosito": 228,
+                "nev": "Balogh Dóra",
+                "eletkor": 30,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "229": {
+                "azonosito": 229,
+                "nev": "Kis Katalin",
+                "eletkor": 34,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "230": {
+                "azonosito": 230,
+                "nev": "Szabó János",
+                "eletkor": 73,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "231": {
+                "azonosito": 231,
+                "nev": "Szabó Ferenc",
+                "eletkor": 62,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "232": {
+                "azonosito": 232,
+                "nev": "Takács Ottó",
+                "eletkor": 77,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "233": {
+                "azonosito": 233,
+                "nev": "Takács László",
+                "eletkor": 22,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "234": {
+                "azonosito": 234,
+                "nev": "Nagy László",
+                "eletkor": 34,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "235": {
+                "azonosito": 235,
+                "nev": "Szabó Katalin",
+                "eletkor": 67,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "236": {
+                "azonosito": 236,
+                "nev": "Horváth Anna",
+                "eletkor": 22,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "237": {
+                "azonosito": 237,
+                "nev": "Szilágyi Ferenc",
+                "eletkor": 31,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "238": {
+                "azonosito": 238,
+                "nev": "Nagy Nóra",
+                "eletkor": 61,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "239": {
+                "azonosito": 239,
+                "nev": "Szabó István",
+                "eletkor": 67,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "240": {
+                "azonosito": 240,
+                "nev": "Lakatos Béla",
+                "eletkor": 48,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "241": {
+                "azonosito": 241,
+                "nev": "Tóth Béla",
+                "eletkor": 65,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "242": {
+                "azonosito": 242,
+                "nev": "Horváth Ottó",
+                "eletkor": 64,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "243": {
+                "azonosito": 243,
+                "nev": "Németh Hanna",
+                "eletkor": 72,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "244": {
+                "azonosito": 244,
+                "nev": "Varga István",
+                "eletkor": 58,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "245": {
+                "azonosito": 245,
+                "nev": "Tóth János",
+                "eletkor": 66,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "246": {
+                "azonosito": 246,
+                "nev": "Varga Nóra",
+                "eletkor": 37,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "247": {
+                "azonosito": 247,
+                "nev": "Takács Ottó",
+                "eletkor": 42,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "248": {
+                "azonosito": 248,
+                "nev": "Papp István",
+                "eletkor": 69,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "249": {
+                "azonosito": 249,
+                "nev": "Németh László",
+                "eletkor": 71,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "250": {
+                "azonosito": 250,
+                "nev": "Juhász Gábor",
+                "eletkor": 77,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "251": {
+                "azonosito": 251,
+                "nev": "Balogh Béla",
+                "eletkor": 79,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "252": {
+                "azonosito": 252,
+                "nev": "Horváth Dóra",
+                "eletkor": 78,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "253": {
+                "azonosito": 253,
+                "nev": "Horváth Dóra",
+                "eletkor": 49,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "254": {
+                "azonosito": 254,
+                "nev": "Horváth Péter",
+                "eletkor": 25,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "255": {
+                "azonosito": 255,
+                "nev": "Molnár Nóra",
+                "eletkor": 30,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "256": {
+                "azonosito": 256,
+                "nev": "Balogh Katalin",
+                "eletkor": 30,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "257": {
+                "azonosito": 257,
+                "nev": "Horváth Csaba",
+                "eletkor": 80,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "258": {
+                "azonosito": 258,
+                "nev": "Tóth Péter",
+                "eletkor": 51,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "259": {
+                "azonosito": 259,
+                "nev": "Németh Mária",
+                "eletkor": 47,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "260": {
+                "azonosito": 260,
+                "nev": "Szabó Csaba",
+                "eletkor": 28,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "261": {
+                "azonosito": 261,
+                "nev": "Papp Gábor",
+                "eletkor": 68,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "262": {
+                "azonosito": 262,
+                "nev": "Nagy Ottó",
+                "eletkor": 39,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "263": {
+                "azonosito": 263,
+                "nev": "Varga Dóra",
+                "eletkor": 41,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "264": {
+                "azonosito": 264,
+                "nev": "Szabó István",
+                "eletkor": 70,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "265": {
+                "azonosito": 265,
+                "nev": "Takács Mária",
+                "eletkor": 45,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "266": {
+                "azonosito": 266,
+                "nev": "Molnár Katalin",
+                "eletkor": 59,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "267": {
+                "azonosito": 267,
+                "nev": "Szabó István",
+                "eletkor": 28,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "268": {
+                "azonosito": 268,
+                "nev": "Juhász Ferenc",
+                "eletkor": 30,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "269": {
+                "azonosito": 269,
+                "nev": "Szabó Elemér",
+                "eletkor": 20,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "270": {
+                "azonosito": 270,
+                "nev": "Balogh Nóra",
+                "eletkor": 78,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "271": {
+                "azonosito": 271,
+                "nev": "Tóth Béla",
+                "eletkor": 26,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "272": {
+                "azonosito": 272,
+                "nev": "Balogh Péter",
+                "eletkor": 69,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "273": {
+                "azonosito": 273,
+                "nev": "Lakatos János",
+                "eletkor": 36,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "274": {
+                "azonosito": 274,
+                "nev": "Kovács Hanna",
+                "eletkor": 19,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "275": {
+                "azonosito": 275,
+                "nev": "Kis Béla",
+                "eletkor": 58,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "276": {
+                "azonosito": 276,
+                "nev": "Juhász János",
+                "eletkor": 45,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "277": {
+                "azonosito": 277,
+                "nev": "Balogh Péter",
+                "eletkor": 64,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "278": {
+                "azonosito": 278,
+                "nev": "Horváth Anna",
+                "eletkor": 67,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "279": {
+                "azonosito": 279,
+                "nev": "Takács Csaba",
+                "eletkor": 35,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "280": {
+                "azonosito": 280,
+                "nev": "Szilágyi Ferenc",
+                "eletkor": 70,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "281": {
+                "azonosito": 281,
+                "nev": "Papp Mária",
+                "eletkor": 55,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "282": {
+                "azonosito": 282,
+                "nev": "Varga Nóra",
+                "eletkor": 29,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "283": {
+                "azonosito": 283,
+                "nev": "Németh Mária",
+                "eletkor": 65,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "284": {
+                "azonosito": 284,
+                "nev": "Juhász Mária",
+                "eletkor": 65,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "285": {
+                "azonosito": 285,
+                "nev": "Lakatos Péter",
+                "eletkor": 62,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "286": {
+                "azonosito": 286,
+                "nev": "Papp Elemér",
+                "eletkor": 25,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "287": {
+                "azonosito": 287,
+                "nev": "Lakatos Nóra",
+                "eletkor": 30,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "288": {
+                "azonosito": 288,
+                "nev": "Molnár Mária",
+                "eletkor": 33,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "289": {
+                "azonosito": 289,
+                "nev": "Németh Péter",
+                "eletkor": 76,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "290": {
+                "azonosito": 290,
+                "nev": "Papp Ottó",
+                "eletkor": 64,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "291": {
+                "azonosito": 291,
+                "nev": "Molnár Mária",
+                "eletkor": 60,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "292": {
+                "azonosito": 292,
+                "nev": "Szabó Ottó",
+                "eletkor": 43,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "293": {
+                "azonosito": 293,
+                "nev": "Balogh Béla",
+                "eletkor": 36,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "294": {
+                "azonosito": 294,
+                "nev": "Papp Hanna",
+                "eletkor": 75,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "295": {
+                "azonosito": 295,
+                "nev": "Nagy Hanna",
+                "eletkor": 65,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "296": {
+                "azonosito": 296,
+                "nev": "Molnár Ottó",
+                "eletkor": 38,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "297": {
+                "azonosito": 297,
+                "nev": "Horváth Csaba",
+                "eletkor": 43,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "298": {
+                "azonosito": 298,
+                "nev": "Molnár Béla",
+                "eletkor": 21,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "299": {
+                "azonosito": 299,
+                "nev": "Kovács László",
+                "eletkor": 36,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "300": {
+                "azonosito": 300,
+                "nev": "Tóth Ferenc",
+                "eletkor": 78,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "301": {
+                "azonosito": 301,
+                "nev": "Lakatos László",
+                "eletkor": 45,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "302": {
+                "azonosito": 302,
+                "nev": "Varga László",
+                "eletkor": 78,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "303": {
+                "azonosito": 303,
+                "nev": "Kis Dóra",
+                "eletkor": 32,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "304": {
+                "azonosito": 304,
+                "nev": "Molnár Elemér",
+                "eletkor": 22,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "305": {
+                "azonosito": 305,
+                "nev": "Németh Csaba",
+                "eletkor": 20,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "306": {
+                "azonosito": 306,
+                "nev": "Tóth Péter",
+                "eletkor": 64,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "307": {
+                "azonosito": 307,
+                "nev": "Nagy Csaba",
+                "eletkor": 23,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "308": {
+                "azonosito": 308,
+                "nev": "Varga Mária",
+                "eletkor": 38,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "309": {
+                "azonosito": 309,
+                "nev": "Lakatos Ottó",
+                "eletkor": 26,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "310": {
+                "azonosito": 310,
+                "nev": "Szabó Nóra",
+                "eletkor": 46,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "311": {
+                "azonosito": 311,
+                "nev": "Nagy Dóra",
+                "eletkor": 34,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "312": {
+                "azonosito": 312,
+                "nev": "Juhász Ferenc",
+                "eletkor": 40,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "313": {
+                "azonosito": 313,
+                "nev": "Nagy Gábor",
+                "eletkor": 48,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "314": {
+                "azonosito": 314,
+                "nev": "Kis Hanna",
+                "eletkor": 57,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "315": {
+                "azonosito": 315,
+                "nev": "Molnár Béla",
+                "eletkor": 79,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "316": {
+                "azonosito": 316,
+                "nev": "Balogh Péter",
+                "eletkor": 30,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "317": {
+                "azonosito": 317,
+                "nev": "Horváth Dóra",
+                "eletkor": 61,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "318": {
+                "azonosito": 318,
+                "nev": "Tóth István",
+                "eletkor": 54,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "319": {
+                "azonosito": 319,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 19,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "320": {
+                "azonosito": 320,
+                "nev": "Tóth Ottó",
+                "eletkor": 36,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "321": {
+                "azonosito": 321,
+                "nev": "Szilágyi Katalin",
+                "eletkor": 41,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "322": {
+                "azonosito": 322,
+                "nev": "Papp Elemér",
+                "eletkor": 51,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "323": {
+                "azonosito": 323,
+                "nev": "Tóth Béla",
+                "eletkor": 59,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "324": {
+                "azonosito": 324,
+                "nev": "Molnár Péter",
+                "eletkor": 59,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "325": {
+                "azonosito": 325,
+                "nev": "Tóth Dóra",
+                "eletkor": 18,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "326": {
+                "azonosito": 326,
+                "nev": "Takács Gábor",
+                "eletkor": 26,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "327": {
+                "azonosito": 327,
+                "nev": "Lakatos László",
+                "eletkor": 54,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "328": {
+                "azonosito": 328,
+                "nev": "Szabó Hanna",
+                "eletkor": 44,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "329": {
+                "azonosito": 329,
+                "nev": "Juhász Ottó",
+                "eletkor": 33,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "330": {
+                "azonosito": 330,
+                "nev": "Juhász László",
+                "eletkor": 75,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "331": {
+                "azonosito": 331,
+                "nev": "Szilágyi Csaba",
+                "eletkor": 55,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "332": {
+                "azonosito": 332,
+                "nev": "Kovács Mária",
+                "eletkor": 55,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "333": {
+                "azonosito": 333,
+                "nev": "Varga Mária",
+                "eletkor": 78,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "334": {
+                "azonosito": 334,
+                "nev": "Molnár István",
+                "eletkor": 24,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "335": {
+                "azonosito": 335,
+                "nev": "Varga Ferenc",
+                "eletkor": 27,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "336": {
+                "azonosito": 336,
+                "nev": "Varga Mária",
+                "eletkor": 39,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "337": {
+                "azonosito": 337,
+                "nev": "Lakatos Anna",
+                "eletkor": 67,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "338": {
+                "azonosito": 338,
+                "nev": "Kis Hanna",
+                "eletkor": 32,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "339": {
+                "azonosito": 339,
+                "nev": "Varga Mária",
+                "eletkor": 20,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "340": {
+                "azonosito": 340,
+                "nev": "Takács Anna",
+                "eletkor": 18,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "341": {
+                "azonosito": 341,
+                "nev": "Lakatos Ferenc",
+                "eletkor": 49,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "342": {
+                "azonosito": 342,
+                "nev": "Tóth Péter",
+                "eletkor": 20,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "343": {
+                "azonosito": 343,
+                "nev": "Nagy Mária",
+                "eletkor": 34,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "344": {
+                "azonosito": 344,
+                "nev": "Szilágyi Gábor",
+                "eletkor": 33,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "345": {
+                "azonosito": 345,
+                "nev": "Németh Dóra",
+                "eletkor": 25,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "346": {
+                "azonosito": 346,
+                "nev": "Horváth Béla",
+                "eletkor": 65,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "347": {
+                "azonosito": 347,
+                "nev": "Molnár Mária",
+                "eletkor": 46,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "348": {
+                "azonosito": 348,
+                "nev": "Nagy László",
+                "eletkor": 80,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "349": {
+                "azonosito": 349,
+                "nev": "Tóth Gábor",
+                "eletkor": 53,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "350": {
+                "azonosito": 350,
+                "nev": "Tóth Ottó",
+                "eletkor": 73,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "351": {
+                "azonosito": 351,
+                "nev": "Juhász Anna",
+                "eletkor": 72,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "352": {
+                "azonosito": 352,
+                "nev": "Molnár Elemér",
+                "eletkor": 36,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "353": {
+                "azonosito": 353,
+                "nev": "Balogh Katalin",
+                "eletkor": 66,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "354": {
+                "azonosito": 354,
+                "nev": "Horváth Ferenc",
+                "eletkor": 57,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "355": {
+                "azonosito": 355,
+                "nev": "Nagy Katalin",
+                "eletkor": 74,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "356": {
+                "azonosito": 356,
+                "nev": "Juhász Hanna",
+                "eletkor": 59,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "357": {
+                "azonosito": 357,
+                "nev": "Szabó Anna",
+                "eletkor": 53,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "358": {
+                "azonosito": 358,
+                "nev": "Szabó Gábor",
+                "eletkor": 20,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "359": {
+                "azonosito": 359,
+                "nev": "Lakatos Béla",
+                "eletkor": 31,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "360": {
+                "azonosito": 360,
+                "nev": "Kis Mária",
+                "eletkor": 63,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "361": {
+                "azonosito": 361,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 79,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "362": {
+                "azonosito": 362,
+                "nev": "Horváth Anna",
+                "eletkor": 47,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "363": {
+                "azonosito": 363,
+                "nev": "Szabó Hanna",
+                "eletkor": 51,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "364": {
+                "azonosito": 364,
+                "nev": "Horváth Elemér",
+                "eletkor": 60,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "365": {
+                "azonosito": 365,
+                "nev": "Kis István",
+                "eletkor": 44,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "366": {
+                "azonosito": 366,
+                "nev": "Kis Anna",
+                "eletkor": 62,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "367": {
+                "azonosito": 367,
+                "nev": "Molnár Anna",
+                "eletkor": 57,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "368": {
+                "azonosito": 368,
+                "nev": "Szabó Dóra",
+                "eletkor": 69,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "369": {
+                "azonosito": 369,
+                "nev": "Kovács Dóra",
+                "eletkor": 27,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "370": {
+                "azonosito": 370,
+                "nev": "Balogh Ottó",
+                "eletkor": 55,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "371": {
+                "azonosito": 371,
+                "nev": "Balogh János",
+                "eletkor": 75,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "372": {
+                "azonosito": 372,
+                "nev": "Nagy János",
+                "eletkor": 55,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "373": {
+                "azonosito": 373,
+                "nev": "Molnár Hanna",
+                "eletkor": 36,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "374": {
+                "azonosito": 374,
+                "nev": "Horváth Gábor",
+                "eletkor": 28,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "375": {
+                "azonosito": 375,
+                "nev": "Takács Csaba",
+                "eletkor": 60,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "376": {
+                "azonosito": 376,
+                "nev": "Molnár Ferenc",
+                "eletkor": 77,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "377": {
+                "azonosito": 377,
+                "nev": "Németh István",
+                "eletkor": 30,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "378": {
+                "azonosito": 378,
+                "nev": "Kis Mária",
+                "eletkor": 50,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "379": {
+                "azonosito": 379,
+                "nev": "Tóth Péter",
+                "eletkor": 65,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "380": {
+                "azonosito": 380,
+                "nev": "Juhász István",
+                "eletkor": 43,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "381": {
+                "azonosito": 381,
+                "nev": "Molnár Dóra",
+                "eletkor": 30,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "382": {
+                "azonosito": 382,
+                "nev": "Takács Dóra",
+                "eletkor": 71,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "383": {
+                "azonosito": 383,
+                "nev": "Varga Béla",
+                "eletkor": 69,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "384": {
+                "azonosito": 384,
+                "nev": "Horváth László",
+                "eletkor": 57,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "385": {
+                "azonosito": 385,
+                "nev": "Molnár János",
+                "eletkor": 55,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "386": {
+                "azonosito": 386,
+                "nev": "Varga Csaba",
+                "eletkor": 53,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "387": {
+                "azonosito": 387,
+                "nev": "Horváth Gábor",
+                "eletkor": 38,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "388": {
+                "azonosito": 388,
+                "nev": "Németh Mária",
+                "eletkor": 71,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "389": {
+                "azonosito": 389,
+                "nev": "Szilágyi Mária",
+                "eletkor": 33,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "390": {
+                "azonosito": 390,
+                "nev": "Szilágyi János",
+                "eletkor": 22,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "391": {
+                "azonosito": 391,
+                "nev": "Tóth László",
+                "eletkor": 39,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "392": {
+                "azonosito": 392,
+                "nev": "Lakatos Béla",
+                "eletkor": 34,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "393": {
+                "azonosito": 393,
+                "nev": "Németh János",
+                "eletkor": 76,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "394": {
+                "azonosito": 394,
+                "nev": "Kis Csaba",
+                "eletkor": 46,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "395": {
+                "azonosito": 395,
+                "nev": "Tóth János",
+                "eletkor": 53,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "396": {
+                "azonosito": 396,
+                "nev": "Tóth Anna",
+                "eletkor": 43,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "397": {
+                "azonosito": 397,
+                "nev": "Takács Anna",
+                "eletkor": 19,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "398": {
+                "azonosito": 398,
+                "nev": "Juhász Péter",
+                "eletkor": 34,
+                "elegedettseg": 68,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "399": {
+                "azonosito": 399,
+                "nev": "Varga Gábor",
+                "eletkor": 72,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "400": {
+                "azonosito": 400,
+                "nev": "Juhász Ottó",
+                "eletkor": 76,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "401": {
+                "azonosito": 401,
+                "nev": "Lakatos László",
+                "eletkor": 43,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "402": {
+                "azonosito": 402,
+                "nev": "Juhász István",
+                "eletkor": 20,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "403": {
+                "azonosito": 403,
+                "nev": "Szabó Mária",
+                "eletkor": 30,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "404": {
+                "azonosito": 404,
+                "nev": "Szabó Anna",
+                "eletkor": 28,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "405": {
+                "azonosito": 405,
+                "nev": "Balogh Mária",
+                "eletkor": 42,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "406": {
+                "azonosito": 406,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 42,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "407": {
+                "azonosito": 407,
+                "nev": "Juhász János",
+                "eletkor": 54,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "408": {
+                "azonosito": 408,
+                "nev": "Varga Ottó",
+                "eletkor": 38,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "409": {
+                "azonosito": 409,
+                "nev": "Juhász Ottó",
+                "eletkor": 37,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "410": {
+                "azonosito": 410,
+                "nev": "Horváth Péter",
+                "eletkor": 52,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "411": {
+                "azonosito": 411,
+                "nev": "Balogh János",
+                "eletkor": 69,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "412": {
+                "azonosito": 412,
+                "nev": "Szilágyi Péter",
+                "eletkor": 65,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "413": {
+                "azonosito": 413,
+                "nev": "Kovács Péter",
+                "eletkor": 45,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "414": {
+                "azonosito": 414,
+                "nev": "Lakatos Dóra",
+                "eletkor": 61,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "415": {
+                "azonosito": 415,
+                "nev": "Tóth László",
+                "eletkor": 28,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "416": {
+                "azonosito": 416,
+                "nev": "Nagy Péter",
+                "eletkor": 43,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "417": {
+                "azonosito": 417,
+                "nev": "Kovács Katalin",
+                "eletkor": 54,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "418": {
+                "azonosito": 418,
+                "nev": "Kis István",
+                "eletkor": 80,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "419": {
+                "azonosito": 419,
+                "nev": "Németh János",
+                "eletkor": 60,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "420": {
+                "azonosito": 420,
+                "nev": "Papp Elemér",
+                "eletkor": 52,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "421": {
+                "azonosito": 421,
+                "nev": "Juhász Nóra",
+                "eletkor": 70,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "422": {
+                "azonosito": 422,
+                "nev": "Balogh Anna",
+                "eletkor": 23,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "423": {
+                "azonosito": 423,
+                "nev": "Varga Katalin",
+                "eletkor": 46,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "424": {
+                "azonosito": 424,
+                "nev": "Tóth Dóra",
+                "eletkor": 75,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "425": {
+                "azonosito": 425,
+                "nev": "Molnár Ferenc",
+                "eletkor": 62,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "426": {
+                "azonosito": 426,
+                "nev": "Kovács Hanna",
+                "eletkor": 60,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "427": {
+                "azonosito": 427,
+                "nev": "Németh Nóra",
+                "eletkor": 50,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "428": {
+                "azonosito": 428,
+                "nev": "Juhász Gábor",
+                "eletkor": 72,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "429": {
+                "azonosito": 429,
+                "nev": "Molnár János",
+                "eletkor": 40,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "430": {
+                "azonosito": 430,
+                "nev": "Molnár Nóra",
+                "eletkor": 45,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "431": {
+                "azonosito": 431,
+                "nev": "Balogh Katalin",
+                "eletkor": 35,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "432": {
+                "azonosito": 432,
+                "nev": "Varga László",
+                "eletkor": 65,
+                "elegedettseg": 67,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "433": {
+                "azonosito": 433,
+                "nev": "Balogh Mária",
+                "eletkor": 47,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "434": {
+                "azonosito": 434,
+                "nev": "Kis Ottó",
+                "eletkor": 41,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "435": {
+                "azonosito": 435,
+                "nev": "Papp Péter",
+                "eletkor": 32,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "436": {
+                "azonosito": 436,
+                "nev": "Balogh Gábor",
+                "eletkor": 29,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "437": {
+                "azonosito": 437,
+                "nev": "Szabó Béla",
+                "eletkor": 58,
+                "elegedettseg": 66,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "438": {
+                "azonosito": 438,
+                "nev": "Molnár Ottó",
+                "eletkor": 62,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "439": {
+                "azonosito": 439,
+                "nev": "Szilágyi Csaba",
+                "eletkor": 78,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "440": {
+                "azonosito": 440,
+                "nev": "Németh Dóra",
+                "eletkor": 75,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "441": {
+                "azonosito": 441,
+                "nev": "Molnár Ottó",
+                "eletkor": 50,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "442": {
+                "azonosito": 442,
+                "nev": "Juhász Nóra",
+                "eletkor": 66,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "443": {
+                "azonosito": 443,
+                "nev": "Papp István",
+                "eletkor": 77,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "444": {
+                "azonosito": 444,
+                "nev": "Horváth László",
+                "eletkor": 38,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "445": {
+                "azonosito": 445,
+                "nev": "Papp Ottó",
+                "eletkor": 58,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "446": {
+                "azonosito": 446,
+                "nev": "Juhász László",
+                "eletkor": 78,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "447": {
+                "azonosito": 447,
+                "nev": "Lakatos Hanna",
+                "eletkor": 56,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "448": {
+                "azonosito": 448,
+                "nev": "Balogh Péter",
+                "eletkor": 24,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "449": {
+                "azonosito": 449,
+                "nev": "Molnár Anna",
+                "eletkor": 64,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "450": {
+                "azonosito": 450,
+                "nev": "Varga Ferenc",
+                "eletkor": 23,
+                "elegedettseg": 59,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "451": {
+                "azonosito": 451,
+                "nev": "Papp Csaba",
+                "eletkor": 29,
+                "elegedettseg": 50,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "452": {
+                "azonosito": 452,
+                "nev": "Lakatos István",
+                "eletkor": 20,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "453": {
+                "azonosito": 453,
+                "nev": "Szabó Béla",
+                "eletkor": 31,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "454": {
+                "azonosito": 454,
+                "nev": "Lakatos Dóra",
+                "eletkor": 52,
+                "elegedettseg": 48,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "455": {
+                "azonosito": 455,
+                "nev": "Kis Katalin",
+                "eletkor": 21,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "456": {
+                "azonosito": 456,
+                "nev": "Takács Péter",
+                "eletkor": 34,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "457": {
+                "azonosito": 457,
+                "nev": "Balogh Hanna",
+                "eletkor": 71,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "458": {
+                "azonosito": 458,
+                "nev": "Molnár Anna",
+                "eletkor": 63,
+                "elegedettseg": 55,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "459": {
+                "azonosito": 459,
+                "nev": "Varga Mária",
+                "eletkor": 54,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "460": {
+                "azonosito": 460,
+                "nev": "Varga István",
+                "eletkor": 43,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "461": {
+                "azonosito": 461,
+                "nev": "Balogh Hanna",
+                "eletkor": 36,
+                "elegedettseg": 49,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "462": {
+                "azonosito": 462,
+                "nev": "Szabó Péter",
+                "eletkor": 19,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "463": {
+                "azonosito": 463,
+                "nev": "Balogh László",
+                "eletkor": 62,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "464": {
+                "azonosito": 464,
+                "nev": "Molnár Anna",
+                "eletkor": 77,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "465": {
+                "azonosito": 465,
+                "nev": "Tóth Elemér",
+                "eletkor": 39,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "466": {
+                "azonosito": 466,
+                "nev": "Papp Nóra",
+                "eletkor": 45,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "467": {
+                "azonosito": 467,
+                "nev": "Nagy István",
+                "eletkor": 69,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "468": {
+                "azonosito": 468,
+                "nev": "Nagy Nóra",
+                "eletkor": 57,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "469": {
+                "azonosito": 469,
+                "nev": "Lakatos Péter",
+                "eletkor": 66,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "470": {
+                "azonosito": 470,
+                "nev": "Németh Gábor",
+                "eletkor": 47,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "471": {
+                "azonosito": 471,
+                "nev": "Lakatos Anna",
+                "eletkor": 70,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "472": {
+                "azonosito": 472,
+                "nev": "Szabó László",
+                "eletkor": 63,
+                "elegedettseg": 56,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "473": {
+                "azonosito": 473,
+                "nev": "Molnár Katalin",
+                "eletkor": 78,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "474": {
+                "azonosito": 474,
+                "nev": "Tóth Katalin",
+                "eletkor": 36,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "475": {
+                "azonosito": 475,
+                "nev": "Horváth Ottó",
+                "eletkor": 65,
+                "elegedettseg": 62,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "476": {
+                "azonosito": 476,
+                "nev": "Horváth Hanna",
+                "eletkor": 19,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "477": {
+                "azonosito": 477,
+                "nev": "Kis Péter",
+                "eletkor": 49,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "478": {
+                "azonosito": 478,
+                "nev": "Kovács Hanna",
+                "eletkor": 62,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "479": {
+                "azonosito": 479,
+                "nev": "Juhász Anna",
+                "eletkor": 74,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "480": {
+                "azonosito": 480,
+                "nev": "Szabó Hanna",
+                "eletkor": 57,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "481": {
+                "azonosito": 481,
+                "nev": "Tóth Elemér",
+                "eletkor": 58,
+                "elegedettseg": 72,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "482": {
+                "azonosito": 482,
+                "nev": "Németh Anna",
+                "eletkor": 50,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "483": {
+                "azonosito": 483,
+                "nev": "Szilágyi János",
+                "eletkor": 62,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "484": {
+                "azonosito": 484,
+                "nev": "Kis László",
+                "eletkor": 66,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "485": {
+                "azonosito": 485,
+                "nev": "Horváth Gábor",
+                "eletkor": 36,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "486": {
+                "azonosito": 486,
+                "nev": "Kis Csaba",
+                "eletkor": 28,
+                "elegedettseg": 73,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "487": {
+                "azonosito": 487,
+                "nev": "Lakatos Dóra",
+                "eletkor": 56,
+                "elegedettseg": 54,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "488": {
+                "azonosito": 488,
+                "nev": "Lakatos Csaba",
+                "eletkor": 54,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "489": {
+                "azonosito": 489,
+                "nev": "Tóth János",
+                "eletkor": 63,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "490": {
+                "azonosito": 490,
+                "nev": "Juhász Nóra",
+                "eletkor": 40,
+                "elegedettseg": 71,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "491": {
+                "azonosito": 491,
+                "nev": "Szabó Katalin",
+                "eletkor": 25,
+                "elegedettseg": 70,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "492": {
+                "azonosito": 492,
+                "nev": "Németh Katalin",
+                "eletkor": 70,
+                "elegedettseg": 64,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "493": {
+                "azonosito": 493,
+                "nev": "Lakatos Hanna",
+                "eletkor": 65,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "494": {
+                "azonosito": 494,
+                "nev": "Takács Nóra",
+                "eletkor": 69,
+                "elegedettseg": 58,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "495": {
+                "azonosito": 495,
+                "nev": "Szabó Mária",
+                "eletkor": 66,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "496": {
+                "azonosito": 496,
+                "nev": "Balogh Péter",
+                "eletkor": 25,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "497": {
+                "azonosito": 497,
+                "nev": "Nagy Dóra",
+                "eletkor": 76,
+                "elegedettseg": 51,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "498": {
+                "azonosito": 498,
+                "nev": "Kis László",
+                "eletkor": 31,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "499": {
+                "azonosito": 499,
+                "nev": "Szilágyi Nóra",
+                "eletkor": 19,
+                "elegedettseg": 61,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "500": {
+                "azonosito": 500,
+                "nev": "Kovács Katalin",
+                "eletkor": 55,
+                "elegedettseg": 52,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "501": {
+                "azonosito": 501,
+                "nev": "Nagy János",
+                "eletkor": 42,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "502": {
+                "azonosito": 502,
+                "nev": "Szabó Katalin",
+                "eletkor": 36,
+                "elegedettseg": 57,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "503": {
+                "azonosito": 503,
+                "nev": "Takács Katalin",
+                "eletkor": 37,
+                "elegedettseg": 65,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "504": {
+                "azonosito": 504,
+                "nev": "Németh Gábor",
+                "eletkor": 35,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "505": {
+                "azonosito": 505,
+                "nev": "Németh Ferenc",
+                "eletkor": 66,
+                "elegedettseg": 69,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "506": {
+                "azonosito": 506,
+                "nev": "Szabó Péter",
+                "eletkor": 67,
+                "elegedettseg": 53,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "507": {
+                "azonosito": 507,
+                "nev": "Juhász Gábor",
+                "eletkor": 38,
+                "elegedettseg": 63,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            },
+            "508": {
+                "azonosito": 508,
+                "nev": "Lakatos Gábor",
+                "eletkor": 35,
+                "elegedettseg": 60,
+                "epulet_id": 1,
+                "koltozesi_datum": "2025-04-17"
+            }
+        },
+        "projektek": {},
+        "aktualis_datum": "2025-08-15",
+        "kornyezeti_allapot": 83.79073623873589,
+        "gazdasagi_novekedes": 1.1986619231021003,
+        "kockazati_tenyezok": {
+            "gazdasági": 7.347711236960288,
+            "környezeti": 7.35699751257143,
+            "társadalmi": 7.946988667896768
+        },
+        "infrastruktura_allapot": {
+            "közlekedés": 70.87336801772328,
+            "közművek": 80.93781283847267,
+            "kommunikáció": 65.8404383283297,
+            "energia": 75.89856290108897
+        },
+        "esemeny_naplo": [],
+        "elozo_fordulo_esemenyei": [
+            "Adóbevétel: 50,798,338 Ft",
+            "Szolgáltatások összköltsége: 1,000,000 Ft",
+            "Épületek összköltsége: 15,258,000 Ft",
+            "Lakosságszám növekedés: +81 fő",
+            "Közlekedés karbantartás: 1,745,271 Ft",
+            "Közművek karbantartás: 1,727,818 Ft",
+            "Kommunikáció karbantartás: 1,710,540 Ft",
+            "Energia karbantartás: 1,693,434 Ft",
+            "Külső esemény: {'nev': 'Kulturális fesztivál', 'leiras': 'Sikeres kulturális fesztivált rendeztek a városban.', 'valoszinuseg': 0.4, 'hatas': {'penz': 2000000, 'boldogsag': 8, 'lakossag': 50}, 'id': 'tarsadalmi_2_1772', 'tipus': 'tarsadalmi', 'idopecset': '2025-04-17T13:52:03.933612', 'fordulo': 2}"
+        ],
+        "jatek_vege": false,
+        "jatek_vege_ok": null
+    }
+}

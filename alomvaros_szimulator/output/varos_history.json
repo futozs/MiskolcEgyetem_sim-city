@@ -1,0 +1,43 @@
+[
+  {
+    "fordulo": 0,
+    "idopont": "2025-04-18 21:06:30",
+    "penz": 0,
+    "koltsegvetes": {
+      "bevetel": 0,
+      "kiadas": 0,
+      "egyenleg": 0
+    },
+    "lakossag": {
+      "osszesen": 0,
+      "aktiv_dolgozok": 0,
+      "munkanelkuli": 0,
+      "hajlektalan": 0
+    },
+    "elegedettseg": 0,
+    "infrastruktura": {
+      "lakas": {
+        "osszesen": 0,
+        "szabad": 0,
+        "foglalt": 0
+      },
+      "munkahely": {
+        "osszesen": 0,
+        "szabad": 0,
+        "foglalt": 0
+      }
+    },
+    "szolgaltatasok": {
+      "osszesen": 100,
+      "aktiv": 100
+    },
+    "epuletek": {
+      "osszesen": 4
+    },
+    "projektek": {
+      "osszesen": 0,
+      "folyamatban": 0,
+      "befejezett": 0
+    }
+  }
+]
