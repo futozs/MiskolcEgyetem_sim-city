@@ -38,12 +38,6 @@ interface TechBubbleProps {
   orbit?: 'inner' | 'outer';
 }
 
-interface CodeEffectProps {
-  code: string;
-  language?: string;
-  delay?: number;
-}
-
 // Chart data types
 interface YearData {
   year: number;
@@ -339,45 +333,6 @@ function TechTooltip({
   );
 }
 
-// CodeEffect component with glowing and typewriter effect
-const CodeEffect = ({ 
-  code, 
-  delay = 0 
-}: CodeEffectProps) => {
-  const [displayedCode, setDisplayedCode] = useState("");
-  const [position, setPosition] = useState(0);
-  
-  useEffect(() => {
-    if (position < code.length) {
-      const timer = setTimeout(() => {
-        setDisplayedCode(prev => prev + code[position]);
-        setPosition(prev => prev + 1);
-      }, 20);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [code, position]);
-  
-  return (
-    <motion.div
-      className="font-mono text-sm bg-black/90 text-green-400 p-4 rounded-lg overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.8 }}
-    >
-      <div className="flex items-center gap-2 mb-2">
-        <div className="w-3 h-3 rounded-full bg-red-500"></div>
-        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-        <div className="w-3 h-3 rounded-full bg-green-500"></div>
-      </div>
-      <pre className="relative max-h-[400px] overflow-auto">
-        <code>{displayedCode}<span className="animate-pulse">|</span></code>
-        <div className="absolute inset-0 bg-gradient-to-r from-green-500/0 via-green-500/10 to-green-500/0 animate-pulse"></div>
-      </pre>
-    </motion.div>
-  );
-};
-
 // Animated background grid
 const AnimatedGrid = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -407,6 +362,50 @@ const AnimatedGrid = () => (
     </div>
   </div>
 );
+
+// Add a new component for displaying the image
+const PythonCodeImage = ({ 
+  delay = 0,
+  activeTab = 0
+}) => {
+  // Map of image URLs for different tabs
+  const imageUrls = [
+    "http://cdn.futozsombor.hu/u/TtDfLg.png",
+    "http://cdn.futozsombor.hu/u/HaifIx.png",
+    "http://cdn.futozsombor.hu/u/CuMIil.png"
+  ];
+
+  return (
+    <motion.div
+      className="rounded-lg overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, duration: 0.8 }}
+    >
+      {/* Terminal window top bar with dots */}
+      <div className="flex items-center gap-2 bg-black/90 px-4 py-3 border-b border-gray-800">
+        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+      </div>
+      
+      {/* Image container with padding */}
+      <div className="bg-black/90 p-2.5 rounded-b-lg">
+        <img 
+          src={imageUrls[activeTab]} 
+          alt={`Python Implementation Tab ${activeTab + 1}`} 
+          style={{ 
+            width: "100%", 
+            height: "auto", 
+            display: "block",
+            imageRendering: "auto"
+          }}
+          className="rounded"
+        />
+      </div>
+    </motion.div>
+  );
+};
 
 export default function PresentationPage() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -538,80 +537,16 @@ export default function PresentationPage() {
   // Added state for active code tab
   const [activeCodeTab, setActiveCodeTab] = useState(0);
   
-  // Code snippets for different tabs
+  // These code snippets are no longer used, removing to fix linter warnings
+  /*
   const codeSnippets = [
-    `# city.py
-from dataclasses import dataclass
-import numpy as np
-
-@dataclass
-class Building:
-    id: int
-    x: float
-    y: float
-    height: float
-    type: str
+    `<img src="http://cdn.futozsombor.hu/u/TtDfLg.png" alt="Python City Implementation" style="width: 100%; height: auto;" />`,
     
-class City:
-    def __init__(self, name):
-        self.name = name
-        self.buildings = []
-        self.population = 0
-        
-    def add_building(self, building):
-        self.buildings.append(building)
-        
-    def calculate_metrics(self):
-        """Calculate city metrics like density, green space ratio"""
-        building_areas = sum(b.footprint for b in self.buildings)
-        total_area = 1000 * 1000  # city size in meters
-        self.density = building_areas / total_area`,
+    `<img src="http://cdn.futozsombor.hu/u/TtDfLg.png" alt="Python Simulation Implementation" style="width: 100%; height: auto;" />`,
     
-    `# simulation.py
-import threading
-import time
-from city import City, Building
-import random
-
-class Simulation:
-    def __init__(self, city):
-        self.city = city
-        self.running = False
-        self.threads = []
-        self.happiness_index = 95
-        
-    def start(self):
-        self.running = True
-        # Start different simulation aspects in threads
-        self.threads.append(threading.Thread(target=self.simulate_traffic))
-        self.threads.append(threading.Thread(target=self.simulate_population))
-        
-        for thread in self.threads:
-            thread.start()`,
-    
-    `# data_processor.py
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-
-class DataProcessor:
-    def __init__(self, city):
-        self.city = city
-        self.data = []
-        
-    def collect_data(self, days=30):
-        """Collect simulation data for analysis"""
-        metrics = []
-        for day in range(days):
-            # Simulate data collection for each day
-            metrics.append({
-                'day': day,
-                'population': self.city.population,
-                'happiness': np.random.normal(95, 3),
-                'traffic': np.random.gamma(2, 1.5)
-            })
-        return pd.DataFrame(metrics)`
+    `<img src="http://cdn.futozsombor.hu/u/TtDfLg.png" alt="Python Data Processor Implementation" style="width: 100%; height: auto;" />`
   ];
+  */
 
   // Helper function to determine the chart item type
   const getChartItemType = (item: ChartData, index: number) => {
@@ -1808,11 +1743,11 @@ class DataProcessor:
                   </div>
                 </motion.div>
                 
-                {/* Code tabs */}
-                <div className="flex border-b border-white/10 mb-0.5">
-                  {['city.py', 'simulation.py', 'data_processor.py'].map((tab, index) => (
-                    <div 
-                      key={index} 
+                {/* Code Editor Tabs */}
+                <div className="flex gap-1 mb-2">
+                  {['varos.py', 'kezdolap.py', 'adatok.py'].map((tab, index) => (
+                    <div
+                      key={index}
                       className={`px-4 py-2 text-sm font-medium rounded-t-md cursor-pointer transition-colors
                         ${activeCodeTab === index ? 'bg-black/80 text-white' : 'bg-gray-800/50 text-gray-400 hover:bg-gray-800/80 hover:text-gray-200'}`}
                       onClick={() => setActiveCodeTab(index)}
@@ -1824,44 +1759,41 @@ class DataProcessor:
 
                 {/* Main code editor with glowing effect */}
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-yellow-600/5 rounded-md backdrop-blur-sm"></div>
-                  <CodeEffect
-                    code={codeSnippets[activeCodeTab]}
-                    delay={0.2}
-                  />
+                  {/* Remove the blur effect that was causing blurriness */}
+                  <PythonCodeImage delay={0.2} activeTab={activeCodeTab} />
                 </div>
               </div>
               
               {/* Features column */}
-              <div>
+              <div className="mt-20">
                 <div className="space-y-4">
                   {/* Feature cards with animations */}
                   {[
                     {
-                      title: "Komplex Szimulációs Modell",
+                      title: "Városmodellezés",
                       icon: <FiCpu />,
-                      description: "Többszálú szimuláció, amely képes több ezer objektum párhuzamos kezelésére.",
+                      description: "Egyszerű szimuláció, amely életszerűen modellezi a város fejlődését és működését.",
                       gradient: "from-blue-500 to-cyan-500",
                       delay: 0.3
                     },
                     {
-                      title: "Mesterséges Intelligencia",
+                      title: "Intelligens Döntések",
                       icon: <FiDatabase />,
-                      description: "Gépi tanulási algoritmusok az optimális városi elrendezés meghatározásához.",
+                      description: "Okos algoritmusok segítenek megtalálni a legjobb városi megoldásokat.",
                       gradient: "from-purple-500 to-indigo-500",
                       delay: 0.6
                     },
                     {
-                      title: "Statisztikai Elemzés",
+                      title: "Adatelemzés",
                       icon: <FiTerminal />,
-                      description: "Pandas és NumPy használata statisztikák elemzéséhez.",
+                      description: "A számok mögé nézünk, hogy érthetőbbé váljon a város működése.",
                       gradient: "from-amber-500 to-orange-500",
                       delay: 0.9
                     },
                     {
-                      title: "Adatvizualizáció",
+                      title: "Látványos Grafikonok",
                       icon: <FiLayers />,
-                      description: "Matplotlib és Plotly segítségével vizuális elemzések készítése.",
+                      description: "Színes, könnyen értelmezhető ábrák mutatják be a város fejlődését.",
                       gradient: "from-pink-500 to-rose-500",
                       delay: 1.2
                     }

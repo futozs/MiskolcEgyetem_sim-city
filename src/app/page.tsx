@@ -9,7 +9,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
-import { IconBuilding, IconUsers, IconMoodSmile, IconChartBar, IconMap, IconArrowUpRight, IconMapPin, IconBuildingCommunity, IconCheckbox, IconAlertTriangle, IconBrandGithub } from '@tabler/icons-react';
+import { IconBuilding, IconUsers, IconMoodSmile, IconChartBar, IconMap, IconArrowUpRight, IconMapPin, IconBuildingCommunity, IconCheckbox, IconAlertTriangle, IconBrandGithub, IconRotate3d } from '@tabler/icons-react';
 import { config } from '@/lib/config';
 
 // Gradient Background component
@@ -969,9 +969,9 @@ export default function Home() {
             >
               <Perspective3DCard depth={8} className="h-full">
                 <FeatureCard
-                  title="Épület tervezés"
-                  description="Tervezz és építs egyedi épületeket a városod számára, különböző stílusokban."
-                  icon={<IconBuilding className="h-6 w-6 text-amber-500" />}
+                  title="Csak indits el a játékot!"
+                  description="Nem kell semmi beállítás, csak indits el a játékot és lásd a városodat 3D-ben."
+                  icon={<IconRotate3d className="h-6 w-6 text-amber-500" />}
                 />
               </Perspective3DCard>
             </motion.div>
